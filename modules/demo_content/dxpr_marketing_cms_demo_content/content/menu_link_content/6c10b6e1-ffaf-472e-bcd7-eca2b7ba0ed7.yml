@@ -1,0 +1,44 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 6c10b6e1-ffaf-472e-bcd7-eca2b7ba0ed7
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    1491a76a-8a97-4ea8-866d-8f3a7451caf5: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: '📄 Dragging and dropping'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      uri: 'internal:#'
+      title: ''
+      options:
+        attributes:
+          class: {  }
+          target: _blank
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -47
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:1491a76a-8a97-4ea8-866d-8f3a7451caf5'
+  revision_translation_affected:
+    -
+      value: true

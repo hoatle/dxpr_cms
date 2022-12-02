@@ -1,0 +1,49 @@
+_meta:
+  version: '1.0'
+  entity_type: user
+  uuid: ee5c0321-7bd8-4d8f-94bf-53839609f8ac
+  default_langcode: en
+default:
+  preferred_langcode:
+    -
+      value: en
+  preferred_admin_langcode:
+    -
+      value: en
+  name:
+    -
+      value: SiteBuilder
+  pass:
+    -
+      value: $S$EIXTPbe7x03VLCf/rjk5NWG1HzhFQxlicE9AxzaiPDlUADaGTtKd
+      existing: ''
+      pre_hashed: false
+  mail:
+    -
+      value: SiteBuilder@dxpr.com
+  timezone:
+    -
+      value: Europe/Amsterdam
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1669145491
+  access:
+    -
+      value: 1669285627
+  login:
+    -
+      value: 1669285627
+  init:
+    -
+      value: SiteBuilder@dxpr.com
+  roles:
+    -
+      target_id: site_bui
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0

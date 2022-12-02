@@ -1,0 +1,72 @@
+name: DXPR Marketing CMS Demo
+type: profile
+distribution:
+  name: DXPR Marketing CMS demo
+  install:
+    theme: gin
+
+core_version_requirement: ^9.3 || ^10
+description: 'Install with DXPR Builder pre-configured.'
+version: VERSION
+install:
+  - admin_toolbar
+  - admin_toolbar_search
+  - automated_cron
+  - big_pipe
+  - block
+  - block_classes
+  - block_content
+  - breakpoint
+  - ckeditor5
+  - color
+  - comment
+  - config
+  - contact
+  - contact_block
+  - contextual
+  - datetime
+  - dblog
+  - default_content
+  - dxpr_builder
+  - dxpr_builder_block
+  - dxpr_builder_page
+  - dxpr_theme_helper
+  - dynamic_page_cache
+  - editor
+  - entity_browser
+  - field_group
+  - field_ui
+  - file
+  - gin_login
+  - help
+  - history
+  - image
+  - inline_entity_form
+  - media
+  - media_library
+  - menu_link_attributes
+  - menu_link_content
+  - menu_ui
+  - metatag
+  - moderation_dashboard
+  - moderation_sidebar
+  - node
+  - options
+  - page_cache
+  - path
+  - pathauto
+  - redirect
+  - responsive_preview
+  - search
+  - shortcut
+  - taxonomy
+  - toolbar
+  - tour
+  - views
+  - views_ui
+  - xmlsitemap
+themes:
+  - bootstrap5
+  - dxpr_theme
+  - claro
+  - gin

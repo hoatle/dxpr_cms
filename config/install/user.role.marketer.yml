@@ -1,0 +1,86 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.drag_and_drop_page
+    - node.type.page
+    - taxonomy.vocabulary.tags
+    - workflows.workflow.editorial
+  module:
+    - admin_toolbar_search
+    - comment
+    - content_moderation
+    - dxpr_builder
+    - entity_browser
+    - field_ui
+    - file
+    - media
+    - moderation_dashboard
+    - moderation_sidebar
+    - node
+    - path
+    - responsive_preview
+    - search
+    - system
+    - taxonomy
+    - toolbar
+    - tour
+id: marketer
+label: Marketer
+weight: -7
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access dxpr_builder_media_modal entity browser pages'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access responsive preview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access tour'
+  - 'administer display modes'
+  - 'administer url aliases'
+  - 'create article content'
+  - 'create drag_and_drop_page content'
+  - 'create media'
+  - 'create page content'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete article revisions'
+  - 'delete media'
+  - 'delete own article content'
+  - 'delete own drag_and_drop_page content'
+  - 'delete own page content'
+  - 'delete page revisions'
+  - 'edit own article content'
+  - 'edit own comments'
+  - 'edit own drag_and_drop_page content'
+  - 'edit own page content'
+  - 'edit terms in tags'
+  - 'edit with dxpr builder'
+  - 'revert all revisions'
+  - 'revert article revisions'
+  - 'revert drag_and_drop_page revisions'
+  - 'revert page revisions'
+  - 'update media'
+  - 'use admin toolbar search'
+  - 'use advanced search'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
+  - 'use moderation dashboard'
+  - 'use moderation sidebar'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view article revisions'
+  - 'view drag_and_drop_page revisions'
+  - 'view latest version'
+  - 'view media'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view the administration theme'

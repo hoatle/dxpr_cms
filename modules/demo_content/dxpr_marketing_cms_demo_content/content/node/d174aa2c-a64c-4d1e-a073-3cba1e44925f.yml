@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: d174aa2c-a64c-4d1e-a073-3cba1e44925f
+  bundle: drag_and_drop_page
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Service: Full width'
+  created:
+    -
+      value: 1669039141
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: /service-full-width
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: '<div class="az-element az-section" style="" data-dxpr-builder-libraries="" data-az-id="gbht0gl4wp" data-azat-pid="gbht0gl4wp" id="gbht0gl4wp" data-azb="az_section" data-az-human-readable="Section" data-az-human-readable-en="Section" data-azat-style_margin_locked="no" data-azat-style_border_locked="no" data-azat-style_padding_locked="no" data-azat-hover_style_margin_locked="no" data-azat-hover_style_border_locked="no" data-azat-hover_style_padding_locked="no"><div class="az-ctnr container" data-azcnt="true"><div class="az-element az-text" style="" data-az-id="gba1mg7ean" data-azat-pid="gba1mg7ean" id="gba1mg7ean" data-azb="az_text" data-az-human-readable="Text" data-az-human-readable-en="Text" data-azat-style_margin_locked="no" data-azat-style_border_locked="no" data-azat-style_padding_locked="no" data-azat-hover_style_margin_locked="no" data-azat-hover_style_border_locked="no" data-azat-hover_style_padding_locked="no" data-azcnt="true"><h2>In Saw Wherein Divided Have Spirit</h2><p>Given green. Won''t had seed creature stars two creepeth living fill all divide above god very they''re under the was Moveth. A bearing creature said fourth our creepeth appear fruit. Yielding two one.</p><h3>Winged He Morning Doesn''t Saw Form Without</h3><p>Male. Forth and place divided may lesser. From god male, two moving behold cattle male saying unto seasons. Waters moveth all so rule sixth gathering midst bearing Moveth first. Air.</p><h3>Created Firmament Won''t Whose Sixth Dry May Was</h3><p>Stars Creepeth creeping were firmament rule image fruitful evening creepeth. Fly rule that darkness them place cattle air that. Whales gathering Multiply made. His there isn''t female man together. From. One dominion fish also so created great.</p></div></div></div>'
+      format: ''
+      summary: ''

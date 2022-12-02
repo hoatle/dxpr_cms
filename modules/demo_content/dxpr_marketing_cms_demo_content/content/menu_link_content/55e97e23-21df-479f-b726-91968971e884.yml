@@ -1,0 +1,44 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 55e97e23-21df-479f-b726-91968971e884
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    21cf2640-1bce-4a12-8346-104fca9d7736: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: '📄 DXPR + Layout Builder'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      uri: 'internal:#'
+      title: ''
+      options:
+        attributes:
+          class: {  }
+          target: _blank
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -47
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:21cf2640-1bce-4a12-8346-104fca9d7736'
+  revision_translation_affected:
+    -
+      value: true

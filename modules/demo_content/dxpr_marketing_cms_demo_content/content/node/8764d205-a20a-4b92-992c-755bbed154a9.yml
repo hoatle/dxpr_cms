@@ -1,0 +1,45 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 8764d205-a20a-4b92-992c-755bbed154a9
+  bundle: drag_and_drop_page
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  revision_log:
+    -
+      value: 'Saved with DXPR builder'
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Contact Us'
+  created:
+    -
+      value: 1668850520
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: /contact-us
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: |
+        <div class="az-element az-section" style="" data-dxpr-builder-libraries="" data-az-id="gbbcot4wav" data-azat-pid="gb3r6gel1o" id="gb3r6gel1o" data-azb="az_section" data-az-human-readable="Section" data-az-human-readable-en="Section" data-azat-style_margin_locked="no" data-azat-style_border_locked="no" data-azat-style_padding_locked="no" data-azat-hover_style_margin_locked="no" data-azat-hover_style_border_locked="no" data-azat-hover_style_padding_locked="no"><div class="az-ctnr container" data-azcnt="true"><div class="az-element az-row row az-row--sm" style="" data-az-id="gbnnf1qvhq" data-azat-pid="gbopp346xa" id="gbopp346xa" data-azb="az_row" data-az-human-readable="Row" data-az-human-readable-en="Row" data-azat-device="sm" data-azat-style_margin_locked="no" data-azat-style_border_locked="no" data-azat-style_padding_locked="no" data-azat-hover_style_margin_locked="no" data-azat-hover_style_border_locked="no" data-azat-hover_style_padding_locked="no" data-azcnt="true"><div class="az-element az-ctnr az-column col-sm-6" style="" data-az-id="gb3wn0yrgk" data-azat-pid="gbgfq0mnn1" id="gbgfq0mnn1" data-azb="az_column" data-az-human-readable="Column" data-az-human-readable-en="Column" data-azat-width="1/2" data-azat-style_margin_locked="no" data-azat-style_border_locked="no" data-azat-style_padding_locked="no" data-azat-hover_style_margin_locked="no" data-azat-hover_style_border_locked="no" data-azat-hover_style_padding_locked="no" data-azcnt="true"><div class="az-element az-text" style="" data-az-id="gbon0hv9c2" data-azat-pid="gbfz1ju9v0" id="gbfz1ju9v0" data-azb="az_text" data-az-human-readable="Text" data-az-human-readable-en="Text" data-azat-style_margin_locked="no" data-azat-style_border_locked="no" data-azat-style_padding_locked="no" data-azat-hover_style_margin_locked="no" data-azat-hover_style_border_locked="no" data-azat-hover_style_padding_locked="no" data-azcnt="true"><h2>For gathered<br></h2><p> Upon all morning them seasons isn't whose, set set void greater fill form it above itself man god, they're darkness have whose earth.</p><p>Make fruitful bring open can't spirit thing were also lights brought, from all. Fourth won't lights divided one. So saw man sea seed be.</p><p>Void they're good moveth him meat beast every it. Night sixth male own first said creepeth won't face they're sea fifth lights together gathering, behold, give. Light In may good seasons living multiply upon lesser days she'd life above firmament fruitful in the greater were.</p></div></div><div class="az-element az-ctnr az-column col-sm-6" style="" data-az-id="gbkop8s5lj" data-azat-pid="gbfkr97sja" id="gbfkr97sja" data-azb="az_column" data-az-human-readable="Column" data-az-human-readable-en="Column" data-azat-width=" 1/2" data-azat-style_margin_locked="no" data-azat-style_border_locked="no" data-azat-style_padding_locked="no" data-azat-hover_style_margin_locked="no" data-azat-hover_style_border_locked="no" data-azat-hover_style_padding_locked="no" data-azcnt="true"><div class="az-element az-text" style="" data-az-id="gbt0p6v5sn" data-azat-pid="gbkmsovma3" id="gbkmsovma3" data-azb="az_text" data-az-human-readable="Text" data-az-human-readable-en="Text" data-azat-style_margin_locked="no" data-azat-style_border_locked="no" data-azat-style_padding_locked="no" data-azat-hover_style_margin_locked="no" data-azat-hover_style_border_locked="no" data-azat-hover_style_padding_locked="no" data-azcnt="true"><h2>Contact Form</h2></div><div class="az-element az-cms-element" style="" data-az-id="gbqzckjxkb" data-azat-pid="gboiaugyki" id="gboiaugyki" data-azb="az_block-contact_block" data-az-human-readable="Block: Contact Block: Contact block" data-az-human-readable-en="" data-azat-settings="contact_form=feedback&amp;form_display=default" data-azat-display_title="no" data-azat-style_margin_locked="no" data-azat-style_border_locked="no" data-azat-style_padding_locked="no" data-azat-hover_style_margin_locked="no" data-azat-hover_style_border_locked="no" data-azat-hover_style_padding_locked="no"></div></div></div></div></div><script src="/modules/contrib/dxpr_builder/dxpr_builder/dxpr_frontend.js"></script>
+      format: ''
+      summary: ''

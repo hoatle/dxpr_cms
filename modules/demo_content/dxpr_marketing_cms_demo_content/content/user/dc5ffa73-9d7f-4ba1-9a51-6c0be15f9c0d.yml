@@ -1,0 +1,49 @@
+_meta:
+  version: '1.0'
+  entity_type: user
+  uuid: dc5ffa73-9d7f-4ba1-9a51-6c0be15f9c0d
+  default_langcode: en
+default:
+  preferred_langcode:
+    -
+      value: en
+  preferred_admin_langcode:
+    -
+      value: en
+  name:
+    -
+      value: Marketer
+  pass:
+    -
+      value: $S$E7biMibG9jc6l.D0rWF8iwrX5oeYUoVcppOaEGOFzUHcSG49Vw17
+      existing: ''
+      pre_hashed: false
+  mail:
+    -
+      value: Marketer@dxpr.com
+  timezone:
+    -
+      value: Europe/Amsterdam
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1669147122
+  access:
+    -
+      value: 1669196516
+  login:
+    -
+      value: 1669147379
+  init:
+    -
+      value: Marketer@dxpr.com
+  roles:
+    -
+      target_id: marketer
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0

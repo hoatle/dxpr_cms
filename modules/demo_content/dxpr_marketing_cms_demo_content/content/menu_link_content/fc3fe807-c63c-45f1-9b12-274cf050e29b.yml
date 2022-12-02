@@ -1,0 +1,44 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: fc3fe807-c63c-45f1-9b12-274cf050e29b
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    2f71ffed-212c-4ec5-8ec0-d4b62588ca8d: menu_link_content
+    2b6abda6-5b2b-4e7f-aec4-2d9e9a9d47be: node
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Services: Full width'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      target_uuid: 2b6abda6-5b2b-4e7f-aec4-2d9e9a9d47be
+      title: ''
+      options:
+        attributes:
+          class: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: false
+  weight:
+    -
+      value: 0
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:2f71ffed-212c-4ec5-8ec0-d4b62588ca8d'
+  revision_translation_affected:
+    -
+      value: true

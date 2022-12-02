@@ -1,0 +1,49 @@
+_meta:
+  version: '1.0'
+  entity_type: user
+  uuid: c66f67f2-5d13-4889-9233-c00f372a4910
+  default_langcode: en
+default:
+  preferred_langcode:
+    -
+      value: en
+  preferred_admin_langcode:
+    -
+      value: en
+  name:
+    -
+      value: ContentEditor
+  pass:
+    -
+      value: $S$E0Hza255YTjYM/u5qibCmEo.zaYe6g4ZizfBdKIszMpqBCT76off
+      existing: ''
+      pre_hashed: false
+  mail:
+    -
+      value: ContentEditor@dxpr.com
+  timezone:
+    -
+      value: Europe/Amsterdam
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1669145451
+  access:
+    -
+      value: 1669190531
+  login:
+    -
+      value: 1669186753
+  init:
+    -
+      value: ContentEditor@dxpr.com
+  roles:
+    -
+      target_id: content_editor
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0

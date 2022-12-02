@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies: {  }
+id: communication
+label: Communication
+dxpr_editor: true
+weight: 0
+roles:
+  - content_editor
+  - content_administrator
+elements:
+  - az_blockquote
+  - az_button
+  - az_image
+  - az_link
+  - az_separator
+  - az_text
+  - az_video
+  - az_well
+  - az_container
+  - az_row
+  - az_section
+blocks:
+  - 'az_block-block_content:768cc1bb-cb05-4020-9ac5-102de6b65bb7'
+  - 'az_block-block_content:fdf956fa-7ab0-43f9-92cf-71c77ad6fde5'
+  - 'az_block-block_content:5eca7429-4952-438e-b2f0-769f177aa5c7'
+views:
+  - az_view-who_s_new-block_1
+  - az_view-who_s_online-who_s_online_block
+inline_buttons:
+  - Bold
+  - Italic
+  - BulletedList
+  - Undo
+  - Redo
+  - Link
+  - Unlink
+  - Image
+  - RemoveFormat
+  - Format
+  - Table
+modal_buttons:
+  - Bold
+  - Italic
+  - Underline
+  - Strike
+  - BulletedList
+  - NumberedList
+  - Undo
+  - Redo
+  - Link
+  - Unlink
+  - Image
+  - Superscript
+  - Subscript
+  - PasteText
+  - RemoveFormat
+  - SpecialChar
+  - Format
+  - Table
+  - Maximize
+  - Scayt
