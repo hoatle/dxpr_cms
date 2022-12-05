@@ -35,7 +35,7 @@ default:
       value: -50
   expanded:
     -
-      value: true
+      value: false
   parent:
     -
       value: 'menu_link_content:fe0e2c0f-e775-464e-b5f0-69ece2054f25'
