@@ -5,6 +5,7 @@ _meta:
   bundle: menu_link_content
   default_langcode: en
   depends:
+    fe0e2c0f-e775-464e-b5f0-69ece2054f25: menu_link_content
     2b6abda6-5b2b-4e7f-aec4-2d9e9a9d47be: node
 default:
   enabled:
@@ -12,7 +13,7 @@ default:
       value: true
   title:
     -
-      value: Services
+      value: 'Service: Short form'
   menu_name:
     -
       value: main
@@ -31,10 +32,13 @@ default:
       value: false
   weight:
     -
-      value: -48
+      value: -50
   expanded:
     -
       value: true
+  parent:
+    -
+      value: 'menu_link_content:fe0e2c0f-e775-464e-b5f0-69ece2054f25'
   revision_translation_affected:
     -
       value: true
