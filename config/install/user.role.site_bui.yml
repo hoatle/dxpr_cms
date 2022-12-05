@@ -87,6 +87,7 @@ permissions:
   - 'delete page revisions'
   - 'edit own article content'
   - 'edit own drag_and_drop_page content'
+  - 'edit any drag_and_drop_page content'
   - 'edit own page content'
   - 'edit terms in tags'
   - 'edit with dxpr builder'
