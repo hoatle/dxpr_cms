@@ -10,15 +10,10 @@ roles:
   - content_administrator
 elements:
   - az_blockquote
-  - az_button
   - az_image
-  - az_link
   - az_separator
   - az_text
-  - az_video
-  - az_well
   - az_container
-  - az_row
   - az_section
 blocks:
   - 'az_block-block_content:768cc1bb-cb05-4020-9ac5-102de6b65bb7'
