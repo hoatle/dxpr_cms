@@ -12,7 +12,7 @@ default:
       value: en
   name:
     -
-      value: SiteBuilder
+      value: MariaFromIT
   pass:
     -
       value: $S$EfCrp1mDJdlfrTosktNPuGEsgw/LpLp0kTAtEoFONvCqqfaWcIZr
@@ -20,7 +20,7 @@ default:
       pre_hashed: false
   mail:
     -
-      value: SiteBuilder@dxpr.com
+      value: MariaFromIT@dxpr.com
   timezone:
     -
       value: Europe/Amsterdam
@@ -38,7 +38,7 @@ default:
       value: 1669900304
   init:
     -
-      value: SiteBuilder@dxpr.com
+      value: MariaFromIT@dxpr.com
   roles:
     -
       target_id: site_bui

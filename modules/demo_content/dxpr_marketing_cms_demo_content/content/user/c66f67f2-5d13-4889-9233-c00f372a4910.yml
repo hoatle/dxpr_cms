@@ -12,7 +12,7 @@ default:
       value: en
   name:
     -
-      value: ContentEditor
+      value: LiFromComm
   pass:
     -
       value: $S$EjCpU/NI2DkeMg9QcUKMncEw.TmhnPQkOEivaG3cY6EcBkeb6ODF
@@ -20,7 +20,7 @@ default:
       pre_hashed: false
   mail:
     -
-      value: ContentEditor@dxpr.com
+      value: LiFromComm@dxpr.com
   timezone:
     -
       value: Europe/Amsterdam
@@ -38,7 +38,7 @@ default:
       value: 1669900632
   init:
     -
-      value: ContentEditor@dxpr.com
+      value: LiFromComm@dxpr.com
   roles:
     -
       target_id: content_editor

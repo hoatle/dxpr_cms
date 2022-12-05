@@ -12,7 +12,7 @@ default:
       value: en
   name:
     -
-      value: Marketer
+      value: JohnFromMarketing
   pass:
     -
       value: $S$EIxAc5lx4gDaIDymzRxcfRmVTeMtdTyrPGbVNRB.ayVm7649xKrx
@@ -20,7 +20,7 @@ default:
       pre_hashed: false
   mail:
     -
-      value: Marketer@dxpr.com
+      value: JohnFromMarketing@dxpr.com
   timezone:
     -
       value: Europe/Amsterdam
@@ -38,7 +38,7 @@ default:
       value: 1669900400
   init:
     -
-      value: Marketer@dxpr.com
+      value: JohnFromMarketing@dxpr.com
   roles:
     -
       target_id: marketer
