@@ -12,13 +12,13 @@ default:
       value: true
   title:
     -
-      value: '📄 User profiles'
+      value: '📄 DXPR Builder vs Theme'
   menu_name:
     -
       value: main
   link:
     -
-      uri: 'internal:#'
+      uri: 'https://dxpr.com/documentation/external/1-dxpr-builder-and-theme-product-guide'
       title: ''
       options:
         attributes:
@@ -29,7 +29,7 @@ default:
       value: false
   rediscover:
     -
-      value: true
+      value: false
   weight:
     -
       value: -49

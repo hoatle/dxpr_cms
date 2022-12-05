@@ -9,7 +9,7 @@ _meta:
 default:
   enabled:
     -
-      value: true
+      value: false
   title:
     -
       value: '📄 Dragging and dropping'
@@ -32,7 +32,7 @@ default:
       value: true
   weight:
     -
-      value: -47
+      value: -46
   expanded:
     -
       value: false

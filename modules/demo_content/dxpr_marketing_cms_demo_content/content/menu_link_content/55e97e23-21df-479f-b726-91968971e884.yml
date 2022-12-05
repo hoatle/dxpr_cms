@@ -12,13 +12,13 @@ default:
       value: true
   title:
     -
-      value: '📄 DXPR + Layout Builder'
+      value: '📄 On pre-existing content types'
   menu_name:
     -
       value: main
   link:
     -
-      uri: 'internal:#'
+      uri: 'https://dxpr.com/documentation/external/3-installing-dxpr-builder-pre-existing-content-types'
       title: ''
       options:
         attributes:
@@ -29,7 +29,7 @@ default:
       value: false
   rediscover:
     -
-      value: true
+      value: false
   weight:
     -
       value: -47

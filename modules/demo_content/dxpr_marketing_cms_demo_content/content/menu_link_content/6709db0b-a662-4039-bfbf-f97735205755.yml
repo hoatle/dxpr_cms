@@ -9,7 +9,7 @@ _meta:
 default:
   enabled:
     -
-      value: true
+      value: false
   title:
     -
       value: '📄 Editing an element'
@@ -32,7 +32,7 @@ default:
       value: true
   weight:
     -
-      value: -48
+      value: -47
   expanded:
     -
       value: false
