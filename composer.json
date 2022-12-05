@@ -45,7 +45,7 @@
   "extra": {
     "enable-patching": true,
     "patches": {
-        "drupal/gin_toolbar": {
+        "drupal/moderation_sidebar": {
             "3324091 - Tasks icon CSS not compatible with Gin theme": "https://git.drupalcode.org/project/moderation_sidebar/-/merge_requests/4.patch"
         }
     }
