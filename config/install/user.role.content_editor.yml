@@ -40,6 +40,7 @@ permissions:
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access tour'
+  - 'administer blocks'
   - 'administer display modes'
   - 'administer url aliases'
   - 'create article content'
