@@ -15,7 +15,7 @@ default:
       value: SiteBuilder
   pass:
     -
-      value: $S$EIXTPbe7x03VLCf/rjk5NWG1HzhFQxlicE9AxzaiPDlUADaGTtKd
+      value: $S$EfCrp1mDJdlfrTosktNPuGEsgw/LpLp0kTAtEoFONvCqqfaWcIZr
       existing: ''
       pre_hashed: false
   mail:

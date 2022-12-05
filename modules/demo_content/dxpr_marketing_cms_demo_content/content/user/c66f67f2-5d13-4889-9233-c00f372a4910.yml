@@ -15,7 +15,7 @@ default:
       value: ContentEditor
   pass:
     -
-      value: $S$E0Hza255YTjYM/u5qibCmEo.zaYe6g4ZizfBdKIszMpqBCT76off
+      value: $S$EjCpU/NI2DkeMg9QcUKMncEw.TmhnPQkOEivaG3cY6EcBkeb6ODF
       existing: ''
       pre_hashed: false
   mail:
