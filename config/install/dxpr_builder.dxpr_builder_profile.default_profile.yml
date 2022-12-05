@@ -3,7 +3,7 @@ status: true
 dependencies: {  }
 id: default_profile
 label: IT
-dxpr_editor: false
+dxpr_editor: true
 weight: -5
 roles:
   - site_bui
