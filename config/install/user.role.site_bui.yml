@@ -56,7 +56,6 @@ permissions:
   - 'administer comments'
   - 'administer content types'
   - 'administer display modes'
-  - 'administer dxpr builder configuration'
   - 'administer dxpr_builder_profile'
   - 'administer entity browsers'
   - 'administer menu'
