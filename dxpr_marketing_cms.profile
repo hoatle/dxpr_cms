@@ -50,12 +50,6 @@ function dxpr_marketing_cms_install_tasks(&$install_state) {
  *   A batch array to execute.
  */
 function dxpr_marketing_cms_module_install(array &$install_state) {
-  // Installed separately here so that it can detect and connect any pre-
-  // installed media browsers
-  Drupal::service('module_installer')->install(['dxpr_builder_media'], TRUE);
-  // Drupal::service('module_installer')->install(['dxpr_builder_page'], TRUE);
-  Drupal::service('module_installer')->install(['dxpr_builder_block'], TRUE);
-
   $batch = [];
   $operations = [];
   $modules = [
