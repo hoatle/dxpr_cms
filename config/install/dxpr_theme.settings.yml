@@ -68,7 +68,7 @@ blockquote_font_face_selector: 'blockquote, blockquote p'
 portfolio_details: top
 portfolio_sidebar: '4'
 portfolio_images: sidecaption
-region_wells:
+region_cards:
   secondary_header: ''
   navigation: ''
   navigation_collapsible: ''
@@ -160,8 +160,8 @@ secondary_header_hide: hidden_none
 custom_css_site: ".dxpr-theme-header--top { margin-top: 15px; margin-bottom: 15px; }\r\n.content .az-container > .az-section { padding-top: 100px;padding-bottom: 100px; }\r\n.content img { border-radius: 20px; }\r\n.az-icon { margin-bottom: 30px; }"
 custom_javascript_site: ''
 stlink: 0
-block_preset: block_well
-block_well: 'card card-body'
+block_preset: block_card
+block_card: 'card card-body'
 block_background: ''
 block_background_custom: ''
 block_padding: '0'
@@ -171,7 +171,7 @@ block_border_color: ''
 block_border_color_custom: '#eeeeee'
 title_font_size: h3
 title_align: left
-title_well: ''
+title_card: ''
 title_background: ''
 title_background_custom: ''
 title_padding: '0'

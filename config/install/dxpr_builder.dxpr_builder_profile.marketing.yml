@@ -20,7 +20,7 @@ elements:
   - az_separator
   - az_text
   - az_video
-  - az_well
+  - az_card
   - az_container
   - az_row
   - az_section
