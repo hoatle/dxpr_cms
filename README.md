@@ -1,6 +1,8 @@
 # Installation (Browser)
 
+```bash
 $ composer create-project dxpr/dxpr-marketing-cms-project:^10 PROJECT_DIR_NAME
+```
 * Open the project in your browser and follow installation instructions
 
 ## Installation (Command line)
