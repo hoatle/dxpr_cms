@@ -14,7 +14,6 @@ elements:
   - az_separator
   - az_text
   - az_container
-  - az_section
 blocks:
   - 'az_block-block_content:768cc1bb-cb05-4020-9ac5-102de6b65bb7'
   - 'az_block-block_content:fdf956fa-7ab0-43f9-92cf-71c77ad6fde5'
