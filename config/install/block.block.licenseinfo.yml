@@ -1,5 +1,5 @@
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - dxpr_builder
@@ -8,7 +8,7 @@ dependencies:
     - gin
 id: licenseinfo
 theme: gin
-region: header
+region: pre_content
 weight: 0
 provider: null
 plugin: license_info
