@@ -47,9 +47,6 @@
     "patches": {
       "drupal/moderation_sidebar": {
           "3324091 - Tasks icon CSS not compatible with Gin theme": "https://git.drupalcode.org/project/moderation_sidebar/-/merge_requests/4.patch"
-      },
-      "drupal/responsive_preview": {
-          "3326050 - Drupal 10: Uncaught ReferenceError: Popper is not defined": "https://www.drupal.org/files/issues/2022-12-12/3326050-2.patch"
       }
     }
   }
