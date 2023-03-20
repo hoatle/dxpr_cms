@@ -1,6 +1,9 @@
+uuid: 98e42933-fccd-41d6-b9b9-05a51e0c9257
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: Jqv97W44_QrESMdfm0yeMgNtvvzK53vkc28V2ylnwtM
 id: default_profile
 label: IT
 dxpr_editor: true
@@ -12,27 +15,34 @@ elements:
   - az_alert
   - az_blockquote
   - az_button
+  - az_card
+  - az_circle_counter
+  - az_countdown
+  - az_counter
   - az_html
   - az_icon
   - az_image
+  - az_images_carousel
   - az_jumbotron
   - az_link
   - az_map
   - az_progress_bar
   - az_separator
   - az_text
+  - az_video
   - az_video_local
+  - az_carousel
   - az_container
+  - az_layers
   - az_row
   - az_section
+  - st_social
   - az_tabs
   - az_toggle
 blocks:
-  - 'az_block-block_content:768cc1bb-cb05-4020-9ac5-102de6b65bb7'
-  - 'az_block-block_content:fdf956fa-7ab0-43f9-92cf-71c77ad6fde5'
   - 'az_block-block_content:5eca7429-4952-438e-b2f0-769f177aa5c7'
+  - 'az_block-block_content:768cc1bb-cb05-4020-9ac5-102de6b65bb7'
   - az_block-contact_block
-  - az_block-devel_switch_user
   - az_block-full_screen_search
   - az_block-dxpr_theme_helper_user_register
   - az_block-help_block
@@ -68,18 +78,15 @@ blocks:
   - 'az_block-field_block:media:image:field_media_image'
   - 'az_block-field_block:media:remote_video:field_media_oembed_video'
   - 'az_block-field_block:media:video:field_media_video_file'
-  - 'az_block-field_block:node:article:field_image'
-  - 'az_block-field_block:node:article:comment'
-  - 'az_block-field_block:node:article:field_tags'
+  - 'az_block-field_block:node:drag_and_drop_page:body'
   - 'az_block-field_block:node:page:body'
   - 'az_block-field_block:node:article:body'
-  - 'az_block-field_block:node:drag_and_drop_page:body'
   - 'az_block-field_block:node:drag_and_drop_page:field_dth_hide_regions'
   - 'az_block-field_block:node:drag_and_drop_page:field_dth_main_content_width'
   - 'az_block-field_block:node:drag_and_drop_page:field_dth_page_layout'
-  - 'az_block-field_block:node:article:field_meta_tags'
-  - 'az_block-field_block:node:drag_and_drop_page:field_meta_tags'
-  - 'az_block-field_block:node:page:field_meta_tags'
+  - 'az_block-field_block:node:article:field_image'
+  - 'az_block-field_block:node:article:comment'
+  - 'az_block-field_block:node:article:field_tags'
   - 'az_block-field_block:taxonomy_term:tags:description'
   - 'az_block-field_block:user:user:user_picture'
   - 'az_block-extra_field_block:comment:comment:links'
@@ -87,12 +94,6 @@ blocks:
   - 'az_block-extra_field_block:node:drag_and_drop_page:links'
   - 'az_block-extra_field_block:node:page:links'
   - 'az_block-extra_field_block:user:user:member_for'
-  - 'az_block-menu_block:account'
-  - 'az_block-menu_block:admin'
-  - 'az_block-menu_block:devel'
-  - 'az_block-menu_block:footer'
-  - 'az_block-menu_block:main'
-  - 'az_block-menu_block:tools'
   - az_block-moderation_dashboard_activity
   - az_block-moderation_dashboard_add_links
   - az_block-node_syndicate_block
@@ -103,7 +104,6 @@ blocks:
   - az_block-system_breadcrumb_block
   - 'az_block-system_menu_block:account'
   - 'az_block-system_menu_block:admin'
-  - 'az_block-system_menu_block:devel'
   - 'az_block-system_menu_block:footer'
   - 'az_block-system_menu_block:main'
   - 'az_block-system_menu_block:tools'
@@ -153,8 +153,6 @@ views:
   - az_view-moderation_dashboard_recently_created-block_2
   - az_view-redirect-default
   - az_view-redirect-page_1
-  - az_view-redirect_404-default
-  - az_view-redirect_404-page_1
   - az_view-taxonomy_term-default
   - az_view-taxonomy_term-feed_1
   - az_view-taxonomy_term-page_1
