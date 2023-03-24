@@ -12,38 +12,28 @@ elements:
   - az_blockquote
   - az_button
   - az_card
-  - az_countdown
   - az_counter
   - az_html
   - az_icon
   - az_image
-  - az_link
-  - az_separator
   - az_text
   - az_video
   - az_card
-  - az_container
   - az_row
   - az_section
-  - az_tabs
   - az_toggle
 inline_buttons:
   - Bold
   - Italic
-  - JustifyLeft
-  - JustifyCenter
-  - JustifyRight
-  - JustifyBlock
   - BulletedList
+  - NumberedList
   - Undo
   - Redo
   - Link
   - Unlink
   - Image
-  - TextColor
   - RemoveFormat
   - Format
-  - FontSize
   - Styles
   - Table
 modal_buttons:
