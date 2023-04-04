@@ -1,9 +1,6 @@
-uuid: 98e42933-fccd-41d6-b9b9-05a51e0c9257
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: Jqv97W44_QrESMdfm0yeMgNtvvzK53vkc28V2ylnwtM
 id: default_profile
 label: IT
 dxpr_editor: true
@@ -220,3 +217,6 @@ modal_buttons:
   - Maximize
   - Scayt
   - Templates
+page_templates: {  }
+user_templates:
+  - 67522137-395c-485a-94ac-553375be17f4

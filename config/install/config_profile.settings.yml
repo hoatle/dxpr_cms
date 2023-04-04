@@ -32,8 +32,8 @@ blacklist:
   - 'text.*'
   - 'tour.*'
   - 'update.*'
-  - user.flood
-  - user.mail
-  - user.settings
+  - 'user.flood'
+  - 'user.mail'
+  - 'user.settings'
   - 'views.*'
   - 'xmlsitemap.*'

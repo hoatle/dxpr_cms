@@ -27,6 +27,8 @@ elements:
   - az_section
   - az_tabs
   - az_toggle
+blocks: {  }
+views: {  }
 inline_buttons:
   - Bold
   - Italic

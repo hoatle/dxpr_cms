@@ -14,6 +14,8 @@ elements:
   - az_separator
   - az_text
   - az_container
+blocks: {  }
+views: {  }
 inline_buttons:
   - Bold
   - Italic

@@ -11,8 +11,10 @@ dependencies:
     - admin_toolbar_search
     - block
     - block_classes
+    - block_content
     - comment
     - content_moderation
+    - content_translation
     - dxpr_builder
     - entity_browser
     - field_ui
@@ -119,3 +121,12 @@ permissions:
   - 'view page revisions'
   - 'view the administration theme'
   - 'view user email addresses'
+  - 'create content translations'
+  - 'delete content translations'
+  - 'update content translations'
+  - 'translate editable entities'
+  - 'translate article node'
+  - 'translate page node'
+  - 'translate drag_and_drop_page node'
+  - 'translate block_content'
+  - 'translate any entity'

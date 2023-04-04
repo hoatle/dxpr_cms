@@ -1,10 +1,6 @@
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:drag_and_drop_block:5eca7429-4952-438e-b2f0-769f177aa5c7'
-  module:
-    - block_content
   theme:
     - dxpr_theme
 id: footer
