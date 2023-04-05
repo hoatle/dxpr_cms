@@ -12,7 +12,7 @@ default:
       value: 'Screenshot 2022-11-19 at 15.56.26.png'
   uri:
     -
-      value: 'public://2022-11/Screenshot 2022-11-19 at 15.56.26.png'
+      value: 'public://2022-11/Screenshot 2022-11-19 at 15.56.26_14_0.png'
   filemime:
     -
       value: image/png

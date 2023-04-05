@@ -21,6 +21,7 @@ install:
   - config
   - contact
   - contact_block
+  - content_translation
   - contextual
   - datetime
   - dblog
@@ -41,6 +42,7 @@ install:
   - history
   - image
   - inline_entity_form
+  - language
   - media
   - media_library
   - menu_link_attributes
@@ -63,6 +65,7 @@ install:
   - tour
   - views
   - views_ui
+  - workflows
   - xmlsitemap
 themes:
   - bootstrap5

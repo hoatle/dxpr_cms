@@ -12,15 +12,15 @@ default:
       value: en
   name:
     -
-      value: MariaFromIT
+      value: 'Site Builder'
   pass:
     -
-      value: $S$E.HT6LQnCKafWlop82NMThHuYOA2J9z4ninsSxeaWWv.i4.T28Fh
+      value: $S$ETMqTwscGdWh3xsUIZgvM/rgNzDFOzCG97OZwa1vSz7vqQLwegXy
       existing: ''
       pre_hashed: false
   mail:
     -
-      value: MariaFromIT@dxpr.com
+      value: SiteBuilder@dxpr.com
   timezone:
     -
       value: Europe/Amsterdam
@@ -32,18 +32,13 @@ default:
       value: 1669145491
   access:
     -
-      value: 1669900304
+      value: 1680532964
   login:
     -
-      value: 1669900304
+      value: 1680532324
   init:
     -
-      value: MariaFromIT@dxpr.com
+      value: SiteBuilder@dxpr.com
   roles:
     -
       target_id: site_bui
-  path:
-    -
-      alias: ''
-      langcode: en
-      pathauto: 0

@@ -16,6 +16,8 @@ elements:
   - az_container
 blocks: {  }
 views: {  }
+page_templates: {  }
+user_templates: null
 inline_buttons:
   - Bold
   - Italic
