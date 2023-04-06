@@ -12,15 +12,15 @@ default:
       value: en
   name:
     -
-      value: LiFromComm
+      value: 'Communications Manager'
   pass:
     -
-      value: $S$EoRTbwsOWUWcZRKuSRbk3YUTYxzMwDtVn/9WPhJWRvmroHfQtWlK
+      value: $S$EbJiBL4T1YdbPITPAG0QK9LrLLhuDrvD2Cq9ebnN7svVFmnbxLGX
       existing: ''
       pre_hashed: false
   mail:
     -
-      value: LiFromComm@dxpr.com
+      value: CommunicationsManager@dxpr.com
   timezone:
     -
       value: Europe/Amsterdam
@@ -32,18 +32,13 @@ default:
       value: 1669145451
   access:
     -
-      value: 1669900632
+      value: 1680709166
   login:
     -
-      value: 1669900632
+      value: 1680703268
   init:
     -
-      value: LiFromComm@dxpr.com
+      value: CommunicationsManager@dxpr.com
   roles:
     -
       target_id: content_editor
-  path:
-    -
-      alias: ''
-      langcode: en
-      pathauto: 0

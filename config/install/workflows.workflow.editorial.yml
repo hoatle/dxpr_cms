@@ -1,6 +1,11 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.article
+    - node.type.blog
+    - node.type.drag_and_drop_page
+    - node.type.page
   module:
     - content_moderation
 id: editorial
@@ -56,5 +61,10 @@ type_settings:
         - published
       to: published
       weight: 1
-  entity_types: {  }
+  entity_types:
+    node:
+      - article
+      - blog
+      - drag_and_drop_page
+      - page
   default_moderation_state: draft

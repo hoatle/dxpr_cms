@@ -5,6 +5,7 @@ package: DXPR
 core_version_requirement: ^9.3 || ^10
 dependencies:
   - drupal:block
+  - drupal:content_translation
   - drupal:default_content
   - drupal:image
   - drupal:media
@@ -20,6 +21,11 @@ default_content:
     - 82d6ff4a-679b-45e2-9a5c-1747fe4cfb97
     - 8764d205-a20a-4b92-992c-755bbed154a9
     - c443b638-b341-4fc8-a1ce-4dc8b527aa7a
+    - 9c76ff5e-7def-4611-bf22-69cd76a95a79
+    - 3d2c589c-e9a7-4c2f-9b06-f573914a4ba3
+    - d03e06d7-6408-441e-bfc2-b00faa13dc14
+    - 8b702a31-169b-4289-b7e4-6f4d61287ab2
+    - 77e37a23-36df-4f42-86d2-3778a5f100c1
   block_content:
     - 5eca7429-4952-438e-b2f0-769f177aa5c7
     - 768cc1bb-cb05-4020-9ac5-102de6b65bb7

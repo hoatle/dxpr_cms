@@ -8,10 +8,10 @@ label: Pages
 type: 'canonical_entities:node'
 pattern: '[node:title]'
 selection_criteria:
-  a798f01a-b624-49d6-b3e6-db7897de5fc5:
+  b9991fee-eb58-44c1-b607-94ca4ad33c46:
     id: 'entity_bundle:node'
     negate: false
-    uuid: a798f01a-b624-49d6-b3e6-db7897de5fc5
+    uuid: b9991fee-eb58-44c1-b607-94ca4ad33c46
     context_mapping:
       node: node
     bundles:

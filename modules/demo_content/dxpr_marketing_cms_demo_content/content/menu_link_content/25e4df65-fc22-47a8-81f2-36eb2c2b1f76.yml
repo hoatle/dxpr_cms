@@ -18,10 +18,7 @@ default:
     -
       uri: 'internal:#'
       title: ''
-      options:
-        attributes:
-          class:
-            - 'btn dxpr-theme-util-background-accent1'
+      options: {  }
   external:
     -
       value: false
@@ -35,5 +32,14 @@ default:
     -
       value: false
   revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_status:
     -
       value: true

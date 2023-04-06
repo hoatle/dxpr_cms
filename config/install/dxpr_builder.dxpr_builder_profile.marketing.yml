@@ -18,10 +18,11 @@ elements:
   - az_image
   - az_text
   - az_video
-  - az_card
   - az_row
   - az_section
   - az_toggle
+blocks: {  }
+views: {  }
 inline_buttons:
   - Bold
   - Italic
@@ -73,3 +74,8 @@ modal_buttons:
   - Maximize
   - Scayt
   - Templates
+page_templates:
+  - 9a479906-3c92-4a61-91f8-b4e83c5de676
+  - 99467337-bd90-4193-a58d-c22bb01de3a4
+  - a93e0f58-5d95-4a8d-af9f-a59691a3cd13
+user_templates: {  }

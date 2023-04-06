@@ -11,6 +11,8 @@ roles:
 elements:
   - az_image
   - az_text
+blocks: {  }
+views: {  }
 inline_buttons:
   - Bold
   - Italic
@@ -41,3 +43,9 @@ modal_buttons:
   - Table
   - Maximize
   - Scayt
+page_templates:
+  - e517a189-5277-4efa-b69c-ab4887362ed0
+user_templates:
+  - 013bcecc-a9a5-4262-ab91-a9dd172bb1a5
+  - e48328f3-9ba6-4961-aee0-c80ee82516ba
+  - 24f39bd4-56b7-4d57-8f6c-021c3d98442e

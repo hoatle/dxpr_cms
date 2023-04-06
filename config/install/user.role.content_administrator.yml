@@ -3,13 +3,17 @@ status: true
 dependencies:
   config:
     - node.type.article
+    - node.type.blog
     - node.type.drag_and_drop_page
     - node.type.page
     - taxonomy.vocabulary.tags
     - workflows.workflow.editorial
   module:
     - admin_toolbar_search
+    - block
+    - block_content
     - content_moderation
+    - content_translation
     - dxpr_builder
     - entity_browser
     - field_ui
@@ -85,3 +89,18 @@ permissions:
   - 'view own unpublished media'
   - 'view page revisions'
   - 'view the administration theme'
+  - 'create content translations'
+  - 'delete content translations'
+  - 'update content translations'
+  - 'translate editable entities'
+  - 'translate article node'
+  - 'translate page node'
+  - 'translate drag_and_drop_page node'
+  - 'translate block_content'
+  - 'translate any entity'
+  - 'create blog content'
+  - 'delete own blog content'
+  - 'edit any blog content'
+  - 'edit own blog content'
+  - 'revert blog revisions'
+  - 'view blog revisions'

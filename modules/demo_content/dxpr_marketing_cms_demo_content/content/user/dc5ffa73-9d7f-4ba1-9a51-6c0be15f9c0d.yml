@@ -12,15 +12,15 @@ default:
       value: en
   name:
     -
-      value: JohnFromMarketing
+      value: 'Conversion Specialist'
   pass:
     -
-      value: $S$E8cR9.4z8V8uK6pmUaWzHyAyGyq03vor4TaDF7NxJ7bpZiejSOWi
+      value: $S$E2XRQydn/7AppgZ7g9lWLuXbdwpmzTc.0Rp9fNY1UF.Lz0mF0a63
       existing: ''
       pre_hashed: false
   mail:
     -
-      value: JohnFromMarketing@dxpr.com
+      value: ConversionSpecialist@dxpr.com
   timezone:
     -
       value: Europe/Amsterdam
@@ -38,12 +38,7 @@ default:
       value: 1669900400
   init:
     -
-      value: JohnFromMarketing@dxpr.com
+      value: ConversionSpecialist@dxpr.com
   roles:
     -
       target_id: marketer
-  path:
-    -
-      alias: ''
-      langcode: en
-      pathauto: 0

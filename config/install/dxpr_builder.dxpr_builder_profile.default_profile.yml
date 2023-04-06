@@ -1,11 +1,8 @@
-uuid: 98e42933-fccd-41d6-b9b9-05a51e0c9257
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: Jqv97W44_QrESMdfm0yeMgNtvvzK53vkc28V2ylnwtM
 id: default_profile
-label: IT
+label: Webmaster
 dxpr_editor: true
 weight: -5
 roles:
@@ -40,8 +37,8 @@ elements:
   - az_tabs
   - az_toggle
 blocks:
-  - 'az_block-block_content:5eca7429-4952-438e-b2f0-769f177aa5c7'
   - 'az_block-block_content:768cc1bb-cb05-4020-9ac5-102de6b65bb7'
+  - 'az_block-block_content:5eca7429-4952-438e-b2f0-769f177aa5c7'
   - az_block-contact_block
   - az_block-full_screen_search
   - az_block-dxpr_theme_helper_user_register
@@ -221,3 +218,5 @@ modal_buttons:
   - Maximize
   - Scayt
   - Templates
+page_templates: {  }
+user_templates: {  }
