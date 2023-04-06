@@ -8,9 +8,6 @@ default:
   revision_uid:
     -
       target_id: 1
-  revision_log:
-    -
-      value: 'Saved with DXPR builder'
   status:
     -
       value: true
@@ -19,7 +16,7 @@ default:
       target_id: 1
   title:
     -
-      value: 'Empty page'
+      value: 'Empty DXPER Builder page'
   created:
     -
       value: 1680676904
@@ -29,12 +26,15 @@ default:
   sticky:
     -
       value: false
+  revision_translation_affected:
+    -
+      value: true
   moderation_state:
     -
       value: published
   path:
     -
-      alias: /empty-page
+      alias: /empty-dxper-builder-page
       langcode: en
       pathauto: 1
   content_translation_source:

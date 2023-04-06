@@ -15,7 +15,7 @@ default:
       value: 'Communications Manager'
   pass:
     -
-      value: $S$EtQjjfCFR.zIwRkHNt.hZnfXzQL/Ua9RplfdpbFtU8i9Z22oOCym
+      value: $S$EbJiBL4T1YdbPITPAG0QK9LrLLhuDrvD2Cq9ebnN7svVFmnbxLGX
       existing: ''
       pre_hashed: false
   mail:
@@ -32,10 +32,10 @@ default:
       value: 1669145451
   access:
     -
-      value: 1669900632
+      value: 1680709166
   login:
     -
-      value: 1669900632
+      value: 1680703268
   init:
     -
       value: CommunicationsManager@dxpr.com

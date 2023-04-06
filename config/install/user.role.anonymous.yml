@@ -1,12 +1,9 @@
 langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.restricted_html
   module:
     - comment
     - contact
-    - filter
     - search
     - system
 id: anonymous
@@ -18,4 +15,3 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'search content'
-  - 'use text format restricted_html'

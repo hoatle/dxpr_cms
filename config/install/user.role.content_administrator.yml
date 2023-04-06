@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - node.type.article
+    - node.type.blog
     - node.type.drag_and_drop_page
     - node.type.page
     - taxonomy.vocabulary.tags
@@ -97,3 +98,9 @@ permissions:
   - 'translate drag_and_drop_page node'
   - 'translate block_content'
   - 'translate any entity'
+  - 'create blog content'
+  - 'delete own blog content'
+  - 'edit any blog content'
+  - 'edit own blog content'
+  - 'revert blog revisions'
+  - 'view blog revisions'

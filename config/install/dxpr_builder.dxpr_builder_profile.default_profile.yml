@@ -37,8 +37,8 @@ elements:
   - az_tabs
   - az_toggle
 blocks:
-  - 'az_block-block_content:5eca7429-4952-438e-b2f0-769f177aa5c7'
   - 'az_block-block_content:768cc1bb-cb05-4020-9ac5-102de6b65bb7'
+  - 'az_block-block_content:5eca7429-4952-438e-b2f0-769f177aa5c7'
   - az_block-contact_block
   - az_block-full_screen_search
   - az_block-dxpr_theme_helper_user_register
@@ -161,9 +161,6 @@ views:
   - az_view-who_s_new-block_1
   - az_view-who_s_online-default
   - az_view-who_s_online-who_s_online_block
-page_templates: {  }
-user_templates:
-  - 67522137-395c-485a-94ac-553375be17f4
 inline_buttons:
   - Bold
   - Italic
@@ -220,3 +217,5 @@ modal_buttons:
   - Maximize
   - Scayt
   - Templates
+page_templates: {  }
+user_templates: {  }

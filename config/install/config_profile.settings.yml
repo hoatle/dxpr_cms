@@ -4,6 +4,7 @@ blacklist:
   - 'automated_cron.*'
   - 'block.block.bootstrap*'
   - 'block.block.claro*'
+  - 'block.block.stable9*'
   - 'bootstrap5.*'
   - 'claro.*'
   - 'comment.*'

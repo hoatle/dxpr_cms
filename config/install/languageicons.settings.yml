@@ -1,0 +1,5 @@
+show_node: true
+show_block: true
+placement: replace
+size: 24x18
+path: 'modules/contrib/languageicons/flags/*.png'
