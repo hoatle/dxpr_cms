@@ -38,7 +38,7 @@ dependencies:
     - workflows
     - xmlsitemap
 id: site_bui
-label: 'Webmaster'
+label: 'Site Builder'
 weight: -6
 is_admin: null
 permissions:
