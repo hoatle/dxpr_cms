@@ -9,11 +9,8 @@ roles:
   - content_editor
   - content_administrator
 elements:
-  - az_blockquote
   - az_image
-  - az_separator
   - az_text
-  - az_container
 blocks: {  }
 views: {  }
 inline_buttons:
@@ -24,10 +21,7 @@ inline_buttons:
   - Redo
   - Link
   - Unlink
-  - Image
-  - RemoveFormat
   - Format
-  - Table
 modal_buttons:
   - Bold
   - Italic
