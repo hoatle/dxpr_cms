@@ -12,7 +12,7 @@ default:
       value: en
   name:
     -
-      value: 'Site Builder'
+      value: 'Webmaster'
   pass:
     -
       value: $S$E2UCYqKqumBZ3NgllfEH9uZYdk6F2LZnx2AQ08tHTAY5KCvW2GN9
