@@ -16,7 +16,7 @@ default:
       target_id: 1
   title:
     -
-      value: 'Empty DXPER Builder page'
+      value: 'Empty DXPR Builder page'
   created:
     -
       value: 1680676904
