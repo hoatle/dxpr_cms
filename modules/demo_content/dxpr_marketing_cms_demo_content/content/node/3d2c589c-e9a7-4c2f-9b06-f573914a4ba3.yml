@@ -16,7 +16,7 @@ default:
       target_id: 1
   title:
     -
-      value: 'Empty DXPR Builder blog'
+      value: 'Team member Tuesday: ...'
   created:
     -
       value: 1680755947
@@ -26,12 +26,15 @@ default:
   sticky:
     -
       value: false
+  revision_translation_affected:
+    -
+      value: true
   moderation_state:
     -
       value: published
   path:
     -
-      alias: /blog/empty-dxpr-builder-blog
+      alias: /blog/team-member-tuesday
       langcode: en
       pathauto: 1
   content_translation_source:

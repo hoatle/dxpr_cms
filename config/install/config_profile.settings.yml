@@ -42,5 +42,4 @@ blacklist:
   - user.flood
   - user.mail
   - user.settings
-  - 'views.*'
   - 'xmlsitemap.*'

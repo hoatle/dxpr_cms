@@ -15,7 +15,7 @@ default:
       value: 'Conversion Specialist'
   pass:
     -
-      value: $S$E2XRQydn/7AppgZ7g9lWLuXbdwpmzTc.0Rp9fNY1UF.Lz0mF0a63
+      value: $S$E2JYUIVw.aar3J2ZZA64ZCCiALGRL7iOtVQQSvMH25vtT6fztK9q
       existing: ''
       pre_hashed: false
   mail:
@@ -42,3 +42,8 @@ default:
   roles:
     -
       target_id: marketer
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 1

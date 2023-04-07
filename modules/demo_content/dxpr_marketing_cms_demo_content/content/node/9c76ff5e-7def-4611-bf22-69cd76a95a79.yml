@@ -34,7 +34,7 @@ default:
       value: published
   path:
     -
-      alias: /empty-dxper-builder-page
+      alias: /empty-dxpr-builder-page
       langcode: en
       pathauto: 1
   content_translation_source:
