@@ -1,6 +1,9 @@
+uuid: e6de756e-b7c8-47e5-bc0e-e226c51e0103
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: n4oPPCFukgJO29ptank1A0qKXJ2aQ8H22zD9pBOl1CU
 id: marketing
 label: Marketing
 dxpr_editor: true
@@ -24,10 +27,10 @@ elements:
 blocks: {  }
 views: {  }
 page_templates:
-  - 9a479906-3c92-4a61-91f8-b4e83c5de676
-  - 99467337-bd90-4193-a58d-c22bb01de3a4
-  - a93e0f58-5d95-4a8d-af9f-a59691a3cd13
-user_templates: {  }
+  - 543e45e5-3f64-464c-b781-94d529133fc2
+  - c588e041-6252-42be-bd6d-76278483e7c0
+user_templates:
+  - 6773325e-0b4e-47bc-af80-e62f18141875
 inline_buttons:
   - Bold
   - Italic

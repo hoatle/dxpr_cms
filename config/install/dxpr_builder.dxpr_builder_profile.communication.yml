@@ -1,6 +1,9 @@
+uuid: a1f7ebad-2b5a-4d0d-b716-51d406834d04
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: b7GWiQ8-lAFXaclL5a371I9rh8I-S-zd-Sy13t53WwY
 id: communication
 label: Communication
 dxpr_editor: true
@@ -14,11 +17,11 @@ elements:
 blocks: {  }
 views: {  }
 page_templates:
-  - e517a189-5277-4efa-b69c-ab4887362ed0
+  - c0913efe-b8e9-4399-8a1d-6bc8e64878aa
 user_templates:
-  - 013bcecc-a9a5-4262-ab91-a9dd172bb1a5
-  - e48328f3-9ba6-4961-aee0-c80ee82516ba
-  - 24f39bd4-56b7-4d57-8f6c-021c3d98442e
+  - 13ee435d-642b-4e35-9980-a86009b4446f
+  - 54ea3e88-24b8-4aee-99a7-826f67992ef8
+  - c30643fa-76bd-4640-8ef5-ab1493573f9b
 inline_buttons:
   - Bold
   - Italic
