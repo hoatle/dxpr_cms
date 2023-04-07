@@ -1,7 +1,7 @@
 _meta:
   version: '1.0'
   entity_type: file
-  uuid: ffb0de0c-6af4-451d-b4fc-2f7f5b61d843
+  uuid: d071e4f4-80da-4f63-8c0d-4a7e94795f56
   default_langcode: en
 default:
   uid:
@@ -9,19 +9,19 @@ default:
       target_id: 1
   filename:
     -
-      value: 'Screenshot 2022-11-19 at 15.56.26.png'
+      value: flakes-rgba-com.png
   uri:
     -
-      value: 'public://2022-11/Screenshot 2022-11-19 at 15.56.26_14_0_8.png'
+      value: 'public://2023-04/flakes-rgba-com.png'
   filemime:
     -
       value: image/png
   filesize:
     -
-      value: 979591
+      value: 1764
   status:
     -
       value: true
   created:
     -
-      value: 1668869821
+      value: 1680858465

@@ -15,7 +15,7 @@ default:
       value: 'Communications Manager'
   pass:
     -
-      value: $S$EbJiBL4T1YdbPITPAG0QK9LrLLhuDrvD2Cq9ebnN7svVFmnbxLGX
+      value: $S$E4xg83EEJ8zi1M/xwVdEUJnLoYPDWhh1QwvGuNqpmuQDhj3O6Uj.
       existing: ''
       pre_hashed: false
   mail:
@@ -42,3 +42,8 @@ default:
   roles:
     -
       target_id: content_editor
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 1

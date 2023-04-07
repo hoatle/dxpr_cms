@@ -12,10 +12,10 @@ default:
       value: en
   name:
     -
-      value: 'Webmaster'
+      value: Webmaster
   pass:
     -
-      value: $S$E2UCYqKqumBZ3NgllfEH9uZYdk6F2LZnx2AQ08tHTAY5KCvW2GN9
+      value: $S$EWro9zjbWQNGhLmGw1hlq/bfqHLKlYl3VTaZhmArGmDkWziLzoOW
       existing: ''
       pre_hashed: false
   mail:
@@ -42,3 +42,8 @@ default:
   roles:
     -
       target_id: site_bui
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 1

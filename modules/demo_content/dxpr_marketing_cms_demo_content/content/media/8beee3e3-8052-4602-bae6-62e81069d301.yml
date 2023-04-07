@@ -1,11 +1,11 @@
 _meta:
   version: '1.0'
   entity_type: media
-  uuid: 82a19ce8-bcca-48e1-9370-3c9bad7c8cc6
+  uuid: 8beee3e3-8052-4602-bae6-62e81069d301
   bundle: image
   default_langcode: en
   depends:
-    ffb0de0c-6af4-451d-b4fc-2f7f5b61d843: file
+    77bda4a4-571d-4bdb-a735-82734913598b: file
 default:
   status:
     -
@@ -15,10 +15,10 @@ default:
       target_id: 1
   name:
     -
-      value: 'Screenshot 2022-11-19 at 15.56.26.png'
+      value: sincerely-media-5LYQQS_JUgY-unsplash_0.jpg
   created:
     -
-      value: 1668869826
+      value: 1680860490
   revision_translation_affected:
     -
       value: true
@@ -29,8 +29,8 @@ default:
       pathauto: 1
   field_media_image:
     -
-      entity: ffb0de0c-6af4-451d-b4fc-2f7f5b61d843
-      alt: video
+      entity: 77bda4a4-571d-4bdb-a735-82734913598b
+      alt: Olivia
       title: ''
-      width: 2076
-      height: 1348
+      width: 3456
+      height: 5184

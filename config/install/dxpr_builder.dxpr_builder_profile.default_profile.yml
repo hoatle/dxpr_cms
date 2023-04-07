@@ -161,6 +161,8 @@ views:
   - az_view-who_s_new-block_1
   - az_view-who_s_online-default
   - az_view-who_s_online-who_s_online_block
+page_templates: {  }
+user_templates: {  }
 inline_buttons:
   - Bold
   - Italic
@@ -218,5 +220,3 @@ modal_buttons:
   - Maximize
   - Scayt
   - Templates
-page_templates: {  }
-user_templates: {  }

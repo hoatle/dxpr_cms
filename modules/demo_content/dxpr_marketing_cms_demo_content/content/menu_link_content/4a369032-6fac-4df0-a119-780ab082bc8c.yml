@@ -1,25 +1,22 @@
 _meta:
   version: '1.0'
   entity_type: menu_link_content
-  uuid: 4a557011-54ff-4d3e-a470-0e771648758b
+  uuid: 4a369032-6fac-4df0-a119-780ab082bc8c
   bundle: menu_link_content
   default_langcode: en
-  depends:
-    a83dd72a-f07d-45f1-83bc-207175dbc7cb: menu_link_content
-    82d6ff4a-679b-45e2-9a5c-1747fe4cfb97: node
 default:
   enabled:
     -
       value: true
   title:
     -
-      value: 'Social Impact'
+      value: Blog
   menu_name:
     -
       value: main
   link:
     -
-      target_uuid: 82d6ff4a-679b-45e2-9a5c-1747fe4cfb97
+      uri: 'internal:/blog'
       title: ''
       options: {  }
   external:
@@ -27,16 +24,13 @@ default:
       value: false
   rediscover:
     -
-      value: false
+      value: true
   weight:
     -
-      value: -49
+      value: 0
   expanded:
     -
       value: false
-  parent:
-    -
-      value: 'menu_link_content:a83dd72a-f07d-45f1-83bc-207175dbc7cb'
   revision_translation_affected:
     -
       value: true
@@ -54,4 +48,4 @@ default:
       value: true
   content_translation_created:
     -
-      value: 1680857122
+      value: 1680858656
