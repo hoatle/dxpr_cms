@@ -15,7 +15,7 @@ default:
       value: Webmaster
   pass:
     -
-      value: $S$E6WHO7FYdFQvx4gHgoFgTmgnQzC05qbNiXI4WIjSGD/QDpcPexLN
+      value: $S$EJplc9aHO.Cg4Ou2U3X4c8p0Y7Y/0TId/H25IrdAD3HQHYAeILK4
       existing: ''
       pre_hashed: false
   mail:
