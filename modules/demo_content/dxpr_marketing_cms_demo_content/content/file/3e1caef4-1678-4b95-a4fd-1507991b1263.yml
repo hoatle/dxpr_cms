@@ -9,10 +9,10 @@ default:
       target_id: 1
   filename:
     -
-      value: brooke-cagle-Nm70URdtf3c-unsplash_0.jpg
+      value: brooke-cagle-Nm70URdtf3c-unsplash.jpg
   uri:
     -
-      value: 'public://2023-04/brooke-cagle-Nm70URdtf3c-unsplash_0_0.jpg'
+      value: 'public://2023-04/brooke-cagle-Nm70URdtf3c-unsplash.jpg'
   filemime:
     -
       value: image/jpeg
