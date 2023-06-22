@@ -7,6 +7,9 @@ _meta:
   depends:
     21cf2640-1bce-4a12-8346-104fca9d7736: menu_link_content
 default:
+  revision_log_message:
+    -
+      value: 'Created by translation job <a href="/admin/tmgmt/jobs/4">📄 On pre-existing content types</a>.'
   enabled:
     -
       value: true
@@ -39,9 +42,6 @@ default:
   parent:
     -
       value: 'menu_link_content:21cf2640-1bce-4a12-8346-104fca9d7736'
-  revision_translation_affected:
-    -
-      value: true
   content_translation_source:
     -
       value: und
@@ -57,3 +57,45 @@ default:
   content_translation_created:
     -
       value: 1680857122
+translations:
+  es:
+    title:
+      -
+        value: '📄 Sobre tipos de contenido preexistentes'
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        target_id: 1
+    content_translation_status:
+      -
+        value: true
+    content_translation_created:
+      -
+        value: 1680857122
+  zh-hans:
+    title:
+      -
+        value: '📄 关于预先存在的内容类型'
+    revision_translation_affected:
+      -
+        value: true
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        target_id: 1
+    content_translation_status:
+      -
+        value: true
+    content_translation_created:
+      -
+        value: 1680857122

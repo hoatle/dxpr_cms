@@ -12,7 +12,7 @@ default:
       value: flakes-rgba-com.png
   uri:
     -
-      value: 'public://2023-04/flakes-rgba-com.png'
+      value: 'public://2023-04/flakes-rgba-com_0.png'
   filemime:
     -
       value: image/png

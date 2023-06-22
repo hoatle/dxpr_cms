@@ -5,6 +5,9 @@ _meta:
   bundle: menu_link_content
   default_langcode: en
 default:
+  revision_log_message:
+    -
+      value: 'Created by translation job <a href="/admin/tmgmt/jobs/6">Services</a>.'
   enabled:
     -
       value: true
@@ -29,11 +32,8 @@ default:
       value: true
   weight:
     -
-      value: -49
+      value: -48
   expanded:
-    -
-      value: true
-  revision_translation_affected:
     -
       value: true
   content_translation_source:
@@ -51,3 +51,45 @@ default:
   content_translation_created:
     -
       value: 1680857122
+translations:
+  es:
+    title:
+      -
+        value: Servicios
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        target_id: 1
+    content_translation_status:
+      -
+        value: true
+    content_translation_created:
+      -
+        value: 1680857122
+  zh-hans:
+    title:
+      -
+        value: 服务
+    revision_translation_affected:
+      -
+        value: true
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        target_id: 1
+    content_translation_status:
+      -
+        value: true
+    content_translation_created:
+      -
+        value: 1680857122
