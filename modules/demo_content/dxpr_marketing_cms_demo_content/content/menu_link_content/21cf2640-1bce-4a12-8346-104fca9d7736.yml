@@ -41,6 +41,9 @@ default:
   parent:
     -
       value: 'menu_link_content:2641bc1d-ab39-4391-8f96-46cd452b430a'
+  revision_translation_affected:
+    -
+      value: true
   content_translation_source:
     -
       value: und
@@ -61,6 +64,9 @@ translations:
     title:
       -
         value: 'Detalles para desarrolladores'
+    revision_translation_affected:
+      -
+        value: true
     content_translation_source:
       -
         value: en

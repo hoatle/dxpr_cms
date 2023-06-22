@@ -15,7 +15,7 @@ default:
       value: 'Communications Manager'
   pass:
     -
-      value: $S$ELUhoraOb1MFozRXkRkvDJ8196Ml4eK2j9rH2BAbGojxlGLUwZ1v
+      value: $S$EnDyYMWGy9fsXRfNEBZdBzuANIoT8h6forvKS.fPGRTv8B93VlOC
       existing: ''
       pre_hashed: false
   mail:
