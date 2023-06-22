@@ -67,7 +67,7 @@ default:
       summary: ''
   field_dth_hide_regions:
     -
-      value: 页面标题
+      value: page_title
 translations:
   es:
     status:
