@@ -21,8 +21,10 @@ dependencies:
     - field_ui
     - file
     - layout_builder
+    - locale
     - media
     - menu_link_attributes
+    - menu_link_content
     - moderation_dashboard
     - moderation_sidebar
     - node
@@ -32,6 +34,7 @@ dependencies:
     - search
     - system
     - taxonomy
+    - tmgmt
     - toolbar
     - tour
     - views_ui
@@ -42,6 +45,7 @@ label: 'Site Builder'
 weight: -6
 is_admin: null
 permissions:
+  - 'accept translation jobs'
   - 'access administration pages'
   - 'access content overview'
   - 'access dxpr_builder_media_modal entity browser pages'
@@ -67,6 +71,7 @@ permissions:
   - 'administer redirects'
   - 'administer responsive preview'
   - 'administer themes'
+  - 'administer tmgmt'
   - 'administer url aliases'
   - 'administer users'
   - 'administer views'
@@ -76,29 +81,50 @@ permissions:
   - 'configure any layout'
   - 'create and edit custom blocks'
   - 'create article content'
+  - 'create blog content'
+  - 'create content translations'
   - 'create drag_and_drop_page content'
   - 'create media'
   - 'create page content'
   - 'create terms in tags'
+  - 'create translation jobs'
   - 'create url aliases'
   - 'delete article revisions'
+  - 'delete content translations'
   - 'delete media'
   - 'delete own article content'
+  - 'delete own blog content'
   - 'delete own drag_and_drop_page content'
   - 'delete own page content'
   - 'delete page revisions'
-  - 'edit own article content'
-  - 'edit own drag_and_drop_page content'
+  - 'delete translation jobs'
+  - 'edit any blog content'
   - 'edit any drag_and_drop_page content'
+  - 'edit own article content'
+  - 'edit own blog content'
+  - 'edit own drag_and_drop_page content'
   - 'edit own page content'
   - 'edit terms in tags'
   - 'edit with dxpr builder'
   - 'override xmlsitemap link settings'
   - 'revert all revisions'
   - 'revert article revisions'
+  - 'revert blog revisions'
   - 'revert drag_and_drop_page revisions'
   - 'revert page revisions'
   - 'select account cancellation method'
+  - 'submit translation jobs'
+  - 'translate any entity'
+  - 'translate article node'
+  - 'translate block_content'
+  - 'translate blog node'
+  - 'translate drag_and_drop_page node'
+  - 'translate editable entities'
+  - 'translate interface'
+  - 'translate menu_link_content'
+  - 'translate page node'
+  - 'translate tags taxonomy_term'
+  - 'update content translations'
   - 'update media'
   - 'use admin toolbar search'
   - 'use advanced search'
@@ -114,6 +140,7 @@ permissions:
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view article revisions'
+  - 'view blog revisions'
   - 'view drag_and_drop_page revisions'
   - 'view latest version'
   - 'view media'
@@ -122,18 +149,3 @@ permissions:
   - 'view page revisions'
   - 'view the administration theme'
   - 'view user email addresses'
-  - 'create content translations'
-  - 'delete content translations'
-  - 'update content translations'
-  - 'translate editable entities'
-  - 'translate article node'
-  - 'translate page node'
-  - 'translate drag_and_drop_page node'
-  - 'translate block_content'
-  - 'translate any entity'
-  - 'create blog content'
-  - 'delete own blog content'
-  - 'edit any blog content'
-  - 'edit own blog content'
-  - 'revert blog revisions'
-  - 'view blog revisions'
