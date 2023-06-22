@@ -1,7 +1,5 @@
 # Installation (Browser)
 
-Start with installation instructions at https://github.com/dxpr/dxpr-marketing-cms-project
-
 ```bash
 $ composer create-project dxpr/dxpr-marketing-cms-project:^10 PROJECT_DIR_NAME
 ```
