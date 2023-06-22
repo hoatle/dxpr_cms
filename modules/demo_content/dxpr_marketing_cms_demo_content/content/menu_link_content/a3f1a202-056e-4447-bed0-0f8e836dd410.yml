@@ -8,6 +8,9 @@ _meta:
     1491a76a-8a97-4ea8-866d-8f3a7451caf5: menu_link_content
     c443b638-b341-4fc8-a1ce-4dc8b527aa7a: node
 default:
+  revision_log_message:
+    -
+      value: 'Created by translation job <a href="/admin/tmgmt/jobs/4">🔥 All DXPR Builder Content Elements</a>.'
   enabled:
     -
       value: true
@@ -37,9 +40,6 @@ default:
   parent:
     -
       value: 'menu_link_content:1491a76a-8a97-4ea8-866d-8f3a7451caf5'
-  revision_translation_affected:
-    -
-      value: true
   content_translation_source:
     -
       value: und
@@ -55,3 +55,45 @@ default:
   content_translation_created:
     -
       value: 1680857122
+translations:
+  es:
+    title:
+      -
+        value: '🔥 Todos los elementos de contenido de DXPR Builder'
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        target_id: 1
+    content_translation_status:
+      -
+        value: true
+    content_translation_created:
+      -
+        value: 1680857122
+  zh-hans:
+    title:
+      -
+        value: '🔥 所有 DXPR Builder 内容元素'
+    revision_translation_affected:
+      -
+        value: true
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        target_id: 1
+    content_translation_status:
+      -
+        value: true
+    content_translation_created:
+      -
+        value: 1680857122

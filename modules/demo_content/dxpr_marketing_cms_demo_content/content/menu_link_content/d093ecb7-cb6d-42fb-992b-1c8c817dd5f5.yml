@@ -5,9 +5,11 @@ _meta:
   bundle: menu_link_content
   default_langcode: en
   depends:
-    a83dd72a-f07d-45f1-83bc-207175dbc7cb: menu_link_content
     8764d205-a20a-4b92-992c-755bbed154a9: node
 default:
+  revision_log_message:
+    -
+      value: 'Created by translation job <a href="/admin/tmgmt/jobs/4">Contact Us</a>.'
   enabled:
     -
       value: true
@@ -30,16 +32,10 @@ default:
       value: false
   weight:
     -
-      value: -48
+      value: -44
   expanded:
     -
       value: false
-  parent:
-    -
-      value: 'menu_link_content:a83dd72a-f07d-45f1-83bc-207175dbc7cb'
-  revision_translation_affected:
-    -
-      value: true
   content_translation_source:
     -
       value: und
@@ -55,3 +51,45 @@ default:
   content_translation_created:
     -
       value: 1680857122
+translations:
+  es:
+    title:
+      -
+        value: Contáctenos
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        target_id: 1
+    content_translation_status:
+      -
+        value: true
+    content_translation_created:
+      -
+        value: 1680857122
+  zh-hans:
+    title:
+      -
+        value: 联系我们
+    revision_translation_affected:
+      -
+        value: true
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        target_id: 1
+    content_translation_status:
+      -
+        value: true
+    content_translation_created:
+      -
+        value: 1680857122

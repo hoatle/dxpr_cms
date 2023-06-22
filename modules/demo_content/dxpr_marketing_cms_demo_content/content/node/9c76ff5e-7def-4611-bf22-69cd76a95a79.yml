@@ -8,6 +8,9 @@ default:
   revision_uid:
     -
       target_id: 1
+  revision_log:
+    -
+      value: 'Created by translation job <a href="/admin/tmgmt/jobs/2">Empty DXPR Builder page</a>.'
   status:
     -
       value: true
@@ -48,3 +51,86 @@ default:
       value: '&nbsp;'
       format: ''
       summary: ''
+translations:
+  es:
+    status:
+      -
+        value: true
+    uid:
+      -
+        target_id: 1
+    title:
+      -
+        value: 'Página vacía de DXPR Builder'
+    created:
+      -
+        value: 1680676904
+    promote:
+      -
+        value: true
+    sticky:
+      -
+        value: false
+    revision_translation_affected:
+      -
+        value: true
+    moderation_state:
+      -
+        value: published
+    path:
+      -
+        alias: ''
+        langcode: es
+        pathauto: 1
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    body:
+      -
+        value: "\_"
+        format: ''
+        summary: ''
+  zh-hans:
+    status:
+      -
+        value: true
+    uid:
+      -
+        target_id: 1
+    title:
+      -
+        value: '空 DXPR 构建器页面'
+    created:
+      -
+        value: 1680676904
+    promote:
+      -
+        value: true
+    sticky:
+      -
+        value: false
+    revision_translation_affected:
+      -
+        value: true
+    moderation_state:
+      -
+        value: published
+    path:
+      -
+        alias: ''
+        langcode: zh-hans
+        pathauto: 1
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    body:
+      -
+        value: "\_"
+        format: ''
+        summary: ''
