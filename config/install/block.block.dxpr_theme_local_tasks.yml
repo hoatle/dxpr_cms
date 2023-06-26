@@ -18,8 +18,4 @@ settings:
   provider: core
   primary: true
   secondary: true
-visibility:
-  request_path:
-    id: request_path
-    negate: true
-    pages: '/node/*'
+visibility: {  }
