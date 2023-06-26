@@ -51,7 +51,6 @@ install:
   - menu_ui
   - metatag
   - moderation_dashboard
-  - moderation_sidebar
   - node
   - options
   - page_cache

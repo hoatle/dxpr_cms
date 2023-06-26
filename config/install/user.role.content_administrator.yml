@@ -21,7 +21,6 @@ dependencies:
     - media
     - menu_link_content
     - moderation_dashboard
-    - moderation_sidebar
     - node
     - path
     - responsive_preview
@@ -98,7 +97,6 @@ permissions:
   - 'use editorial transition create_new_draft'
   - 'use editorial transition publish'
   - 'use moderation dashboard'
-  - 'use moderation sidebar'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view any unpublished content'
