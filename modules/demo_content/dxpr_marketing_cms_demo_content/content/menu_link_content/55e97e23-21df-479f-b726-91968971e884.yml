@@ -83,10 +83,6 @@ translations:
     content_translation_created:
       -
         value: 1680857122
-  zh-hans:
-    title:
-      -
-        value: '📄 关于预先存在的内容类型'
     revision_translation_affected:
       -
         value: true

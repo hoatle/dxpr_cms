@@ -81,10 +81,6 @@ translations:
     content_translation_created:
       -
         value: 1680857122
-  zh-hans:
-    title:
-      -
-        value: '🔥 所有 DXPR Builder 布局元素'
     revision_translation_affected:
       -
         value: true

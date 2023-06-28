@@ -75,10 +75,6 @@ translations:
     content_translation_created:
       -
         value: 1680858656
-  zh-hans:
-    title:
-      -
-        value: 博客
     revision_translation_affected:
       -
         value: true
