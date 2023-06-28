@@ -4,8 +4,6 @@ _meta:
   uuid: c443b638-b341-4fc8-a1ce-4dc8b527aa7a
   bundle: drag_and_drop_page
   default_langcode: en
-  depends:
-    ee5c0321-7bd8-4d8f-94bf-53839609f8ac: user
 default:
   revision_uid:
     -
@@ -18,7 +16,7 @@ default:
       value: true
   uid:
     -
-      entity: ee5c0321-7bd8-4d8f-94bf-53839609f8ac
+      target_id: 1
   title:
     -
       value: 'All DXPR Builder Content Elements'
