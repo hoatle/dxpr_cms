@@ -43,7 +43,6 @@ install:
   - image
   - inline_entity_form
   - language
-  - languageicons
   - media
   - media_library
   - menu_link_attributes
