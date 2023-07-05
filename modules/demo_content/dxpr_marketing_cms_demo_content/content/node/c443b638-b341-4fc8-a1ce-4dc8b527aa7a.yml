@@ -3,7 +3,6 @@ _meta:
   entity_type: node
   uuid: c443b638-b341-4fc8-a1ce-4dc8b527aa7a
   bundle: drag_and_drop_page
-  default_langcode: en
 default:
   revision_uid:
     -

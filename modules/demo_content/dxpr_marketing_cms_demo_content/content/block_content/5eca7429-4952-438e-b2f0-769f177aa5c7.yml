@@ -3,7 +3,6 @@ _meta:
   entity_type: block_content
   uuid: 5eca7429-4952-438e-b2f0-769f177aa5c7
   bundle: drag_and_drop_block
-  default_langcode: en
   depends:
     c66f67f2-5d13-4889-9233-c00f372a4910: user
 default:

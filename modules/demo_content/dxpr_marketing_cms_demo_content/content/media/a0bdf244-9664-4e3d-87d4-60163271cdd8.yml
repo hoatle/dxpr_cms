@@ -3,7 +3,6 @@ _meta:
   entity_type: media
   uuid: a0bdf244-9664-4e3d-87d4-60163271cdd8
   bundle: image
-  default_langcode: en
   depends:
     d071e4f4-80da-4f63-8c0d-4a7e94795f56: file
 default:

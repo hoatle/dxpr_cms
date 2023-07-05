@@ -3,7 +3,6 @@ _meta:
   entity_type: menu_link_content
   uuid: 55e97e23-21df-479f-b726-91968971e884
   bundle: menu_link_content
-  default_langcode: en
   depends:
     21cf2640-1bce-4a12-8346-104fca9d7736: menu_link_content
 default:

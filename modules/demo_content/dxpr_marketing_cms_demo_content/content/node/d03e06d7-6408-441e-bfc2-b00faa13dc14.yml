@@ -3,7 +3,6 @@ _meta:
   entity_type: node
   uuid: d03e06d7-6408-441e-bfc2-b00faa13dc14
   bundle: blog
-  default_langcode: en
 default:
   revision_uid:
     -
