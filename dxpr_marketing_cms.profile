@@ -7,6 +7,8 @@
 
 use Drupal\contact\Entity\ContactForm;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\dxpr_marketing_cms\Form\ConfigureMultilingualForm;
+use Drupal\language\Entity\ConfigurableLanguage;
 
 /**
  * Implements hook_form_FORM_ID_alter() for install_configure_form().
@@ -29,8 +31,22 @@ use Drupal\Core\Form\FormStateInterface;
  * Implements hook_install_tasks().
  */
 function dxpr_marketing_cms_install_tasks(&$install_state) {
-
+  $isMultilingual = (
+    isset($install_state['dxpr_marketing_cms']['enable_multilingual']) && 
+    $install_state['dxpr_marketing_cms']['enable_multilingual']
+  );
   $tasks = [
+    'dxpr_marketing_cms_multilingual_configuration_form' => [
+      'display_name' => t('Multilingual set-up'),
+      'display' => TRUE,
+      'type' => 'form',
+      'function' => ConfigureMultilingualForm::class,
+    ],
+    'dxpr_marketing_cms_configure_multilingual' => [
+      'display_name' => t('Multilingual imports'),
+      'display' => $isMultilingual,
+      'type' => 'batch',
+    ],
     'dxpr_marketing_cms_module_install' => [
       'display_name' => t('Install demo content'),
       'type' => 'batch',
@@ -38,6 +54,35 @@ function dxpr_marketing_cms_install_tasks(&$install_state) {
   ];
 
   return $tasks;
+}
+
+/**
+ * Batch job to configure multilingual components.
+ *
+ * @param array $install_state
+ *   The current install state.
+ *
+ * @return array
+ *   The batch job definition.
+ */
+function dxpr_marketing_cms_configure_multilingual(array &$install_state) {
+  $batch = [];
+
+  // If the multilingual config checkbox were checked.
+  if (!empty($install_state['dxpr_marketing_cms']['enable_multilingual'])) {
+
+    // If selected languages are available, add them and fetch translations.
+    if (!empty($install_state['dxpr_marketing_cms']['multilingual_languages'])) {
+      foreach ($install_state['dxpr_marketing_cms']['multilingual_languages'] as $language_code) {
+        $batch['operations'][] = [
+          'dxpr_marketing_cms_configure_language_and_fetch_translation',
+          [$language_code],
+        ];
+      }
+    }
+  }
+
+  return $batch;
 }
 
 /**
@@ -70,6 +115,16 @@ function dxpr_marketing_cms_module_install(array &$install_state) {
     'error_message' => t('The installation has encountered an error.'),
   ];
   return $batch;
+}
+
+/**
+ * Batch function to add selected langauges then fetch all traslation.
+ *
+ * @param string|array $language_code
+ *   Language code to install and fetch all traslation.
+ */
+function dxpr_marketing_cms_configure_language_and_fetch_translation($language_code) {
+  ConfigurableLanguage::createFromLangcode($language_code)->save();
 }
 
 /**
