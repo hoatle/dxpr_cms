@@ -145,5 +145,13 @@ function dxpr_marketing_cms_install_module_batch($module, &$context) {
 function dxpr_marketing_cms_cleanup_batch($module, &$context) {
   Drupal::service('module_installer')->uninstall(['default_content'], FALSE);
 
+  // We're doing this here because during hook_install it fails due to demo content
+  // loading after installation (when default_content module steps in).
+  $query = "SELECT nid FROM {node} WHERE uuid = '564f412f-1a80-4a87-840b-d38edeeed383'";
+  if ($nid = Drupal::database()->query($query)->fetchField()) {
+    $config = Drupal::configFactory()->getEditable('system.site');
+    $config->set('page.front', '/node/' . $nid)->save(TRUE);
+  }
+
   $context['message'] = t('Cleanup.');
 }
