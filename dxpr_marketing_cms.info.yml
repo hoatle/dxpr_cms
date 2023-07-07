@@ -1,7 +1,7 @@
-name: DXPR Marketing CMS Demo
+name: DXPR Marketing CMS
 type: profile
 distribution:
-  name: DXPR Marketing CMS demo
+  name: DXPR Marketing CMS
   install:
     theme: dxpr_claro
 core_version_requirement: ^10
