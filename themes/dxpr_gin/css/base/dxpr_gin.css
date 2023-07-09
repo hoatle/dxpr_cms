@@ -1,6 +1,7 @@
 *:not(
   .checkbox-toggle__inner, 
   .checkbox-toggle,
+  .form-type--radio *,
   .ajax-progress *,
   .ui-autocomplete *,
   .claro-autocomplete *,
