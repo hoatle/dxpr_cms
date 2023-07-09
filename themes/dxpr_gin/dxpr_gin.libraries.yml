@@ -1,0 +1,5 @@
+# Main theme library.
+global:
+  css:
+    base:
+      css/base/dxpr_gin.css: {}
