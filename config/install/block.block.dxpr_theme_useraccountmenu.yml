@@ -11,7 +11,7 @@ dependencies:
 third_party_settings:
   block_classes:
     block_class: float-xl-end
-id: useraccountmenu
+id: dxpr_theme_useraccountmenu
 theme: dxpr_theme
 region: navigation_collapsible
 weight: -5

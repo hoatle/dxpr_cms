@@ -5,7 +5,7 @@ dependencies:
     - system
   theme:
     - dxpr_gin
-id: dxpr_gin_breadcrumbs_2
+id: dxpr_gin_breadcrumbs
 theme: dxpr_gin
 region: breadcrumb
 weight: 0

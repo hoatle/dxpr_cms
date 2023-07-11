@@ -3,17 +3,24 @@ status: true
 dependencies:
   module:
     - dxpr_builder
+    - system
   theme:
-    - dxpr_gin
+    -  dxpr_gin
 id: dxpr_gin_licenseinfo
-theme: dxpr_gin
+theme:  dxpr_gin
 region: pre_content
 weight: 0
 provider: null
 plugin: license_info
 settings:
   id: license_info
-  label: 'License info'
+  label: 'DXPR License info'
   label_display: '0'
   provider: dxpr_builder
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /admin/people
+      /admin/dxpr_studio/dxpr_builder/user_licenses

@@ -6,7 +6,7 @@ dependencies:
     - system
   theme:
     - gin
-id: licenseinfo
+id: gin_licenseinfo
 theme: gin
 region: pre_content
 weight: 0

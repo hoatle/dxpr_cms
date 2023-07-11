@@ -3,7 +3,7 @@ status: true
 dependencies:
   theme:
     - dxpr_gin
-id: dxpr_gin_tabs_2
+id: dxpr_gin_secondary_local_tasks
 theme: dxpr_gin
 region: pre_content
 weight: 0
@@ -11,7 +11,7 @@ provider: null
 plugin: local_tasks_block
 settings:
   id: local_tasks_block
-  label: 'Secondary Tabs'
+  label: 'Secondary tabs'
   label_display: '0'
   provider: core
   primary: false
