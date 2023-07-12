@@ -15,7 +15,6 @@ selection_criteria:
     context_mapping:
       node: node
     bundles:
-      article: article
       drag_and_drop_page: drag_and_drop_page
       page: page
 selection_logic: and
