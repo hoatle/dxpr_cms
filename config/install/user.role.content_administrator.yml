@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.article
+
     - node.type.blog
     - node.type.drag_and_drop_page
     - node.type.page
@@ -23,7 +23,6 @@ dependencies:
     - moderation_dashboard
     - node
     - path
-    - responsive_preview
     - search
     - system
     - taxonomy
@@ -41,14 +40,13 @@ permissions:
   - 'access dxpr_builder_media_modal entity browser pages'
   - 'access files overview'
   - 'access media overview'
-  - 'access responsive preview'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access tour'
   - 'administer blocks'
   - 'administer display modes'
   - 'administer url aliases'
-  - 'create article content'
+
   - 'create blog content'
   - 'create content translations'
   - 'create drag_and_drop_page content'
@@ -57,29 +55,29 @@ permissions:
   - 'create terms in tags'
   - 'create translation jobs'
   - 'create url aliases'
-  - 'delete article revisions'
+
   - 'delete content translations'
   - 'delete media'
-  - 'delete own article content'
+
   - 'delete own blog content'
   - 'delete own drag_and_drop_page content'
   - 'delete own page content'
   - 'delete page revisions'
   - 'edit any blog content'
   - 'edit any drag_and_drop_page content'
-  - 'edit own article content'
+
   - 'edit own blog content'
   - 'edit own drag_and_drop_page content'
   - 'edit own page content'
   - 'edit terms in tags'
   - 'edit with dxpr builder'
   - 'revert all revisions'
-  - 'revert article revisions'
+
   - 'revert blog revisions'
   - 'revert drag_and_drop_page revisions'
   - 'revert page revisions'
   - 'submit translation jobs'
-  - 'translate article node'
+
   - 'translate block_content'
   - 'translate blog node'
   - 'translate drag_and_drop_page node'
@@ -100,7 +98,7 @@ permissions:
   - 'view all media revisions'
   - 'view all revisions'
   - 'view any unpublished content'
-  - 'view article revisions'
+
   - 'view blog revisions'
   - 'view drag_and_drop_page revisions'
   - 'view latest version'
