@@ -1,6 +1,5 @@
 langcode: en
 name: admin
-mail: admin@dxpr.com
 slogan: ''
 page:
   403: ''

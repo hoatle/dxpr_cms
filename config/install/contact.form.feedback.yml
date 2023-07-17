@@ -3,8 +3,6 @@ status: true
 dependencies: {  }
 id: feedback
 label: 'Contact Us'
-recipients:
-  - admin@dxpr.com
 reply: ''
 weight: 0
 message: 'Your message has been sent.'
