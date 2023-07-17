@@ -7,6 +7,7 @@
 
 use Drupal\contact\Entity\ContactForm;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\dxpr_marketing_cms\Form\ConfigureAPIKeysForm;
 use Drupal\dxpr_marketing_cms\Form\ConfigureMultilingualForm;
 use Drupal\language\Entity\ConfigurableLanguage;
 
@@ -46,6 +47,11 @@ function dxpr_marketing_cms_install_tasks(&$install_state) {
       'display_name' => t('Multilingual imports'),
       'display' => $isMultilingual,
       'type' => 'batch',
+    ],
+    'dxpr_marketing_cms_module_keys' => [
+      'display_name' => t('Enter API keys'),
+      'type' => 'form',
+      'function' => ConfigureAPIKeysForm::class,
     ],
     'dxpr_marketing_cms_module_install' => [
       'display_name' => t('Install demo content'),
