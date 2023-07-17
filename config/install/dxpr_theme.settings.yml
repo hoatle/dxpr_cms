@@ -10,7 +10,6 @@ full_width_containers:
 full_width_content_types:
   blog: blog
   drag_and_drop_page: drag_and_drop_page
-  article: 0
   page: 0
 block_design_regions:
   sidebar_first: sidebar_first
@@ -102,14 +101,6 @@ page_title_image_position: center_center
 background_image_style: cover
 background_image_position: center_center
 background_image_attachment: fixed
-prevnext_content_types:
-  cms_blog: cms_blog
-  cms_event: cms_event
-  cms_portfolio_project: cms_portfolio_project
-  article: 0
-  cms_news: 0
-  cms_page: 0
-  drag_and_drop_page: 0
 header_position: 0
 header_top_layout: logo_left_menu_left
 header_style: normal

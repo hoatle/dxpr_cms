@@ -17,7 +17,6 @@ blacklist:
   - 'field.field.block_content.*'
   - 'field.field.media.*'
   - 'field.field.comment.*'
-  - 'field.field.node.article.*'
   - 'field.field.node.drag_and_drop_page.*'
   - 'field.field.user.*'
   - field.settings

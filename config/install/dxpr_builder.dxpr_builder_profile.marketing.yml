@@ -1,9 +1,6 @@
-uuid: e6de756e-b7c8-47e5-bc0e-e226c51e0103
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: n4oPPCFukgJO29ptank1A0qKXJ2aQ8H22zD9pBOl1CU
 id: marketing
 label: Marketing
 dxpr_editor: true

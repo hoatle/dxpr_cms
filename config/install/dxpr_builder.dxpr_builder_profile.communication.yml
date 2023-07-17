@@ -1,9 +1,6 @@
-uuid: a1f7ebad-2b5a-4d0d-b716-51d406834d04
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: b7GWiQ8-lAFXaclL5a371I9rh8I-S-zd-Sy13t53WwY
 id: communication
 label: Communication
 dxpr_editor: true
