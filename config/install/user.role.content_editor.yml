@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-
     - node.type.blog
     - node.type.drag_and_drop_page
     - node.type.page
@@ -41,7 +40,6 @@ permissions:
   - 'access tour'
   - 'administer display modes'
   - 'administer url aliases'
-
   - 'create blog content'
   - 'create content translations'
   - 'create drag_and_drop_page content'
@@ -49,17 +47,14 @@ permissions:
   - 'create page content'
   - 'create terms in tags'
   - 'create url aliases'
-
   - 'delete content translations'
   - 'delete media'
-
   - 'delete own blog content'
   - 'delete own drag_and_drop_page content'
   - 'delete own page content'
   - 'delete page revisions'
   - 'edit any blog content'
   - 'edit any drag_and_drop_page content'
-
   - 'edit own blog content'
   - 'edit own comments'
   - 'edit own drag_and_drop_page content'
@@ -67,11 +62,9 @@ permissions:
   - 'edit terms in tags'
   - 'edit with dxpr builder'
   - 'revert all revisions'
-
   - 'revert blog revisions'
   - 'revert drag_and_drop_page revisions'
   - 'revert page revisions'
-
   - 'translate blog node'
   - 'translate drag_and_drop_page node'
   - 'translate editable entities'
@@ -89,7 +82,6 @@ permissions:
   - 'use moderation dashboard'
   - 'view all media revisions'
   - 'view all revisions'
-
   - 'view blog revisions'
   - 'view drag_and_drop_page revisions'
   - 'view latest version'
