@@ -18,3 +18,6 @@ regions:
   sidebar_first: 'First sidebar'
 regions_hidden:
   - sidebar_first
+libraries-extend:
+  gin/gin_toolbar:
+    - dxpr_gin/gin_toolbar

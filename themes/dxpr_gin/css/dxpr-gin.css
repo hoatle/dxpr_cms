@@ -10,3 +10,7 @@
   .spinner *,
   .meta-sidebar__trigger, .meta-sidebar__close
 ) { border-radius: 0 !important; }
+
+.toolbar-menu-administration a.toolbar-menu__trigger {
+  bottom: 3px;
+}
