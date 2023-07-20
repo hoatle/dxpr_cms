@@ -204,12 +204,12 @@ class ConfigureMultilingualForm extends FormBase implements ContainerInjectionIn
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     global $install_state;
-  
+
     // Get the value of enable multilingual checkbox.
     $enable_multilingual = $form_state->getValue('enable_multilingual');
     if (isset($enable_multilingual)
         && $enable_multilingual == TRUE) {
-        $install_state['enable_multilingual'] = TRUE;
+          $install_state['dxpr_marketing_cms']['enable_multilingual'] = TRUE;
 
         // Get list of selected multilingual languages.
         $multilingual_languages = $form_state->getValue('multilingual_languages');
@@ -224,9 +224,10 @@ class ConfigureMultilingualForm extends FormBase implements ContainerInjectionIn
         if ($form_state->getValue('multilingual_demo_content')) {
           $multilingual_languages['es'] = 'es';
         }
+        $install_state['dxpr_marketing_cms']['multilingual_languages'] = $multilingual_languages;
     }
     else {
-      $install_state['enable_multilingual'] = FALSE;
+      $install_state['dxpr_marketing_cms']['enable_multilingual'] = FALSE;
     }
 
   }

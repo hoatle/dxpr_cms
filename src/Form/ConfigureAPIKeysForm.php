@@ -107,7 +107,7 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
   public function buildForm(array $form, FormStateInterface $form_state, array &$install_state = NULL) {
     $form['#title'] = $this->t('API Keys Configuration');
 
-    $form['dxpr_builder_key'] = [
+    $form['json_web_token'] = [
       '#type' => 'textarea',
       '#title' => $this->t('DXPR Builder product key'),
       '#description' => $this->t('Create a free account at <a href="https://dxpr.com/pricing" target="_blank">DXPR.com</a> and find your key in the <a href="https://app.dxpr.com/getting-started" target="_blank">Get Started dashboard</a>.'),
@@ -115,14 +115,14 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
 
 
     
-    if (isset($install_state['enable_multilingual']) && 
-    $install_state['enable_multilingual']) {
+    // if (isset($install_state['dxpr_marketing_cms']['enable_multilingual']) && 
+    // $install_state['dxpr_marketing_cms']['enable_multilingual']) {
       $form['google_translation_key'] = [
         '#type' => 'textfield',
-        '#title' => $this->t('Google Cloud Translation API key'),
+        '#title' => $this->t('Google Cloud Translation API key (optional)'),
         '#description' => $this->t('Get a key from <a href="https://console.cloud.google.com/marketplace/product/google/translate.googleapis.com" target="_blank">cloud.google.com</a>.'),
       ];
-    }
+    // }
     
     $form['actions'] = [
       'continue' => [
@@ -141,9 +141,9 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $dxpr_builder_key = $form_state->getValue('dxpr_builder_key');
-    if (!empty($dxpr_builder_key)) {
-      $this->configFactory->getEditable('dxpr_builder.settings')->set('dxpr_builder_key', $dxpr_builder_key)->save();
+    $json_web_token = $form_state->getValue('json_web_token');
+    if (!empty($json_web_token)) {
+      $this->configFactory->getEditable('dxpr_builder.settings')->set('json_web_token', $json_web_token)->save();
     }
 
     $google_translation_key = $form_state->getValue('google_translation_key');
@@ -158,13 +158,13 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
    * @phpstan-param array<string, mixed> $form
    */
   public function validateForm(array &$form, FormStateInterface $form_state): void {
-    if ($form_state->getValue('dxpr_builder_key')) {
-      $jwtPayloadData = $this->jwtDecoder->decodeJwt($form_state->getValue('dxpr_builder_key'));
+    if ($form_state->getValue('json_web_token')) {
+      $jwtPayloadData = $this->jwtDecoder->decodeJwt($form_state->getValue('json_web_token'));
       if ($jwtPayloadData['sub'] === NULL || $jwtPayloadData['scope'] === NULL) {
-        $form_state->setErrorByName('dxpr_builder_key', $this->t('Your DXPR Builder product key can’t be read, please make sure you copy the whole key without any trailing or leading spaces into the form.'));
+        $form_state->setErrorByName('json_web_token', $this->t('Your DXPR Builder product key can’t be read, please make sure you copy the whole key without any trailing or leading spaces into the form.'));
       }
       elseif ($jwtPayloadData['dxpr_tier'] === NULL) {
-        $form_state->setErrorByName('dxpr_builder_key', $this->t('Your product key (JWT) is outdated and not compatible with DXPR Builder version 2.0.0 and up. Please follow instructions <a href=":uri">here</a> to get a new product key.', [
+        $form_state->setErrorByName('json_web_token', $this->t('Your product key (JWT) is outdated and not compatible with DXPR Builder version 2.0.0 and up. Please follow instructions <a href=":uri">here</a> to get a new product key.', [
           ':uri' => 'https://app.dxpr.com/download/all#token',
         ]));
       }
