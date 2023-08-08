@@ -18,7 +18,6 @@ install:
   - breakpoint
   - ckeditor5
   - color
-  - comment
   - config
   - contact
   - contact_block
