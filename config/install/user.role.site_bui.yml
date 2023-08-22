@@ -12,7 +12,6 @@ dependencies:
     - block
     - block_classes
     - block_content
-    - comment
     - content_moderation
     - content_translation
     - dxpr_builder
@@ -55,8 +54,6 @@ permissions:
   - 'access user profiles'
   - 'administer block css classes'
   - 'administer blocks'
-  - 'administer comment types'
-  - 'administer comments'
   - 'administer content types'
   - 'administer display modes'
   - 'administer dxpr_builder_profile'
