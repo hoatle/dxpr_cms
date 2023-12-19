@@ -41,6 +41,6 @@
   "require-dev": {
       "drupal/core-dev": "^10",
       "drupal/devel": "^5.0.0",
-      "drush/drush": "^11"
+      "drush/drush": "^12"
   }
 }
