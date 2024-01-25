@@ -16,7 +16,6 @@
     "drupal/admin_toolbar": "^3",
     "drupal/block_classes": "^1.0",
     "drupal/bootstrap5": "^3.0@RC",
-    "drupal/color": "^1.0.3",
     "drupal/contact_block": "^2.0",
     "drupal/core": "^10.2.0",
     "drupal/default_content": "^2",
