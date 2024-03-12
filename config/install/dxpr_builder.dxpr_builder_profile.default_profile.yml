@@ -1,6 +1,9 @@
+uuid: 25a2d2da-de5c-465e-a5bc-742517528412
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: fI7x78b16zlv7fJPTwY5h7OXB9mhHzSo3HLeVNbLzHw
 id: default_profile
 label: Webmaster
 dxpr_editor: true
@@ -159,59 +162,51 @@ views:
 page_templates: {  }
 user_templates: {  }
 inline_buttons:
-  - Bold
-  - Italic
-  - JustifyLeft
-  - JustifyCenter
-  - JustifyRight
-  - JustifyBlock
-  - BulletedList
-  - NumberedList
-  - Undo
-  - Redo
-  - Link
-  - Unlink
-  - Image
-  - TextColor
-  - RemoveFormat
-  - Format
-  - FontSize
-  - Styles
-  - Table
+  0: bold
+  1: italic
+  2: 'alignment:left'
+  3: 'alignment:center'
+  4: 'alignment:right'
+  5: 'alignment:justify'
+  6: bulletedList
+  7: numberedList
+  8: undo
+  9: redo
+  10: link
+  12: insertImage
+  13: fontColor
+  14: removeFormat
+  15: heading
+  16: fontSize
+  17: style
+  18: insertTable
 modal_buttons:
-  - Bold
-  - Italic
-  - Underline
-  - Strike
-  - JustifyLeft
-  - JustifyCenter
-  - JustifyRight
-  - JustifyBlock
-  - BulletedList
-  - NumberedList
-  - Outdent
-  - Indent
-  - Undo
-  - Redo
-  - Link
-  - Unlink
-  - Image
-  - TextColor
-  - Superscript
-  - Subscript
-  - Blockquote
-  - Source
-  - HorizontalRule
-  - PasteText
-  - PasteFromWord
-  - ShowBlocks
-  - RemoveFormat
-  - SpecialChar
-  - Format
-  - FontSize
-  - Styles
-  - Table
-  - CreateDiv
-  - Maximize
-  - Scayt
-  - Templates
+  0: bold
+  1: italic
+  2: underline
+  3: strikethrough
+  4: 'alignment:left'
+  5: 'alignment:center'
+  6: 'alignment:right'
+  7: 'alignment:justify'
+  8: bulletedList
+  9: numberedList
+  10: outdent
+  11: indent
+  12: undo
+  13: redo
+  14: link
+  16: insertImage
+  17: fontColor
+  18: superscript
+  19: subscript
+  20: blockQuote
+  21: sourceEditing
+  22: horizontalLine
+  25: showBlocks
+  26: removeFormat
+  27: specialCharacters
+  28: heading
+  29: fontSize
+  30: style
+  31: insertTable
