@@ -1,6 +1,9 @@
+uuid: e67e9c1a-5e12-4e20-a91c-41c2fd851164
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: 2Vj8cvAJSBhGHrgrWUwy80qW_3lwT4gZZLMezsEsGfc
 id: marketing
 label: Marketing
 dxpr_editor: true
@@ -29,53 +32,45 @@ page_templates:
 user_templates:
   - 6773325e-0b4e-47bc-af80-e62f18141875
 inline_buttons:
-  - Bold
-  - Italic
-  - BulletedList
-  - NumberedList
-  - Undo
-  - Redo
-  - Link
-  - Unlink
-  - Image
-  - RemoveFormat
-  - Format
-  - Styles
-  - Table
+  0: bold
+  1: italic
+  2: bulletedList
+  3: numberedList
+  4: undo
+  5: redo
+  6: link
+  8: insertImage
+  9: removeFormat
+  10: heading
+  11: style
+  12: insertTable
 modal_buttons:
-  - Bold
-  - Italic
-  - Underline
-  - Strike
-  - JustifyLeft
-  - JustifyCenter
-  - JustifyRight
-  - JustifyBlock
-  - BulletedList
-  - NumberedList
-  - Outdent
-  - Indent
-  - Undo
-  - Redo
-  - Link
-  - Unlink
-  - Image
-  - TextColor
-  - Superscript
-  - Subscript
-  - Blockquote
-  - Source
-  - HorizontalRule
-  - PasteText
-  - PasteFromWord
-  - ShowBlocks
-  - RemoveFormat
-  - SpecialChar
-  - Format
-  - FontSize
-  - Styles
-  - Table
-  - CreateDiv
-  - Maximize
-  - Scayt
-  - Templates
+  0: bold
+  1: italic
+  2: underline
+  3: strikethrough
+  4: 'alignment:left'
+  5: 'alignment:center'
+  6: 'alignment:right'
+  7: 'alignment:justify'
+  8: bulletedList
+  9: numberedList
+  10: outdent
+  11: indent
+  12: undo
+  13: redo
+  14: link
+  16: insertImage
+  17: fontColor
+  18: superscript
+  19: subscript
+  20: blockQuote
+  21: sourceEditing
+  22: horizontalLine
+  25: showBlocks
+  26: removeFormat
+  27: specialCharacters
+  28: heading
+  29: fontSize
+  30: style
+  31: insertTable
