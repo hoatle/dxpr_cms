@@ -19,7 +19,7 @@
     "drupal/contact_block": "^2.0",
     "drupal/core": "^10.2.0",
     "drupal/default_content": "^2",
-    "drupal/dxpr_builder": "^3.0.0-alpha8",
+    "drupal/dxpr_builder": "^3.0.0-alpha10",
     "drupal/dxpr_theme_helper": "^1",
     "drupal/dxpr_theme": "^6",
     "drupal/entity_browser": "^2.8",
