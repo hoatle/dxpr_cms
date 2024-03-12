@@ -1,4 +1,4 @@
-profile: dxpr_marketing_cms
+profile: dxpr_cms
 blacklist:
   - 'admin_toolbar_search.*'
   - 'automated_cron.*'

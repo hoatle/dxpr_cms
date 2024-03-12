@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Install, update and uninstall functions for the dxpr_marketing_cms installation profile.
+ * Install, update and uninstall functions for the dxpr_cms installation profile.
  */
 
 use Drupal\user\Entity\User;
@@ -15,7 +15,7 @@ use Drupal\shortcut\Entity\Shortcut;
  *
  * @see system_install()
  */
-function dxpr_marketing_cms_install() {
+function dxpr_cms_install() {
   // Assign user 1 the "administrator" role.
   /** @var \Drupal\user\Entity\User $user */
   $user = User::load(1);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dxpr_marketing_cms\Form;
+namespace Drupal\dxpr_cms\Form;
 
 use Drupal\Core\Render\ElementInfoManagerInterface;
 

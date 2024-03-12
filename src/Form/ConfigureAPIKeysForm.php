@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dxpr_marketing_cms\Form;
+namespace Drupal\dxpr_cms\Form;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
@@ -33,7 +33,7 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
   /**
    * The form helper.
    *
-   * @var \Drupal\dxpr_marketing_cms\FormHelper
+   * @var \Drupal\dxpr_cms\FormHelper
    */
   protected $formHelper;
 
@@ -60,7 +60,7 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
    *   The info parser service.
    * @param \Drupal\Core\StringTranslation\TranslationInterface $translator
    *   The string translation service.
-   * @param \Drupal\dxpr_marketing_cms\FormHelper $form_helper
+   * @param \Drupal\dxpr_cms\FormHelper $form_helper
    *   The form helper.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory service.
@@ -88,7 +88,7 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
       $container->getParameter('app.root'),
       $container->get('info_parser'),
       $container->get('string_translation'),
-      $container->get('dxpr_marketing_cms.form_helper'),
+      $container->get('dxpr_cms.form_helper'),
       $container->get('config.factory'),
       $container->get('dxpr_builder.jwt_decoder'),
     );
@@ -98,7 +98,7 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'dxpr_marketing_cms_api_keys_configuration';
+    return 'dxpr_cms_api_keys_configuration';
   }
 
   /**
@@ -115,8 +115,8 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
 
 
     
-    // if (isset($install_state['dxpr_marketing_cms']['enable_multilingual']) && 
-    // $install_state['dxpr_marketing_cms']['enable_multilingual']) {
+    // if (isset($install_state['dxpr_cms']['enable_multilingual']) && 
+    // $install_state['dxpr_cms']['enable_multilingual']) {
       $form['google_translation_key'] = [
         '#type' => 'textfield',
         '#title' => $this->t('Google Cloud Translation API key (optional)'),

@@ -1,8 +1,8 @@
 {
-  "name": "dxpr/dxpr_marketing_cms",
+  "name": "dxpr/dxpr_cms",
   "type": "drupal-profile",
   "description": "Marketing CMS demo site with DXPR Builder no-code page builder.",
-  "homepage": "https://www.drupal.org/project/dxpr_marketing_cms",
+  "homepage": "https://www.drupal.org/project/dxpr_cms",
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "prefer-stable": true,

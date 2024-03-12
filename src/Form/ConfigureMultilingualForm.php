@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dxpr_marketing_cms\Form;
+namespace Drupal\dxpr_cms\Form;
 
 use Drupal\Core\Extension\InfoParserInterface;
 use Drupal\Core\Form\FormBase;
@@ -13,7 +13,7 @@ use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
- * Defines form for selecting DXPR Marketing CMS Multilingual configuration options form.
+ * Defines form for selecting DXPR CMS Multilingual configuration options form.
  */
 class ConfigureMultilingualForm extends FormBase implements ContainerInjectionInterface {
 
@@ -36,7 +36,7 @@ class ConfigureMultilingualForm extends FormBase implements ContainerInjectionIn
   /**
    * The form helper.
    *
-   * @var \Drupal\dxpr_marketing_cms\AssemblerFormHelper
+   * @var \Drupal\dxpr_cms\AssemblerFormHelper
    */
   protected $formHelper;
 
@@ -56,7 +56,7 @@ class ConfigureMultilingualForm extends FormBase implements ContainerInjectionIn
    *   The info parser service.
    * @param \Drupal\Core\StringTranslation\TranslationInterface $translator
    *   The string translation service.
-   * @param \Drupal\dxpr_marketing_cms\Form\FormHelper $form_helper
+   * @param \Drupal\dxpr_cms\Form\FormHelper $form_helper
    *   The form helper.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory service.
@@ -77,7 +77,7 @@ class ConfigureMultilingualForm extends FormBase implements ContainerInjectionIn
       $container->getParameter('app.root'),
       $container->get('info_parser'),
       $container->get('string_translation'),
-      $container->get('dxpr_marketing_cms.form_helper'),
+      $container->get('dxpr_cms.form_helper'),
       $container->get('config.factory')
     );
   }
@@ -86,7 +86,7 @@ class ConfigureMultilingualForm extends FormBase implements ContainerInjectionIn
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'dxpr_marketing_cms_multilingual_configuration';
+    return 'dxpr_cms_multilingual_configuration';
   }
 
   /**
@@ -153,7 +153,7 @@ class ConfigureMultilingualForm extends FormBase implements ContainerInjectionIn
       '#size' => 8,
       '#attached' => [
         'library' => [
-          'dxpr_marketing_cms/choices',
+          'dxpr_cms/choices',
         ],
       ],
       '#attributes' => [
@@ -209,7 +209,7 @@ class ConfigureMultilingualForm extends FormBase implements ContainerInjectionIn
     $enable_multilingual = $form_state->getValue('enable_multilingual');
     if (isset($enable_multilingual)
         && $enable_multilingual == TRUE) {
-          $install_state['dxpr_marketing_cms']['enable_multilingual'] = TRUE;
+          $install_state['dxpr_cms']['enable_multilingual'] = TRUE;
 
         // Get list of selected multilingual languages.
         $multilingual_languages = $form_state->getValue('multilingual_languages');
@@ -224,10 +224,10 @@ class ConfigureMultilingualForm extends FormBase implements ContainerInjectionIn
         if ($form_state->getValue('multilingual_demo_content')) {
           $multilingual_languages['es'] = 'es';
         }
-        $install_state['dxpr_marketing_cms']['multilingual_languages'] = $multilingual_languages;
+        $install_state['dxpr_cms']['multilingual_languages'] = $multilingual_languages;
     }
     else {
-      $install_state['dxpr_marketing_cms']['enable_multilingual'] = FALSE;
+      $install_state['dxpr_cms']['enable_multilingual'] = FALSE;
     }
 
   }

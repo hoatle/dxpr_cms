@@ -1,6 +1,6 @@
-name: DXPR Marketing CMS Demo Content
+name: DXPR CMS Demo Content
 type: module
-description: Demo Content for Marketing CMS installation profile.
+description: Demo Content for DXPR CMS installation profile.
 package: DXPR
 core_version_requirement: ^9.3 || ^10
 dependencies:

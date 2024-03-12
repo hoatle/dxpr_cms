@@ -1,0 +1,5 @@
+services:
+  dxpr_cms.form_helper:
+    class: '\Drupal\dxpr_cms\Form\FormHelper'
+    arguments:
+      - "@element_info"
