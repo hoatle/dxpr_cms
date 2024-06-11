@@ -1,0 +1,129 @@
+name: 'Dxpr Cms'
+description: 'Applies all the DXPR CMS recipes.'
+type: Site
+recipes:
+  - core/recipes/basic_block_type
+  - core/recipes/content_search
+  - core/recipes/core_recommended_performance
+  - core/recipes/core_recommended_maintenance
+  - core/recipes/user_picture
+  - core/recipes/restricted_html_format
+  - core/recipes/remote_video_media_type
+  - dxpr_cms_admin_theme
+  - dxpr_cms_audio_media_type
+  - dxpr_cms_blog_content_type
+  - dxpr_cms_basic_html_editor
+  - dxpr_cms_document_media_type
+  - dxpr_cms_forms
+  - dxpr_cms_full_html_editor
+  - dxpr_cms_image_media_type
+  - dxpr_cms_local_video_media_type
+  - dxpr_cms_page_content_type
+  - dxpr_theme
+install:
+  - block_classes
+  - config
+  - contact_block
+  - contextual
+  - datetime
+  - dynamic_page_cache
+  - easy_breadcrumb
+  - field_ui
+  - gin_login
+  - help
+  - history
+  - language
+  - menu_ui
+  - metatag
+  - moderation_dashboard
+  - options
+  - project_browser
+  - redirect
+  - shortcut
+  - taxonomy
+  - toolbar
+  - uli_custom_workflow
+  - views_ui
+  - workflows
+  - xmlsitemap
+config:
+  import:
+    help:
+      - search.page.help_search
+    image:
+      - image.style.large
+      - image.style.thumbnail
+    metatag: '*'
+    easy_breadcrumb: '*'
+    node:
+      - views.view.archive
+      - views.view.content
+      - views.view.content_recent
+      - views.view.frontpage
+      - views.view.glossary
+    shortcut:
+      - shortcut.set.default
+    user:
+      - core.entity_view_mode.user.compact
+      - search.page.user_search
+      - views.view.user_admin_people
+      - views.view.who_s_new
+      - views.view.who_s_online
+  actions:
+    node.type.blog:
+      # Don't allow blog posts to have menu links by default, since that's
+      # not normally what blog posts are for.
+      setThirdPartySettings:
+        -
+          module: menu_ui
+          key: available_menus
+          value: []
+        -
+          module: menu_ui
+          key: parent
+          value: ''
+    project_browser.admin_settings:
+      simple_config_update:
+        enabled_sources:
+          - drupalorg_mockapi
+          - local_recipes
+    system.site:
+      simple_config_update:
+        name: 'DXPR CMS'
+        page.front: '/node'
+    node.settings:
+      simple_config_update:
+        langcode: en
+        use_admin_theme: true
+    user.role.authenticated:
+      grantPermissions:
+        - 'access help pages'
+        - 'access shortcuts'
+        - 'access user profiles'
+        - 'delete own files'
+        - 'use advanced search'
+        - 'view own unpublished content'
+    user.role.anonymous:
+      grantPermissions:
+        - 'access content'
+        - 'use advanced search'
+    user.settings:
+      simple_config_update:
+        verify_mail: true
+        notify:
+          cancel_confirm: true
+          password_reset: true
+          status_activated: true
+          status_blocked: false
+          status_canceled: false
+          register_admin_created: true
+          register_no_approval_required: true
+          register_pending_approval: true
+        register: visitors_admin_approval
+        cancel_method: user_cancel_block
+        password_reset_timeout: 86400
+        password_strength: true
+    easy_breadcrumb.settings:
+      simple_config_update:
+        add_structured_data_json_ld: true
+        hide_single_home_item: true

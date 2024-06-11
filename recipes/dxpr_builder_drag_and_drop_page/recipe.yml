@@ -1,0 +1,71 @@
+name: 'Drag and drop Page'
+type: 'Dxpr Cms'
+description: 'Page builder page with DXPR Builder visual layout builder.'
+recipes:
+  - dxpr_cms_full_html_editor
+install:
+  - dxpr_builder_page
+  - dxpr_theme_helper
+  - menu_link_attributes
+config:
+  import:
+    dxpr_builder_page: '*'
+    dxpr_theme_helper: '*'
+    menu_link_attributes: '*'
+  actions:
+    metatag.settings:
+      simple_config_update:
+        entity_type_groups.node.drag_and_drop_page:
+          - basic
+          - advanced
+          - open_graph
+    workflows.workflow.editorial:
+      addNodeTypes:
+        - drag_and_drop_page
+    user.role.content_administrator:
+      grantPermissions:
+        - 'create drag_and_drop_page content'
+        - 'delete own drag_and_drop_page content'
+        - 'edit any drag_and_drop_page content'
+        - 'edit own drag_and_drop_page content'
+        - 'revert drag_and_drop_page revisions'
+        - 'view drag_and_drop_page revisions'
+    user.role.content_editor:
+      grantPermissions:
+        - 'create drag_and_drop_page content'
+        - 'delete own drag_and_drop_page content'
+        - 'edit any drag_and_drop_page content'
+        - 'edit own drag_and_drop_page content'
+        - 'revert drag_and_drop_page revisions'
+        - 'view drag_and_drop_page revisions'
+    user.role.marketer:
+      grantPermissions:
+        - 'create drag_and_drop_page content'
+        - 'delete own drag_and_drop_page content'
+        - 'edit any drag_and_drop_page content'
+        - 'edit own drag_and_drop_page content'
+        - 'revert drag_and_drop_page revisions'
+        - 'view drag_and_drop_page revisions'
+    user.role.site_bui:
+      grantPermissions:
+        - 'create drag_and_drop_page content'
+        - 'delete own drag_and_drop_page content'
+        - 'edit any drag_and_drop_page content'
+        - 'edit own drag_and_drop_page content'
+        - 'revert drag_and_drop_page revisions'
+        - 'view drag_and_drop_page revisions'
+        - 'use menu link attributes'
+    scheduler.settings:
+      simple_config_update:
+        expand_fieldset: when_required
+        fields_display_mode: vertical_tab
+        publish_enable: true
+        publish_past_date: error
+        publish_past_date_created: false
+        publish_required: false
+        publish_revision: true
+        publish_touch: true
+        show_message_after_update: true
+        unpublish_enable: true
+        unpublish_required: false
+        unpublish_revision: true

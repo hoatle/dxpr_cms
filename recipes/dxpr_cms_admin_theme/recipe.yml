@@ -1,0 +1,16 @@
+name: 'Admin Theme'
+type: 'Dxpr Cms'
+description: 'Sets up a nice administrative theme and navigation.'
+install:
+  - coffee
+  - gin
+  - gin_toolbar
+  - navigation
+config:
+  import:
+    gin: '*'
+    navigation: '*'
+  actions:
+    system.theme:
+      simple_config_update:
+        admin: gin

@@ -1,20 +1,5 @@
-.idea
-deploy.sh
-node_modules
-
-# SASS Cache
-*.sass-cache*
-
-# OS specific stuff
-.DS_Store
-Thumbs.db
-
-# Auto generated files.
-# /css/*
-# /js/minified/*
-
-.build-done
-out
-
-.npm.installed
-.env
+/.phpunit.result.cache
+/composer.lock
+/patches.lock.json
+/vendor
+/web

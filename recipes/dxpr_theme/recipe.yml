@@ -1,0 +1,16 @@
+name: 'DXPR Theme'
+description: 'Sets up Dxpr Theme as the front-end theme.'
+type: 'Themes'
+install:
+  - dxpr_theme
+config:
+  import:
+    system:
+      - system.menu.account
+      - system.menu.main
+      - system.theme
+    dxpr_theme: '*'
+  actions:
+    system.theme:
+      simple_config_update:
+        default: dxpr_theme

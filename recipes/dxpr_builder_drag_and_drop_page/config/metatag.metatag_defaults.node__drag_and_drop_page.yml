@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node__drag_and_drop_page
+label: 'Content: Drag and drop page'
+tags:
+  description: '[node:summary]'
+  og_description: '[node:summary]'
+  og_title: '[node:title]'
+  og_type: '[node:content-type]'
+  title: '[node:title]'
