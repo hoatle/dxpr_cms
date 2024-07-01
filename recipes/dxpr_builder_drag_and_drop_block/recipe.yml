@@ -3,6 +3,7 @@ description: 'Advanced page with visual page building tools. Powered by DXPR Bui
 type: 'Block type'
 install:
   - dxpr_builder_block
+  - options
 config:
   import:
     dxpr_builder_block: '*'

@@ -8,59 +8,136 @@
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        "dxpr_cms_base": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_base",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_admin_theme": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_admin_theme",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_audio_media_type": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_audio_media_type",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_basic_html_editor": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_basic_html_editor",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_blog_content_type": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_blog_content_type",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_content_type_base": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_content_type_base",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_document_media_type": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_document_media_type",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_installer": {
+            "type": "path",
+            "url": "installer",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_full_html_editor": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_full_html_editor",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_image_media_type": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_image_media_type",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_local_video_media_type": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_local_video_media_type",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_multilingual": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_multilingual",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_cms_page_content_type": {
+            "type": "path",
+            "url": "recipes/dxpr_cms_page_content_type",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_builder_base": {
+            "type": "path",
+            "url": "recipes/dxpr_builder_base",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_builder_drag_and_drop_block": {
+            "type": "path",
+            "url": "recipes/dxpr_builder_drag_and_drop_block",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_builder_drag_and_drop_page": {
+            "type": "path",
+            "url": "recipes/dxpr_builder_drag_and_drop_page",
+            "options": {
+                "symlink": false
+            }
+        },
+        "dxpr_theme_base": {
+            "type": "path",
+            "url": "recipes/dxpr_theme_base",
+            "options": {
+                "symlink": false
+            }
         }
     },
     "require": {
-        "ext-pdo_sqlite": "*",
-        "composer/installers": "^2.0",
+        "composer/installers": "^2.3",
         "cweagans/composer-patches": "^2",
-        "drupal/address": "^2.0",
-        "drupal/antibot": "^2.0",
-        "drupal/block_classes": "^1.0",
-        "drupal/bootstrap5": "^3.0@RC",
-        "drupal/coffee": "^1.4",
-        "drupal/contact_block": "^2.0",
         "drupal/core-composer-scaffold": "^10.3",
         "drupal/core-project-message": "^10.3",
         "drupal/core-recommended": "^10.3",
-        "drupal/diff": "^1.3",
-        "drupal/dxpr_builder": "^2.6@alpha",
-        "drupal/dxpr_theme": "6.x-dev@dev",
-        "drupal/dxpr_theme_helper": "^1",
-        "drupal/easy_breadcrumb": "^2.0",
-        "drupal/entity_browser": "^2.10",
-        "drupal/field_group": "^3.4",
-        "drupal/focal_point": "^2.0",
-        "drupal/geolocation": "^3.12",
-        "drupal/gin": "3.x-dev",
-        "drupal/gin_login": "^2",
-        "drupal/gin_toolbar": "1.x-dev",
-        "drupal/honeypot": "^2.1",
-        "drupal/inline_entity_form": "^3.0@RC",
-        "drupal/linkit": "6.1.x-dev",
-        "drupal/media_entity_download": "^2.2",
-        "drupal/media_file_delete": "^1.3",
-        "drupal/menu_link_attributes": "^1.3",
-        "drupal/metatag": "^2.0",
-        "drupal/moderation_dashboard": "^3.0",
-        "drupal/pathauto": "^1.12",
-        "drupal/project_browser": "1.0.x-dev",
-        "drupal/quick_node_clone": "^1.18",
-        "drupal/redirect": "^1.9",
-        "drupal/responsive_preview": "^2.0",
-        "drupal/sam": "^1.2",
-        "drupal/same_page_preview": "^2.1",
-        "drupal/scheduler": "^2.0.2",
-        "drupal/section_library": "^1.1",
-        "drupal/simple_sitemap": "^4.1",
-        "drupal/smart_date": "^4.0",
-        "drupal/tmgmt": "^1.15",
-        "drupal/tmgmt_google": "^1.1",
-        "drupal/type_tray": "^1.2",
-        "drupal/uli_custom_workflow": "^1.0",
-        "drupal/xmlsitemap": "^1.4",
-        "drush/drush": "^12.5",
-        "oomphinc/composer-installers-extender": "^2"
+        "drupal/dxpr_cms_base": "*",
+        "drupal/dxpr_cms_installer": "*",
+        "drush/drush": "^12.5"
     },
     "require-dev": {
         "drupal/core-dev": "^10.3",
@@ -80,8 +157,7 @@
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "php-http/discovery": true,
-            "cweagans/composer-patches": true,
-            "oomphinc/composer-installers-extender": true
+            "cweagans/composer-patches": true
         },
         "sort-packages": true,
         "optimize-autoloader": true
@@ -120,27 +196,29 @@
             ]
         },
         "patches": {
+            "drupal/core": {
+                "#3444246: Create a config action to set the status of the entity": "./patches/core/recipes-103.patch",
+                "Add config actions to make a bundle of an entity type translatable": "./patches/core/make-translatable-action.patch"
+            }
         }
     },
     "scripts": {
         "drupal:install": [
             "Composer\\Config::disableProcessTimeout",
-            "cd web && php -d memory_limit=512M core/scripts/drupal install ../recipes/dxpr_cms",
-            "php build_dxpr_theme.php",
-            "cd web && chmod 755 sites/default",
-            "drush user:password admin admin"
+            "\\Drupal\\dxpr_cms_installer\\ScriptHandler::configureDrush",
+            "drush site:install --yes --account-pass admin --config drush-install.yml && rm -f drush-install.yml"
         ],
         "drupal:install-dev": [
             "cd web/sites/default && chmod +w . && rm -rf settings.php files",
             "@drupal:install",
             "drush config:set --yes system.logging error_level verbose",
-            "drush pm:enable --yes default_content",
-            "drush user:password admin admin",
+            "drush install --yes default_content",
             "drush user:password editor editor",
             "drush user:unblock editor"
         ],
         "drupal:rebuild": [
             "sudo rm -rf vendor web composer.lock patches.lock.json | true",
+            "git checkout web/.gitkeep",
             "@composer install",
             "@drupal:install"
         ],
@@ -151,8 +229,9 @@
         "drupal:run-tests": [
             "./vendor/bin/phpunit"
         ],
-        "post-create-project-cmd": [
+        "quick-start": [
             "@drupal:install",
+            "php build_dxpr_theme.php",
             "test -n \"$CI\" || composer drupal:run-server"
         ]
     },
@@ -161,7 +240,8 @@
         "drupal:install-dev": "Installs DXPR CMS, with additional modules and configuration tweaks for development.",
         "drupal:rebuild": "Rebuilds the codebase and reinstalls DXPR CMS from scratch. Should only be used for internal development.",
         "drupal:run-server": "Runs DXPR CMS using the PHP webserver and opens it in the default browser.",
-        "drupal:run-tests": "Runs DXPR CMS's automated test suite."
+        "drupal:run-tests": "Runs DXPR CMS's automated test suite.",
+        "quick-start": "Installs DXPR CMS and opens it in a browser."
     },
     "scripts-aliases": {
         "drupal:install": [
@@ -175,5 +255,10 @@
         "drupal:run-tests": [
             "test"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Drupal\\dxpr_cms_installer\\": "installer/src"
+        }
     }
 }

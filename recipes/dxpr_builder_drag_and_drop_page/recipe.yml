@@ -7,6 +7,9 @@ install:
   - dxpr_builder_page
   - dxpr_theme_helper
   - menu_link_attributes
+  - metatag
+  - workflows
+  - scheduler
 config:
   import:
     dxpr_builder_page: '*'
@@ -22,39 +25,6 @@ config:
     workflows.workflow.editorial:
       addNodeTypes:
         - drag_and_drop_page
-    user.role.content_administrator:
-      grantPermissions:
-        - 'create drag_and_drop_page content'
-        - 'delete own drag_and_drop_page content'
-        - 'edit any drag_and_drop_page content'
-        - 'edit own drag_and_drop_page content'
-        - 'revert drag_and_drop_page revisions'
-        - 'view drag_and_drop_page revisions'
-    user.role.content_editor:
-      grantPermissions:
-        - 'create drag_and_drop_page content'
-        - 'delete own drag_and_drop_page content'
-        - 'edit any drag_and_drop_page content'
-        - 'edit own drag_and_drop_page content'
-        - 'revert drag_and_drop_page revisions'
-        - 'view drag_and_drop_page revisions'
-    user.role.marketer:
-      grantPermissions:
-        - 'create drag_and_drop_page content'
-        - 'delete own drag_and_drop_page content'
-        - 'edit any drag_and_drop_page content'
-        - 'edit own drag_and_drop_page content'
-        - 'revert drag_and_drop_page revisions'
-        - 'view drag_and_drop_page revisions'
-    user.role.site_bui:
-      grantPermissions:
-        - 'create drag_and_drop_page content'
-        - 'delete own drag_and_drop_page content'
-        - 'edit any drag_and_drop_page content'
-        - 'edit own drag_and_drop_page content'
-        - 'revert drag_and_drop_page revisions'
-        - 'view drag_and_drop_page revisions'
-        - 'use menu link attributes'
     scheduler.settings:
       simple_config_update:
         expand_fieldset: when_required

@@ -1,0 +1,19 @@
+name: 'Dxpr Builder'
+description: 'DXPR Builder visual layout builder.'
+type: 'Builder'
+install:
+  - entity_browser
+  - dxpr_builder
+  - dxpr_builder_media
+  - options
+  - field_group
+config:
+  import:
+    entity_browser: '*'
+    dxpr_builder: '*'
+    dxpr_builder_media: '*'
+  actions:
+    system.site:
+      simple_config_update:
+        name: 'DXPR CMS'
+        page.front: '/node/6'

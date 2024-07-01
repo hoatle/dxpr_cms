@@ -1,0 +1,10 @@
+{
+    "name": "drupal/dxpr_builder_drag_and_drop_block",
+    "type": "drupal-recipe",
+    "description": "Advanced page with visual page building tools. Powered by DXPR Builder.",
+    "version": "dev-main",
+    "require": {
+        "drupal/core": ">=10.3",
+        "drupal/dxpr_builder": "^2.6@alpha"
+    }
+}

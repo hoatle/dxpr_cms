@@ -1,0 +1,12 @@
+{
+    "name": "drupal/dxpr_builder_drag_and_drop_page",
+    "type": "drupal-recipe",
+    "description": "Page builder page with DXPR Builder visual layout builder.",
+    "version": "dev-main",
+    "require": {
+        "drupal/core": ">=10.3",
+        "drupal/dxpr_builder": "^2.6@alpha",
+        "drupal/dxpr_theme_helper": "^1",
+        "drupal/menu_link_attributes": "^1.3"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "drupal/dxpr_cms_multilingual",
+    "type": "drupal-recipe",
+    "version": "dev-main",
+    "description": "Adds support for translations.",
+    "require": {
+        "drupal/core": ">=10.3",
+        "drupal/tmgmt": "^1.15",
+        "drupal/tmgmt_google": "^1.1"
+    }
+}

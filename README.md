@@ -16,29 +16,13 @@ Follow these steps to install DXPR CMS:
 2. Run the following command:
 
     ```bash
-    $ ddev install
+    $ ddev quick-start
     ```
 
 3. Once the installation is complete, your browser will automatically open the DXPR CMS site.
 4. Log in with the following credentials:
   - **Username**: admin
   - **Password**: admin
-
-## Adding New Recipes
-
-If you want to install new recipes after the site is up and running, use the following commands:
-
-1. To install the DXPR Builder recipe:
-
-    ```bash
-    $ ddev php core/scripts/drupal recipe ../recipes/dxpr_builder
-    ```
-
-2. To install the Multilingual recipe:
-
-    ```bash
-    $ ddev php core/scripts/drupal recipe ../recipes/dxpr_cms_multilingual
-    ```
 
 ## Support
 

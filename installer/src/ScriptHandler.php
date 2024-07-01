@@ -1,0 +1,41 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Drupal\dxpr_cms_installer;
+
+use Composer\Script\Event;
+use Drupal\Component\Serialization\Yaml;
+
+/**
+ * Contains Composer scripts used during Dxpr Cms installation.
+ */
+final class ScriptHandler {
+
+  /**
+   * Writes Drush configuration for installing Dxpr Cms.
+   *
+   * @param \Composer\Script\Event $event
+   *   The event object.
+   */
+  public static function configureDrush(Event $event): void {
+    // If DDEV is managing site settings, it's probably already set up the
+    // database, so we don't need to do anything else here.
+    if (getenv('IS_DDEV_PROJECT') && file_exists('web/sites/default/settings.ddev.php')) {
+      return;
+    }
+    $data = [];
+    $arguments = $event->getArguments();
+
+    // If SQLite is available, use a SQLite database by default. Otherwise,
+    // Drush will prompt for a database URL during installation.
+    if (extension_loaded('pdo_sqlite')) {
+      $arguments[0] ??= 'sqlite://db.sqlite';
+    }
+    if ($arguments) {
+      $data['command']['site']['install']['options']['db-url'] = $arguments[0];
+    }
+    file_put_contents('drush-install.yml', Yaml::encode($data));
+  }
+
+}

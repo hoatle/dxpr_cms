@@ -14,20 +14,22 @@ recipes:
   - dxpr_cms_blog_content_type
   - dxpr_cms_basic_html_editor
   - dxpr_cms_document_media_type
-  - dxpr_cms_forms
   - dxpr_cms_full_html_editor
   - dxpr_cms_image_media_type
   - dxpr_cms_local_video_media_type
   - dxpr_cms_page_content_type
-  - dxpr_theme
+  - dxpr_builder_base
+  - dxpr_builder_drag_and_drop_block
+  - dxpr_builder_drag_and_drop_page
+  - dxpr_theme_base
 install:
   - block_classes
   - config
-  - contact_block
   - contextual
   - datetime
   - dynamic_page_cache
   - easy_breadcrumb
+  - eca_ui
   - field_ui
   - gin_login
   - help
@@ -90,7 +92,7 @@ config:
     system.site:
       simple_config_update:
         name: 'DXPR CMS'
-        page.front: '/node'
+        page.front: '/node/6'
     node.settings:
       simple_config_update:
         langcode: en
