@@ -1,5 +1,5 @@
 name: 'Multilingual support'
-type: 'Dxpr Cms'
+type: 'DXPR CMS'
 description: 'Adds support for translations.'
 install:
   - config_translation

@@ -1,5 +1,5 @@
 name: 'Image media type'
-type: 'Dxpr Cms'
+type: 'DXPR CMS'
 description: 'Adds focal point-based cropping to the image media type.'
 recipes:
   - core/recipes/image_media_type

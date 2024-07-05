@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Description: Installs Dxpr Cms and opens it in a browser.
+## Description: Installs DXPR CMS and opens it in a browser.
 
 ddev start
 ddev composer install

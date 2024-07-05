@@ -1,5 +1,5 @@
 name: 'Content type basics'
-type: 'Dxpr Cms'
+type: 'DXPR CMS'
 description: 'Provides basic infrastructure for moderation, meta tags, cloning, and scheduled publishing of content.'
 recipes:
   - core/recipes/editorial_workflow

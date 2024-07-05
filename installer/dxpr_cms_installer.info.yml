@@ -1,9 +1,9 @@
 name: Installer
 type: profile
 core_version_requirement: '>=10.3'
-description: 'Provides install-time tweaks for Dxpr Cms.'
+description: 'Provides install-time tweaks for DXPR CMS.'
 distribution:
-  name: Dxpr Cms
+  name: DXPR CMS
   install:
     finish_url: 'admin/modules/browse'
 install:

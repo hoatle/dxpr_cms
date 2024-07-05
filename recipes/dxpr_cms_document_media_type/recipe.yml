@@ -1,5 +1,5 @@
 name: 'Document media type'
-type: 'Dxpr Cms'
+type: 'DXPR CMS'
 description: 'Adds a few enhancements to the document media type.'
 recipes:
   - core/recipes/document_media_type

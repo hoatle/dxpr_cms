@@ -1,7 +1,7 @@
 {
     "name": "drupal/dxpr_theme_base",
     "type": "drupal-recipe",
-    "description": "Sets up Dxpr Theme as the front-end theme.",
+    "description": "Sets up DXPR Theme as the front-end theme.",
     "version": "dev-main",
     "require": {
         "drupal/core": ">=10.3",

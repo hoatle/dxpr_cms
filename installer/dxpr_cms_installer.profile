@@ -99,7 +99,7 @@ function _dxpr_cms_installer_install_configure_form_submit(array &$form, FormSta
 }
 
 /**
- * Runs a batch job that applies all of the Dxpr Cms recipes.
+ * Runs a batch job that applies all of the DXPR CMS recipes.
  *
  * @return array
  *   The batch job definition.

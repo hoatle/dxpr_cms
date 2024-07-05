@@ -1,5 +1,5 @@
 name: 'Admin Theme'
-type: 'Dxpr Cms'
+type: 'DXPR CMS'
 description: 'Sets up a nice administrative theme and navigation.'
 install:
   - coffee

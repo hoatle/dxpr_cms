@@ -1,5 +1,5 @@
 name: 'Video file media type'
-type: 'Dxpr Cms'
+type: 'DXPR CMS'
 description: 'Adds a few enhancements to the video file media type.'
 recipes:
   - core/recipes/local_video_media_type

@@ -8,12 +8,12 @@ use Composer\Script\Event;
 use Drupal\Component\Serialization\Yaml;
 
 /**
- * Contains Composer scripts used during Dxpr Cms installation.
+ * Contains Composer scripts used during DXPR CMS installation.
  */
 final class ScriptHandler {
 
   /**
-   * Writes Drush configuration for installing Dxpr Cms.
+   * Writes Drush configuration for installing DXPR CMS.
    *
    * @param \Composer\Script\Event $event
    *   The event object.

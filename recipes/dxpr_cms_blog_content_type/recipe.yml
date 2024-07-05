@@ -1,5 +1,5 @@
 name: 'Blog'
-type: 'Dxpr Cms'
+type: 'DXPR CMS'
 description: 'Sets up a basic blog, with tagging and commenting.'
 recipes:
   - core/recipes/comment_base

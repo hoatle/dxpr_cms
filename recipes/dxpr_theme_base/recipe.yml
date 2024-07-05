@@ -1,5 +1,5 @@
 name: 'DXPR Theme'
-description: 'Sets up Dxpr Theme as the front-end theme.'
+description: 'Sets up DXPR Theme as the front-end theme.'
 type: 'Themes'
 install:
   - dxpr_theme
