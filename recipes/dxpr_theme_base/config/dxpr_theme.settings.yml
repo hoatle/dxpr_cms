@@ -55,15 +55,15 @@ h2_mobile_font_size: '30'
 h3_mobile_font_size: '24'
 h4_mobile_font_size: '20'
 preload_local_fonts: 0
-body_font_face: '0Open+Sans:'
+body_font_face: SF_Segoe_Roboto
 body_font_face_selector: body
-headings_font_face: '0Work+Sans:700'
+headings_font_face: SF_Segoe_Roboto
 headings_font_face_selector: 'h1,h2,h3,h4,h5,h6,label,.field--label,.page-title, .html .tp-caption'
-nav_font_face: '0Open+Sans:'
+nav_font_face: SF_Segoe_Roboto
 nav_font_face_selector: 'nav,nav ul li,nav a'
-sitename_font_face: '0Work+Sans:700'
+sitename_font_face: SF_Segoe_Roboto
 sitename_font_face_selector: '.site-name, .navbar-brand'
-blockquote_font_face: '0Open+Sans:italic'
+blockquote_font_face: SF_Segoe_Roboto
 blockquote_font_face_selector: 'blockquote, blockquote p'
 portfolio_details: top
 portfolio_sidebar: '4'
@@ -218,7 +218,7 @@ second_header_sticky: 0
 hamburger_animation: none
 mark_menu_with_children: 0
 header_mobile_fixed: 0
-headings_bold: 0
+headings_bold: 1
 page_title_breadcrumbs_align: right
 page_title_breadcrumbs_separator: /
 title_type:
