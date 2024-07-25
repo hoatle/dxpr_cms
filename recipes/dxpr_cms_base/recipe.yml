@@ -32,6 +32,13 @@ install:
   - eca_ui
   - field_ui
   - gin_login
+  - metatag
+  - menu_link_content
+  - package_manager
+  - project_browser
+  - redirect
+  - uli_custom_workflow
+  # The rest of these are in Standard.
   - help
   - history
   - language
@@ -48,6 +55,10 @@ install:
   - views_ui
   - workflows
   - xmlsitemap
+input:
+  ui_install_supported:
+    source: callable
+    callable: '\Drupal\project_browser\StarshotConfigurator::supportsUiInstall'
 config:
   import:
     help:
@@ -56,7 +67,6 @@ config:
       - image.style.large
       - image.style.thumbnail
     metatag: '*'
-    easy_breadcrumb: '*'
     node:
       - views.view.archive
       - views.view.content
@@ -87,8 +97,12 @@ config:
     project_browser.admin_settings:
       simple_config_update:
         enabled_sources:
+          - recipes
           - drupalorg_mockapi
-          - local_recipes
+        allowed_projects:
+          recipes:
+            - starshot_multilingual
+        allow_ui_install: $ui_install_supported
     system.site:
       simple_config_update:
         name: 'DXPR CMS'

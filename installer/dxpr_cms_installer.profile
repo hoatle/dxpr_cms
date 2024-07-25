@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Drupal\Core\Batch\BatchBuilder;
 use Drupal\Core\Extension\ModuleInstallerInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Recipe\InputCollector;
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
 use Symfony\Component\Process\ExecutableFinder;
@@ -90,16 +91,11 @@ function _dxpr_cms_installer_install_configure_form_submit(array &$form, FormSta
         'rsync' => $rsync,
       ])
       ->save();
-
-    \Drupal::configFactory()
-      ->getEditable('project_browser.admin_settings')
-      ->set('allow_ui_install', TRUE)
-      ->save();
   }
 }
 
 /**
- * Runs a batch job that applies all of the DXPR CMS recipes.
+ * Runs a batch job that applies all of the Starshot recipes.
  *
  * @return array
  *   The batch job definition.
