@@ -20,6 +20,7 @@ jobs:
 
       - name: Install DDEV
         run: |
+          set -e
           sudo sh -c 'echo ""'
           sudo install -m 0755 -d /etc/apt/keyrings
           curl -fsSL https://pkg.ddev.com/apt/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/ddev.gpg > /dev/null
@@ -30,11 +31,14 @@ jobs:
           sudo apt update && sudo apt install -y ddev
 
       - name: Install Starshot
-        run: ddev quick-start
+        run: |
+          set -e
+          ddev quick-start
         if: ${{ success() }}
 
       - name: Confirm that Starshot is running
         run: |
+          set -e
           ddev list -W
           curl --location --silent http://dxpr-cms.ddev.site/node/1 | grep "<title>"
         if: ${{ success() }}
