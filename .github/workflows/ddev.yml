@@ -31,8 +31,7 @@ jobs:
           sudo apt update && sudo apt install -y ddev
 
       - name: Install Starshot
-        run: |
-          ddev quick-start
+        run: ddev quick-start
 
       - name: Confirm that Starshot is running
         run: |
