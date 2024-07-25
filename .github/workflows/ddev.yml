@@ -29,39 +29,17 @@ jobs:
           echo "deb [signed-by=/etc/apt/keyrings/ddev.gpg] https://pkg.ddev.com/apt/ * *" | sudo tee /etc/apt/sources.list.d/ddev.list >/dev/null
           sudo sh -c 'echo ""'
           sudo apt update && sudo apt install -y ddev
-          if [ $? -ne 0 ]; then
-            echo "DDEV installation failed"
-            exit 1
-          else
-            echo "DDEV installation succeeded"
-          fi
-        continue-on-error: false
 
       - name: Install Starshot
         run: |
-          ddev quick-start
-          if [ $? -ne 0 ]; then
+          OUTPUT=$(ddev quick-start 2>&1)
+          echo "$OUTPUT"
+          if echo "$OUTPUT" | grep -q "returned with error code 1"; then
             echo "Starshot installation failed"
             exit 1
-          else
-            echo "Starshot installation succeeded"
           fi
-        continue-on-error: false
 
       - name: Confirm that Starshot is running
         run: |
           ddev list -W
-          if [ $? -ne 0 ]; then
-            echo "DDEV list failed"
-            exit 1
-          else
-            echo "DDEV list succeeded"
-          fi
           curl --location --silent http://dxpr-cms.ddev.site/node/1 | grep "<title>"
-          if [ $? -ne 0 ]; then
-            echo "Curl command failed"
-            exit 1
-          else
-            echo "Curl command succeeded"
-          fi
-        continue-on-error: false
