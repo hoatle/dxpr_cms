@@ -32,7 +32,10 @@ jobs:
           if [ $? -ne 0 ]; then
             echo "DDEV installation failed"
             exit 1
+          else
+            echo "DDEV installation succeeded"
           fi
+        continue-on-error: false
 
       - name: Install Starshot
         run: |
@@ -40,7 +43,10 @@ jobs:
           if [ $? -ne 0 ]; then
             echo "Starshot installation failed"
             exit 1
+          else
+            echo "Starshot installation succeeded"
           fi
+        continue-on-error: false
 
       - name: Confirm that Starshot is running
         run: |
@@ -48,9 +54,14 @@ jobs:
           if [ $? -ne 0 ]; then
             echo "DDEV list failed"
             exit 1
+          else
+            echo "DDEV list succeeded"
           fi
           curl --location --silent http://dxpr-cms.ddev.site/node/1 | grep "<title>"
           if [ $? -ne 0 ]; then
             echo "Curl command failed"
             exit 1
+          else
+            echo "Curl command succeeded"
           fi
+        continue-on-error: false
