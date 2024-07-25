@@ -26,5 +26,4 @@ Follow these steps to install DXPR CMS:
 
 ## Support
 
-For support and further information, please visit our [website](https://dxpr.com).
-
+For support and further information, please visit our @todo
