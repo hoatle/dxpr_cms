@@ -123,6 +123,7 @@ function dxpr_cms_installer_uninstall_myself(): void {
   \Drupal::service(ModuleInstallerInterface::class)->uninstall([
     'dxpr_cms_installer',
   ]);
+  trigger_ddev_check_failure();
 }
 
 /**
