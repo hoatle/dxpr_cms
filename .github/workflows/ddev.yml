@@ -16,9 +16,8 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 # https://github.com/marketplace/actions/checkout
+        uses: actions/checkout@v4
 
-      # See https://ddev.readthedocs.io/en/stable/users/install/ddev-installation/#debianubuntu
       - name: Install DDEV
         run: |
           sudo sh -c 'echo ""'
@@ -31,10 +30,10 @@ jobs:
           sudo apt update && sudo apt install -y ddev
 
       - name: Install Starshot
-        run: |
-          ddev quick-start
+        run: ddev quick-start
 
       - name: Confirm that Starshot is running
+        if: ${{ success() }}
         run: |
           ddev list -W
           curl --location --silent http://dxpr-cms.ddev.site/node/1 | grep "<title>"
