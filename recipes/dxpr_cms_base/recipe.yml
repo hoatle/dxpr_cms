@@ -73,6 +73,12 @@ config:
       - views.view.content_recent
       - views.view.frontpage
       - views.view.glossary
+    olivero:
+      - block.block.olivero_breadcrumbs
+      - block.block.olivero_help
+      - block.block.olivero_search_form_narrow
+      - block.block.olivero_search_form_wide
+      - block.block.olivero_syndicate
     shortcut:
       - shortcut.set.default
     user:
@@ -94,6 +100,9 @@ config:
           module: menu_ui
           key: parent
           value: ''
+    olivero.settings:
+      simple_config_update:
+        base_primary_color: '#0a205a'
     project_browser.admin_settings:
       simple_config_update:
         enabled_sources:
@@ -107,6 +116,22 @@ config:
       simple_config_update:
         name: 'DXPR CMS'
         page.front: '/node/6'
+    user.role.content_editor:
+      grantPermissionsForEachMediaType:
+        - 'create %bundle media'
+        - 'delete any %bundle media'
+        - 'edit any %bundle media'
+      grantPermissionsForEachNodeType:
+        - 'clone %bundle content'
+        - 'create %bundle content'
+        - 'delete %bundle revisions'
+        - 'delete any %bundle content'
+        - 'edit any %bundle content'
+      grantPermissionsForEachTaxonomyVocabulary:
+        - 'create terms in %bundle'
+        - 'edit terms in %bundle'
+    views.view.files:
+      disable: {}
     node.settings:
       simple_config_update:
         langcode: en
