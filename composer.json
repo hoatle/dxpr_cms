@@ -231,7 +231,6 @@
         ],
         "quick-start": [
             "@drupal:install",
-            "php build_dxpr_theme.php",
             "test -n \"$CI\" || composer drupal:run-server"
         ]
     },
