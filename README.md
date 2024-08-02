@@ -12,15 +12,16 @@ DXPR CMS is a powerful and enhanced version of Drupal 10, incorporating some of 
 
 Follow these steps to install DXPR CMS:
 
-1. Clone the repository and navigate to the project directory.
-2. Run the following command:
+1. Install [DDEV](https://ddev.com/) if you haven't already.
+2. Clone the repository and navigate to the project directory.
+3. Run the following command:
 
     ```bash
     $ ddev quick-start
     ```
 
-3. Once the installation is complete, your browser will automatically open the DXPR CMS site.
-4. Log in with the following credentials:
+4. Once the installation is complete, your browser will automatically open the DXPR CMS site.
+5. Log in with the following credentials:
   - **Username**: admin
   - **Password**: admin
 
