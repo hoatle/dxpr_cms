@@ -9,7 +9,6 @@ recipes:
   - core/recipes/user_picture
   - core/recipes/restricted_html_format
   - core/recipes/remote_video_media_type
-  - dxpr_cms_accessibility_tools
   - dxpr_cms_admin_theme
   - dxpr_cms_audio_media_type
   - dxpr_cms_blog_content_type
@@ -95,7 +94,7 @@ config:
         allowed_projects:
           recipes:
             - dxpr_cms_accessibility_tools
-            - starshot_multilingual
+            - dxpr_cms_multilingual
     system.site:
       simple_config_update:
         name: 'DXPR CMS'
