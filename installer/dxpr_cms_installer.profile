@@ -8,6 +8,7 @@ use Drupal\Core\Recipe\InputCollector;
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
 use Drupal\dxpr_cms_installer\Form\RecipesForm;
+use Drupal\dxpr_cms_installer\Form\ConfigureAPIKeysForm;
 use Symfony\Component\Process\ExecutableFinder;
 
 /**
@@ -15,6 +16,11 @@ use Symfony\Component\Process\ExecutableFinder;
  */
 function dxpr_cms_installer_install_tasks(): array {
   return [
+    'dxpr_cms_installer_module_keys' => [
+      'display_name' => t('Enter API keys'),
+       'type' => 'form',
+       'function' => ConfigureAPIKeysForm::class,
+    ],
     'dxpr_cms_installer_uninstall_myself' => [
       // As a final task, this profile should uninstall itself.
     ],

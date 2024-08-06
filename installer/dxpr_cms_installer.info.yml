@@ -5,11 +5,4 @@ description: 'Provides install-time tweaks for DXPR CMS.'
 distribution:
   name: DXPR CMS
   install:
-    finish_url: 'admin/modules/browse'
-install:
-  # We try to get Package Manager configured early.
-  # @see dxpr_cms_installer_form_install_configure_form_alter()
-  - package_manager
-  # Install Project Browser as early as possible so it can track recipes that
-  # get applied.
-  - project_browser
+    finish_url: 'node/6'
