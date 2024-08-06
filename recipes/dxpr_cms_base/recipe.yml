@@ -9,6 +9,7 @@ recipes:
   - core/recipes/user_picture
   - core/recipes/restricted_html_format
   - core/recipes/remote_video_media_type
+  - dxpr_cms_accessibility_tools
   - dxpr_cms_admin_theme
   - dxpr_cms_audio_media_type
   - dxpr_cms_blog_content_type
@@ -16,6 +17,7 @@ recipes:
   - dxpr_cms_document_media_type
   - dxpr_cms_full_html_editor
   - dxpr_cms_image_media_type
+  - dxpr_cms_maintenance
   - dxpr_cms_local_video_media_type
   - dxpr_cms_page_content_type
   - dxpr_builder_base
@@ -32,10 +34,9 @@ install:
   - eca_ui
   - field_ui
   - gin_login
+  - inline_entity_form
   - metatag
   - menu_link_content
-  - package_manager
-  - project_browser
   - redirect
   - uli_custom_workflow
   # The rest of these are in Standard.
@@ -46,7 +47,6 @@ install:
   - metatag
   - moderation_dashboard
   - options
-  - project_browser
   - redirect
   - shortcut
   - taxonomy
@@ -55,10 +55,6 @@ install:
   - views_ui
   - workflows
   - xmlsitemap
-input:
-  ui_install_supported:
-    source: callable
-    callable: '\Drupal\project_browser\StarshotConfigurator::supportsUiInstall'
 config:
   import:
     help:
@@ -96,13 +92,10 @@ config:
           value: ''
     project_browser.admin_settings:
       simple_config_update:
-        enabled_sources:
-          - recipes
-          - drupalorg_mockapi
         allowed_projects:
           recipes:
-            - dxpr_cms_multilingual
-        allow_ui_install: $ui_install_supported
+            - dxpr_cms_accessibility_tools
+            - starshot_multilingual
     system.site:
       simple_config_update:
         name: 'DXPR CMS'

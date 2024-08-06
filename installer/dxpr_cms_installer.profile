@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-use Drupal\Core\Batch\BatchBuilder;
 use Drupal\Core\Extension\ModuleInstallerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Recipe\InputCollector;
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
+use Drupal\dxpr_cms_installer\Form\RecipesForm;
 use Symfony\Component\Process\ExecutableFinder;
 
 /**
@@ -15,17 +15,42 @@ use Symfony\Component\Process\ExecutableFinder;
  */
 function dxpr_cms_installer_install_tasks(): array {
   return [
-    'dxpr_cms_installer_apply_recipes' => [
-      'type' => 'batch',
-      'display_name' => t('Apply recipes'),
-    ],
     'dxpr_cms_installer_uninstall_myself' => [
       // As a final task, this profile should uninstall itself.
-     ],
+    ],
     'dxpr_cms_installer_rebuild_theme' => [
       // Rebuild theme CSS.
     ],
   ];
+}
+
+/**
+ * Implements hook_install_tasks_alter().
+ */
+function dxpr_cms_installer_install_tasks_alter(array &$tasks, array $install_state): void {
+  $insert_before = function (string $key, array $additions) use (&$tasks): void {
+    $key = array_search($key, array_keys($tasks), TRUE);
+    if ($key === FALSE) {
+      return;
+    }
+    // This isn't very clean, but it's the only way to positionally splice into
+    // an associative (and therefore by definition unordered) array.
+    $tasks_before = array_slice($tasks, 0, $key, TRUE);
+    $tasks_after = array_slice($tasks, $key, NULL, TRUE);
+    $tasks = $tasks_before + $additions + $tasks_after;
+  };
+  $insert_before('install_settings_form', [
+    'dxpr_cms_installer_choose_recipes' => [
+      'display_name' => t('Choose template & add-ons'),
+      'type' => 'form',
+      'run' => array_key_exists('recipes', $install_state['parameters']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
+      'function' => RecipesForm::class,
+    ],
+  ]);
+
+  // Wrap the install_profile_modules() function, which returns a batch job, and
+  // add all the necessary operations to apply the chosen template recipe.
+  $tasks['install_profile_modules']['function'] = 'dxpr_cms_installer_apply_recipes';
 }
 
 /**
@@ -46,7 +71,7 @@ function dxpr_cms_installer_form_install_settings_form_alter(array &$form): void
  * Implements hook_form_alter() for install_configure_form.
  */
 function dxpr_cms_installer_form_install_configure_form_alter(array &$form): void {
-  ['composer' => $composer, 'rsync' => $rsync] = \Drupal::configFactory()
+  ['composer' => $composer, 'rsync' => $rsync] = Drupal::configFactory()
     ->get('package_manager.settings')
     ->get('executables');
 
@@ -84,39 +109,52 @@ function _dxpr_cms_installer_install_configure_form_submit(array &$form, FormSta
   $rsync = $form_state->getValue('rsync');
 
   if ($composer && $rsync) {
-    \Drupal::configFactory()
+    Drupal::configFactory()
       ->getEditable('package_manager.settings')
       ->set('executables', [
         'composer' => $composer,
         'rsync' => $rsync,
       ])
       ->save();
+
+    Drupal::configFactory()
+      ->getEditable('project_browser.admin_settings')
+      ->set('allow_ui_install', TRUE)
+      ->save();
   }
 }
 
 /**
- * Runs a batch job that applies all of the DXPR CMS recipes.
+ * Runs a batch job that applies the template and add-on recipes.
+ *
+ * @param array $install_state
+ *   An array of information about the current installation state.
  *
  * @return array
  *   The batch job definition.
  */
-function dxpr_cms_installer_apply_recipes(): array {
-  $batch = new BatchBuilder();
-  $batch->setTitle(t('Applying recipes'));
+function dxpr_cms_installer_apply_recipes(array &$install_state): array {
+  $batch = install_profile_modules($install_state);
 
-  $recipe = Recipe::createFromDirectory(\Drupal::root() . '/recipes/dxpr_cms_base');
+  $input_collector = Drupal::classResolver(InputCollector::class);
+  $cookbook_path = Drupal::root() . '/recipes';
 
-  foreach (RecipeRunner::toBatchOperations($recipe) as [$callback, $arguments]) {
-    $batch->addOperation($callback, $arguments);
+  foreach ($install_state['parameters']['recipes'] as $recipe) {
+    $recipe = Recipe::createFromDirectory($cookbook_path . '/' . $recipe);
+    $input_collector->prepare($recipe);
+
+    foreach (RecipeRunner::toBatchOperations($recipe) as $operation) {
+      $batch['operations'][] = $operation;
+    }
   }
-  return $batch->toArray();
+  return $batch;
 }
 
 /**
  * Uninstalls this install profile, as a final step.
  */
 function dxpr_cms_installer_uninstall_myself(): void {
-  \Drupal::service(ModuleInstallerInterface::class)->uninstall([
+  Drupal::service(ModuleInstallerInterface::class)->uninstall([
     'dxpr_cms_installer',
   ]);
 }

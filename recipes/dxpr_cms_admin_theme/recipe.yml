@@ -15,7 +15,7 @@ config:
   actions:
     gin.settings:
       simple_config_update:
-        high_contrast_mode: true
+        enable_darkmode: auto
     system.theme:
       simple_config_update:
         admin: gin
