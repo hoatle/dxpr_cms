@@ -18,6 +18,7 @@ recipes:
   - dxpr_cms_image_media_type
   - dxpr_cms_maintenance
   - dxpr_cms_local_video_media_type
+  - dxpr_cms_performance
   - dxpr_cms_page_content_type
   - dxpr_builder_base
   - dxpr_builder_drag_and_drop_block

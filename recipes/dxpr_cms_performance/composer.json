@@ -1,0 +1,10 @@
+{
+    "name": "drupal/dxpr_cms_performance",
+    "type": "drupal-recipe",
+    "version": "dev-main",
+    "require": {
+        "drupal/core": ">=10.3",
+        "drupal/advagg": "^6.0@alpha",
+        "drupal/minifyhtml": "^2.0"
+    }
+}

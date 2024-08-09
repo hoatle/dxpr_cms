@@ -28,6 +28,7 @@
         "drupal/dxpr_cms_local_video_media_type": "*",
         "drupal/dxpr_cms_maintenance": "*",
         "drupal/dxpr_cms_multilingual": "*",
+        "drupal/dxpr_cms_performance": "*",
         "drupal/dxpr_cms_page_content_type": "*",
         "drupal/dxpr_builder_base": "*",
         "drupal/dxpr_theme_base": "*",
