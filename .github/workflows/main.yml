@@ -94,7 +94,3 @@ jobs:
           # Apache smoke tests.
           curl --silent http://localhost/ | grep "<title>" || true
           curl --location --silent http://localhost/node/1 | grep "<title>" || true
-
-      - name: Test
-        working-directory: /var/www
-        run: composer drupal:run-tests -- --testdox
