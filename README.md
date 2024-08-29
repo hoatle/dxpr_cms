@@ -17,7 +17,7 @@ Follow these steps to install DXPR CMS:
 3. Run the following command:
 
     ```bash
-    $ ddev start
+    ddev start
     ```
 
 4. After running the command, click on the provided link to access the Drupal installation wizard. Follow the steps to set up your site.
@@ -25,7 +25,7 @@ Follow these steps to install DXPR CMS:
 6. Run the following command, to destroy and rebuild the DDEV environment. This will delete and reinstall all dependencies.
 
     ```bash
-    $ ddev rebuild
+    ddev rebuild
     ```
 
 ## Support
