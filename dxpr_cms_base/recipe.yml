@@ -152,3 +152,7 @@ config:
       simple_config_update:
         add_structured_data_json_ld: true
         hide_single_home_item: true
+    moderation_dashboard.settings:
+      simple_config_update:
+        redirect_on_login: false
+        chart_js_cdn: false
