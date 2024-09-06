@@ -2,21 +2,15 @@ name: 'Blog'
 type: 'DXPR CMS'
 description: 'Sets up a basic blog, with tagging and commenting.'
 recipes:
-  - core/recipes/comment_base
-  - dxpr_cms_anti_spam
   - dxpr_cms_content_type_base
+  - dxpr_cms_basic_html_editor
   - dxpr_cms_image_media_type
   - core/recipes/tags_taxonomy
-  - notify_new_comments
+install:
+  - better_exposed_filters
+  - menu_link_content
+  - scheduler
 config:
-  import:
-    image:
-      # Only import config which is also imported by the Standard profile.
-      - image.style.medium
-      - image.style.thumbnail
-      - image.style.wide
-    taxonomy:
-      - views.view.taxonomy_term
   actions:
     metatag.settings:
       simple_config_update:

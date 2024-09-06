@@ -11,6 +11,7 @@ install:
   - tmgmt_locale
   - tmgmt_content
   - tmgmt_config
+  - user
 config:
   import:
     language: '*'

@@ -1,19 +1,16 @@
+uuid: 2f120609-f1e8-45c0-aaf8-ad7ce8da9ab1
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment.default
-    - field.field.node.blog.body
-    - field.field.node.blog.comment
+    - field.field.node.blog.field_content
+    - field.field.node.blog.field_description
     - field.field.node.blog.field_image
     - field.field.node.blog.field_meta_tags
     - field.field.node.blog.field_tags
-    - image.style.wide_16_9_focal_point
     - node.type.blog
   module:
-    - comment
     - media
-    - metatag
     - text
     - user
 id: node.blog.default
@@ -21,52 +18,34 @@ targetEntityType: node
 bundle: blog
 mode: default
 content:
-  body:
+  field_content:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
-    region: content
-  comment:
-    type: comment_default
-    label: above
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    weight: 110
+    weight: 2
     region: content
   field_image:
     type: media_thumbnail
     label: hidden
     settings:
       image_link: ''
-      image_style: wide_16_9_focal_point
+      image_style: ''
       image_loading:
         attribute: eager
     third_party_settings: {  }
-    weight: -1
-    region: content
-  field_meta_tags:
-    type: metatag_empty_formatter
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 111
+    weight: 0
     region: content
   field_tags:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
+    weight: 1
     region: content
 hidden:
+  field_description: true
+  field_meta_tags: true
   langcode: true
+  links: true

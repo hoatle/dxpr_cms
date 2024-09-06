@@ -16,6 +16,11 @@ $install_params = \json_decode(
 
 chdir($docroot . '/web');
 
+$interactive_install = $install_params['interactive'] ?? false;
+if ($interactive_install) {
+    exit;
+}
+
 $skip_install = $install_params['skip'] ?? false;
 if ($skip_install) {
     if (!is_dir('sites/default/files/css') && !mkdir('sites/default/files/css') && !is_dir('sites/default/files/css')) {
@@ -93,7 +98,8 @@ try {
         $finished++;
     });
 
-    \Drupal::getContainer()->get('module_installer')->uninstall(['big_pipe']);
+    chmod('sites/default', 0755);
+    chmod('sites/default/settings.php', 0644);
 
 } catch (\Exception $e) {
     print json_encode([

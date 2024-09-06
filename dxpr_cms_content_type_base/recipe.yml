@@ -11,7 +11,6 @@ install:
   - node
   - pathauto
   - quick_node_clone
-  - simple_sitemap
 config:
   import:
     language: '*'
@@ -32,4 +31,3 @@ config:
       - system.action.node_save_action
       - system.action.node_unpromote_action
       - system.action.node_unpublish_action
-    simple_sitemap: '*'

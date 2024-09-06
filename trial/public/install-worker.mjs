@@ -108,39 +108,53 @@ self.onmessage = async ({data }) => {
                 const initPhpExitCode = await php.run(await (await initPhpCode).text());
                 console.log(initPhpExitCode)
 
+              if (!params.installParameters.interactive) {
                 postMessage({
-                    action: 'status',
-                    params,
-                    message: 'Installing site'
+                  action: 'status',
+                  params,
+                  message: 'Installing site'
                 })
 
                 console.log('Writing install parameters');
                 await php.writeFile(`/config/${flavor}-install-params.json`, JSON.stringify({
-                    langcode: 'en',
-                    ...params.installParameters
+                  langcode: 'en',
+                  host: (new URL(globalThis.location || 'http://localhost')).host,
+                  ...params.installParameters
                 }))
 
                 console.log('Installing site')
+
+                await php.run(`<?php putenv('dxpr_cms_TRIAL=1');`)
+
                 const installSiteCode = await (await fetch('/assets/install-site.phpcode')).text();
                 console.log('Executing install site code...')
                 try {
-                    const installSiteExitCode = await php.run(installSiteCode);
-                    console.log(installSiteExitCode)
+                  const installSiteExitCode = await php.run(installSiteCode);
+                  console.log(installSiteExitCode)
                 } catch(e) {
-                    let message = `An error occured. ${e.name}: ${e.message}`
-                    if (e.name === 'RangeError') {
-                        message += ' See https://github.com/mglaman/wasm-drupal/issues/28';
-                    }
+                  let message = `An error occured. ${e.name}: ${e.message}`
+                  if (e.name === 'RangeError') {
+                    message += ' See https://github.com/mglaman/wasm-drupal/issues/28';
+                  }
 
-                    postMessage({
-                        action: 'status',
-                        type: 'error',
-                        params,
-                        message
-                    })
-                    return;
+                  postMessage({
+                    action: 'status',
+                    type: 'error',
+                    params,
+                    message
+                  })
+                  return;
                 }
 
+                postMessage({
+                  action: 'status',
+                  params,
+                  message: 'Logging you in'
+                })
+                const autoLoginCode = await (await fetch('/assets/login-admin.phpcode')).text();
+                await php.run(autoLoginCode);
+                await php.unlink(`/config/${flavor}-install-params.json`)
+              }
 
                 postMessage({
                     action: 'status',
@@ -149,7 +163,6 @@ self.onmessage = async ({data }) => {
                 })
                 console.log('Removing archive');
                 await php.unlink('/config/flavor.txt')
-                await php.unlink(`/config/${flavor}-install-params.json`)
                 await php.unlink('/persist/artifact.zip')
 
                 postMessage({

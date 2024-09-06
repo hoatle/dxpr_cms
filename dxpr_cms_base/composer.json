@@ -6,7 +6,6 @@
     "require": {
         "drupal/core": ">=10.3",
         "drupal/block_classes": "^1.0",
-        "drupal/easy_breadcrumb": "^2",
         "drupal/eca": "^2",
         "drupal/login_emailusername": "^2.1",
         "drupal/gin_login": "^2",
@@ -35,6 +34,7 @@
         "drupal/dxpr_cms_page_content_type": "dev-main",
         "drupal/dxpr_cms_patches": "dev-main",
         "drupal/dxpr_cms_performance": "dev-main",
+        "drupal/dxpr_cms_seo_basic": "dev-main",
         "drupal/dxpr_cms_workflows": "dev-main",
         "drupal/dxpr_theme_base": "dev-main"
     }

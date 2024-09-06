@@ -2,6 +2,7 @@ name: 'Drag and drop Page'
 type: 'DXPR CMS'
 description: 'Page builder page with DXPR Builder visual layout builder.'
 recipes:
+  - dxpr_cms_content_type_base
   - dxpr_cms_full_html_editor
 install:
   - dxpr_builder_page

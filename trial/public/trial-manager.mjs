@@ -12,7 +12,7 @@ export default class TrialManager extends HTMLElement {
         this.channel = getBroadcastChannel()
         this.channel.addEventListener('message', ({ data }) => {
             const { action } = data;
-            if (action === 'service_worker_activated') {
+            if (action === 'service_worker_ready') {
                 this.sendWorkerAction('check_existing', {
                     flavor: this.flavor
                 })
@@ -77,9 +77,6 @@ export default class TrialManager extends HTMLElement {
     connectedCallback() {
         this.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'w-full', 'h-dvh')
         this.render()
-        this.sendWorkerAction('check_existing', {
-            flavor: this.flavor
-        })
     }
 
     disconnectedCallback() {
@@ -95,6 +92,13 @@ export default class TrialManager extends HTMLElement {
 
         if (type === 'error') {
             this.worker.postMessage({ action: 'stop' })
+        }
+
+        if (type === 'set_cookie') {
+            this.channel.postMessage({
+                action: 'set_cookie',
+                params: data.params
+            })
         }
 
         if (action === 'started') {
@@ -138,7 +142,7 @@ export default class TrialManager extends HTMLElement {
                         flavor: this.flavor,
                         artifact: this.artifact,
                         installParameters: {
-                            skip: this.getAttribute('skip-install') || false,
+                            interactive: this.getAttribute('interactive-install') || false,
                             siteName: this.getAttribute('site-name') || 'Try Drupal',
                             profile: this.getAttribute('profile') || 'standard',
                             recipes: this.recipes,

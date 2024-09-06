@@ -5,6 +5,7 @@
     "version": "dev-main",
     "require": {
         "drupal/core": ">=10.3",
+        "drupal/dxpr_cms_content_type_base": "*",
         "drupal/dxpr_builder": "^3.0@alpha",
         "drupal/dxpr_theme_helper": "^1",
         "drupal/menu_link_attributes": "^1.3"

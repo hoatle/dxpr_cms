@@ -2,8 +2,8 @@
 
 namespace Drupal\dxpr_cms_installer\Form;
 
-use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\dxpr_cms_installer\Form\InstallerFormBase;
 
 /**
  * Provides a form to choose the site template and optional add-on recipes.
@@ -11,7 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
  * @todo Present this as a mini project browser once
  *   https://www.drupal.org/i/3450629 is fixed.
  */
-final class RecipesForm extends FormBase {
+final class RecipesForm extends InstallerFormBase {
 
   /**
    * {@inheritdoc}
@@ -24,16 +24,12 @@ final class RecipesForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
-    $form['#title'] = $this->t('Choose template & add-ons');
+    $form['#title'] = $this->t('What are your top goals?');
 
-    $form['template'] = [
-      '#type' => 'radios',
-      '#title' => $this->t('Choose your site template'),
-      '#options' => [
-        'dxpr_cms_base' => $this->t('DXPR CMS'),
-      ],
-      '#required' => TRUE,
-      '#default_value' => 'dxpr_cms_base',
+    $form['help'] = [
+      '#prefix' => '<p class="cms-installer__subhead">',
+      '#markup' => $this->t('You can change your mind later.'),
+      '#suffix' => '</p>',
     ];
 
     $options = [
@@ -42,21 +38,25 @@ final class RecipesForm extends FormBase {
     ];
 
     $form['add_ons'] = [
+      '#prefix' => '<div class="cms-installer__form-group">',
+      '#suffix' => '</div>',
       '#type' => 'checkboxes',
-      '#title' => $this->t('Optional add-ons'),
       '#options' => $options,
       '#default_value' => [],
     ];
-
     $form['actions'] = [
       'submit' => [
         '#type' => 'submit',
-        '#value' => $this->t('Save and continue'),
+        '#value' => $this->t('Next'),
         '#button_type' => 'primary',
+      ],
+      'skip' => [
+        '#type' => 'submit',
+        '#value' => $this->t('Skip this step'),
       ],
       '#type' => 'actions',
     ];
-    return $form;
+    return parent::buildForm($form, $form_state);
   }
 
   /**
@@ -64,14 +64,15 @@ final class RecipesForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
     global $install_state;
+    $install_state['parameters']['recipes'] = ['dxpr_cms_base'];
 
-    $add_ons = $form_state->getValue('add_ons', []);
-    $add_ons = array_filter($add_ons);
-
-    $install_state['parameters']['recipes'] = [
-      $form_state->getValue('template'),
-      ...array_values($add_ons),
-    ];
+    $pressed_button = $form_state->getTriggeringElement();
+    // Only choose add-ons if the Next button was pressed.
+    if ($pressed_button && end($pressed_button['#array_parents']) === 'submit') {
+      $add_ons = $form_state->getValue('add_ons', []);
+      $add_ons = array_filter($add_ons);
+      array_push($install_state['parameters']['recipes'], ...array_values($add_ons));
+    }
   }
 
 }

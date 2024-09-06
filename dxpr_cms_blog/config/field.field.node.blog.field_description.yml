@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.blog
+id: node.blog.field_description
+field_name: field_description
+entity_type: node
+bundle: blog
+label: Description
+description: 'This description will be used in overviews, search results and social media sharing.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
