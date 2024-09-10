@@ -75,7 +75,6 @@ export default class TrialManager extends HTMLElement {
     }
 
     connectedCallback() {
-        this.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'w-full', 'h-dvh')
         this.render()
     }
 
@@ -103,18 +102,18 @@ export default class TrialManager extends HTMLElement {
 
         if (action === 'started') {
             this.setAttribute('mode', 'new_session');
-            this.setAttribute('message', 'Starting runtime')
+            this.setAttribute('message', 'Starting')
         }
         else if (action === 'status') {
             this.setAttribute('message', message)
         }
         else if (action === 'finished') {
-            this.setAttribute('message', 'Refreshing runtime')
+            this.setAttribute('message', 'Refreshing data')
             this.channel.postMessage({
                 action: 'refresh'
             })
 
-            this.setAttribute('message', 'Redirecting to session')
+            this.setAttribute('message', 'Redirecting to your site')
             window.location = `/cgi/${this.flavor}`
         }
         else if (action === 'reload') {
@@ -169,21 +168,36 @@ export default class TrialManager extends HTMLElement {
 
     initializingEl() {
         const el = document.createElement('div');
-        el.innerHTML = `<svg class="animate-spin h-16 w-16 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        el.classList.add('flex', 'justify-center')
+        el.innerHTML = `<svg class="animate-spin h-16 w-16 text-drupal-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
     </svg>`
         return el;
     }
     actionsEl() {
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('isolate', 'inline-flex', 'rounded-md', 'shadow-sm');
+        const buttonWrapper = document.createElement('div');
+        buttonWrapper.classList.add('isolate', 'inline-flex', 'space-x-2');
 
-        const buttonClasses = ['bg-white', 'relative', 'inline-flex', 'items-center', 'px-3', 'py-2', 'text-sm', 'font-semibold', 'text-gray-900'];
+        const buttonClasses = [
+          'bg-white',
+          'relative',
+          'inline-flex',
+          'items-center',
+          'px-4',
+          'py-1',
+          'font-semibold',
+          'text-drupal-darkBlue',
+          'border-2',
+          'border-drupal-darkBlue',
+          'rounded-md',
+          'hover:border-drupal-blue',
+          'hover:text-drupal-blue'
+        ];
         const resumeButton = document.createElement('button');
-        resumeButton.classList.add(...buttonClasses, 'rounded-l-md', 'hover:bg-gray-100')
+        resumeButton.classList.add(...buttonClasses)
         resumeButton.id = 'resume';
-        resumeButton.innerText = 'Resume session'
+        resumeButton.innerText = 'Resume'
         resumeButton.addEventListener('click', () => {
             this.sendWorkerAction('start', {
                 flavor: this.flavor,
@@ -192,9 +206,9 @@ export default class TrialManager extends HTMLElement {
         })
 
         const newButton = document.createElement('button');
-        newButton.classList.add(...buttonClasses, 'hover:bg-drupal-rec')
+        newButton.classList.add(...buttonClasses)
         newButton.id = 'new'
-        newButton.innerText = 'New session'
+        newButton.innerText = 'New'
         newButton.addEventListener('click', () => {
             if (window.confirm("Your site's data will be completely removed, do you want to continue?")) {
                 this.removeAttribute('mode');
@@ -205,9 +219,12 @@ export default class TrialManager extends HTMLElement {
         })
 
         const exportButton = document.createElement('button')
-        exportButton.classList.add(...buttonClasses, 'rounded-r-md')
+        exportButton.classList.add(...buttonClasses, 'group')
         exportButton.id = 'export'
-        exportButton.innerText = 'Export'
+        exportButton.innerHTML = `
+<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-drupal-darkBlue group-hover:text-drupal-blue fill-current" viewBox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"></path></svg>
+<span class="pl-1.5">Download</span>
+`
         exportButton.addEventListener('click', () => {
             this.removeAttribute('mode');
             this.sendWorkerAction('export', {
@@ -215,15 +232,24 @@ export default class TrialManager extends HTMLElement {
             })
         })
 
-        wrapper.appendChild(resumeButton)
-        wrapper.appendChild(newButton)
-        wrapper.appendChild(exportButton)
-        return wrapper
+        buttonWrapper.appendChild(resumeButton)
+        buttonWrapper.appendChild(newButton)
+        buttonWrapper.appendChild(exportButton)
+
+        const container = document.createElement('div');
+        container.classList.add('text-center')
+        const message = document.createElement('p');
+        message.classList.add('mb-4', 'text-lg')
+        message.innerText = 'You already have a site, what would you like to do?'
+        container.appendChild(message)
+        container.appendChild(buttonWrapper)
+
+        return container
     }
 
     progressEl() {
         const progress = document.createElement('div')
-        progress.classList.add('rounded-md', 'p-4', 'bg-white', 'w-96', 'text-center')
+        progress.classList.add('rounded-md', 'p-4', 'bg-white', 'w-96', 'text-center', 'w-full')
         progress.innerText = this.message
         return progress
     }

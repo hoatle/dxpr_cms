@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.blog.field_content
     - field.field.node.blog.field_description
     - field.field.node.blog.field_image
-    - field.field.node.blog.field_meta_tags
     - field.field.node.blog.field_tags
     - node.type.blog
   module:
@@ -46,6 +45,5 @@ content:
     region: content
 hidden:
   field_description: true
-  field_meta_tags: true
   langcode: true
   links: true

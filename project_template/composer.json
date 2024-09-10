@@ -156,6 +156,13 @@
                 "symlink": false
             }
         },
+        "dxpr_cms_seo_advanced": {
+            "type": "path",
+            "url": "dxpr_cms_seo_advanced",
+            "options": {
+                "symlink": false
+            }
+        },
         "dxpr_cms_performance": {
             "type": "path",
             "url": "dxpr_cms_performance",

@@ -5,4 +5,4 @@ description: 'Provides install-time tweaks for DXPR CMS.'
 distribution:
   name: DXPR CMS
   install:
-    finish_url: 'node/6'
+    finish_url: '/admin/dashboard/welcome'

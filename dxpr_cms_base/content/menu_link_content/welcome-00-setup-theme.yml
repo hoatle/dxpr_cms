@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: d53255ce-a9b1-4234-6ba5-d8db339a4eaf
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Finish saving theme settings [Recommended]'
+  menu_name:
+    -
+      value: welcome
+  link:
+    -
+      uri: 'internal:/admin/appearance/settings/dxpr_theme'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: 0
+  expanded:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true

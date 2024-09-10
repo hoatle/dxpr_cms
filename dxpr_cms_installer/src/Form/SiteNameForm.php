@@ -33,7 +33,7 @@ final class SiteNameForm extends InstallerFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Site name'),
       '#required' => TRUE,
-      '#default_value' => $install_state['forms']['install_configure_form']['site_name'] ?? $this->t('Dxpr CMS'),
+      '#default_value' => $install_state['forms']['install_configure_form']['site_name'] ?? $this->t('DXPR CMS'),
     ];
     $form['actions'] = [
       '#type' => 'actions',

@@ -35,6 +35,7 @@ final class RecipesForm extends InstallerFormBase {
     $options = [
       'dxpr_cms_multilingual' => $this->t('Multilingual support'),
       'dxpr_cms_accessibility_tools' => $this->t('Accessibility tools'),
+      'dxpr_cms_seo_advanced' => $this->t('Advanced SEO tools'),
     ];
 
     $form['add_ons'] = [

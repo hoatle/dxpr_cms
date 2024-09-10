@@ -24,13 +24,13 @@ final class OutgoingHttpInterceptor {
           $response = file_get_contents(
             __DIR__ . '/../oembed-providers.json'
           );
-          return new FulfilledPromise(new Response(200, [], $response));
+          return new FulfilledPromise(new Response(200, ['Content-Type' => 'application/json'], $response));
         }
         if ((string) $request->getUri() === 'https://www.youtube.com/oembed?url=https%3A//www.youtube.com/watch%3Fv%3D21X5lGlDOfg') {
           $response = file_get_contents(
             __DIR__ . '/../youtube-oembed.json'
           );
-          return new FulfilledPromise(new Response(200, [], $response));
+          return new FulfilledPromise(new Response(200, ['Content-Type' => 'application/json'], $response));
         }
         throw new \RuntimeException('Request URI not mocked: ' . $request->getUri());
         return $handler($request, $options);

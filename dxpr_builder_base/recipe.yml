@@ -16,4 +16,4 @@ config:
     system.site:
       simple_config_update:
         name: 'DXPR CMS'
-        page.front: '/home'
+        page.front: '/node/9'

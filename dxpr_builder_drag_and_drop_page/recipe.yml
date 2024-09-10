@@ -8,7 +8,6 @@ install:
   - dxpr_builder_page
   - dxpr_theme_helper
   - menu_link_attributes
-  - metatag
   - workflows
   - scheduler
 config:
@@ -17,12 +16,6 @@ config:
     dxpr_theme_helper: '*'
     menu_link_attributes: '*'
   actions:
-    metatag.settings:
-      simple_config_update:
-        entity_type_groups.node.drag_and_drop_page:
-          - basic
-          - advanced
-          - open_graph
     workflows.workflow.editorial:
       addNodeTypes:
         - drag_and_drop_page

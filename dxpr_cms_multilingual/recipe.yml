@@ -17,7 +17,24 @@ config:
     language: '*'
     tmgmt: '*'
   actions:
+    'language.content_settings.node.%bundle':
+      createIfNotExistsForEachNodeType:
+        target_entity_type_id: node
+        target_bundle: '%bundle'
+        language_alterable: true
+    language.content_settings.node.*:
+      setThirdPartySettings:
+        - module: content_translation
+          key: enabled
+          value: true
+        - module: content_translation
+          key: bundle_settings
+          value:
+            untranslatable_fields_hide: '1'
     user.role.content_administrator:
+      createIfNotExists:
+        id: content_administrator
+        label: Content Administrator
       grantPermissions:
         - 'create content translations'
         - 'delete content translations'
@@ -32,6 +49,9 @@ config:
       grantPermissionsForEachNodeType:
         - 'translate %bundle node'
     user.role.content_editor:
+      createIfNotExists:
+        id: content_editor
+        label: Content editor
       grantPermissions:
         - 'create content translations'
         - 'delete content translations'
@@ -41,6 +61,9 @@ config:
       grantPermissionsForEachNodeType:
         - 'translate %bundle node'
     user.role.marketer:
+      createIfNotExists:
+        id: marketer
+        label: Marketer
       grantPermissions:
         - 'create content translations'
         - 'delete content translations'
@@ -50,6 +73,9 @@ config:
       grantPermissionsForEachNodeType:
         - 'translate %bundle node'
     user.role.site_bui:
+      createIfNotExists:
+        id: site_bui
+        label: Site Builder
       grantPermissions:
         - 'create content translations'
         - 'delete content translations'

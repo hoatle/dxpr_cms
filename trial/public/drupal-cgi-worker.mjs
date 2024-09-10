@@ -67,7 +67,7 @@ export function setUpWorker(worker, prefix, docroot) {
         docroot,
         env: {
             HTTP_USER_AGENT: worker.navigator.userAgent,
-            dxpr_cms_TRIAL: '1'
+            DXPR_CMS_TRIAL: '1'
         },
         ini: `
         date.timezone=${Intl.DateTimeFormat().resolvedOptions().timeZone}

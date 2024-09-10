@@ -62,7 +62,7 @@ self.onmessage = async ({data }) => {
                 postMessage({
                     action: `finished`,
                     params,
-                    message: 'Session exists'
+                    message: 'Site already exists'
                 })
             } else {
                 const checkArchive = await php.analyzePath('/persist/artifact.zip');
@@ -70,7 +70,7 @@ self.onmessage = async ({data }) => {
                     postMessage({
                         action: 'status',
                         params,
-                        message: 'Removing existing archive'
+                        message: 'Removing existing DXPR CMS archive'
                     })
                     console.log('Removing archive');
                     await php.unlink('/persist/artifact.zip')
@@ -78,33 +78,66 @@ self.onmessage = async ({data }) => {
                 postMessage({
                     action: 'status',
                     params,
-                    message: 'Downloading artifact'
+                    message: 'Downloading DXPR CMS'
                 })
-                console.log('Downloading artifact')
                 const downloader = fetch(artifact);
-                const download = await downloader;
+
+                const download = await downloader.then(response => {
+                  const contentEncoding = response.headers.get('content-encoding');
+                  const contentLength = response.headers.get(contentEncoding ? 'x-file-size' : 'content-length');
+                  const total = parseInt(contentLength, 10);
+                  let loaded = 0;
+
+                  return new Response(
+                    new ReadableStream({
+                      start(controller) {
+                        const reader = response.body.getReader();
+
+                        read();
+                        function read() {
+                          reader.read().then(({done, value}) => {
+                            if (done) {
+                              controller.close();
+                              return;
+                            }
+                            loaded += value.byteLength;
+                            postMessage({
+                              action: 'status',
+                              params,
+                              message: `Downloading DXPR CMS ${Math.round(loaded/total*100)+'%'}`
+                          })
+                            controller.enqueue(value);
+                            read();
+                          }).catch(error => {
+                            console.error(error);
+                            controller.error(error)
+                          })
+                        }
+                      }
+                    })
+                  );
+                })
+
+
                 const zipContents = await download.arrayBuffer();
 
                 postMessage({
                     action: 'status',
                     params,
-                    message: 'Saving artifact'
+                    message: 'Saving DXPR CMS'
                 })
-                console.log('Writing archive contents')
+
                 await php.writeFile('/config/flavor.txt', flavor)
                 await php.writeFile('/persist/artifact.zip', new Uint8Array(zipContents))
 
                 postMessage({
                     action: 'status',
                     params,
-                    message: 'Extracting artifact'
+                    message: 'Extracting DXPR CMS'
                 })
-                console.log('Extracting archive...')
-                console.log('fetching init code')
                 const initPhpCode = fetch('/assets/init.phpcode');
                 await php.binary;
 
-                console.log('running init code')
                 const initPhpExitCode = await php.run(await (await initPhpCode).text());
                 console.log(initPhpExitCode)
 
@@ -112,7 +145,7 @@ self.onmessage = async ({data }) => {
                 postMessage({
                   action: 'status',
                   params,
-                  message: 'Installing site'
+                  message: 'Installing DXPR CMS'
                 })
 
                 console.log('Writing install parameters');
@@ -124,7 +157,7 @@ self.onmessage = async ({data }) => {
 
                 console.log('Installing site')
 
-                await php.run(`<?php putenv('dxpr_cms_TRIAL=1');`)
+                await php.run(`<?php putenv('DXPR_CMS_TRIAL=1');`)
 
                 const installSiteCode = await (await fetch('/assets/install-site.phpcode')).text();
                 console.log('Executing install site code...')
@@ -159,9 +192,8 @@ self.onmessage = async ({data }) => {
                 postMessage({
                     action: 'status',
                     params,
-                    message: 'Removing artifact archive'
+                    message: 'Cleaning up files'
                 })
-                console.log('Removing archive');
                 await php.unlink('/config/flavor.txt')
                 await php.unlink('/persist/artifact.zip')
 

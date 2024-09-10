@@ -1,18 +1,26 @@
 #!/usr/bin/env sh
 
-## Description: Creates a new Dxpr CMS recipe stub and adds it to the project.
+## Description: Creates a new DXPR CMS recipe stub and adds it to the project.
 ## Usage: create-recipe NAME
 ## Example: "ddev create-recipe dxpr_cms_power_tools"
 
-if [ -d $1 ]; then
-  echo "This recipe already exists, cowardly refusing to continue."
-  exit 1
+# Abort this script if any step of it fails.
+set -e
+
+# Ensure the recipe's directory exists with a basic `composer.json`.
+if [ ! -d $1 ]; then
+  mkdir $1 && cd $1
+  composer init --no-interaction --name=drupal/$1 --type=drupal-recipe --require="drupal/core:>=10.3"
+  composer config version dev-main
+  cd ..
 fi
 
-mkdir $1
-composer init --no-interaction --working-dir=$1 --name=drupal/$1 --type=drupal-recipe --require="drupal/core:>=10.3"
-composer config version dev-main --working-dir=$1
+# Add the recipe as a dependency of the main dxpr_cms recipe.
+cd dxpr_cms_base
+composer config repositories.$1 path ../$1
+composer require --no-update "drupal/$1:*"
+composer config --unset repositories
+cd ..
 
-$HOME/bin/refresh-components
-composer require --no-update --working-dir=dxpr_cms "drupal/$1:*"
-composer update drupal/dxpr_cms
+# Ensure the recipe is defined as a path repository.
+$HOME/bin/setup-repositories

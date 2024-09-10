@@ -113,7 +113,7 @@ const sharedLibs = [
 // works around PhpNode and PhpCgiNode locate file issues.
 const locateFile = () => undefined;
 
-export function createPhp({ configFixturePath, persistFixturePath }) {
+export async function createPhp({ configFixturePath, persistFixturePath }) {
     const php = new PhpBase(PhpBinary, {
         persist: [
             {mountPath: '/persist', localPath: persistFixturePath},
@@ -125,6 +125,8 @@ export function createPhp({ configFixturePath, persistFixturePath }) {
     const stdOut = [], stdErr = [];
     php.addEventListener('output', (event) => event.detail.forEach(line => void (stdOut.push(line))));
     php.addEventListener('error',  (event) => event.detail.forEach(line => void (stdErr.push(line))));
+    await php.binary
+    await php.run(`<?php putenv('DXPR_CMS_TRIAL=1');`)
     return [stdOut, stdErr, php]
 }
 
@@ -140,7 +142,7 @@ export function createCgiPhp({ configFixturePath, persistFixturePath }) {
         sharedLibs,
         env: {
             HTTP_USER_AGENT: 'node',
-            dxpr_cms_TRIAL: '1'
+            DXPR_CMS_TRIAL: '1'
         },
         docroot: '/persist/drupal/web',
         vHosts: [
@@ -227,8 +229,8 @@ export function copyArtifactFixture(persistFixturePath, name) {
         `${persistFixturePath}/artifact.zip`
     )
 }
-export function copyExistingBuildFixture(persistFixturePath, name) {
-    fs.cpSync(`${rootFixturePath}/${name}`, `${persistFixturePath}/drupal`, {
+export function copyExistingBuildFixture(persistFixturePath) {
+    fs.cpSync(`${rootPath}/build`, `${persistFixturePath}/drupal`, {
         recursive: true
     })
 }
