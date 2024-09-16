@@ -15,6 +15,7 @@ recipes:
   - core/recipes/remote_video_media_type
   - dxpr_cms_blog
   - dxpr_cms_basic_html_editor
+  - dxpr_cms_dashboard
   - dxpr_cms_events
   - dxpr_cms_forms
   - dxpr_cms_full_html_editor
@@ -32,7 +33,6 @@ install:
   - block_classes
   - config
   - contextual
-  - dashboard
   - datetime
   - field_ui
   - gin_login

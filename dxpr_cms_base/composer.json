@@ -24,6 +24,7 @@
         "drupal/dxpr_cms_basic_html_editor": "dev-main",
         "drupal/dxpr_cms_blog": "dev-main",
         "drupal/dxpr_cms_content_type_base": "dev-main",
+        "drupal/dxpr_cms_dashboard": "dev-main",
         "drupal/dxpr_cms_events": "dev-main",
         "drupal/dxpr_cms_forms": "dev-main",
         "drupal/dxpr_cms_full_html_editor": "dev-main",

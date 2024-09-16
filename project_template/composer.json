@@ -79,6 +79,13 @@
                 "symlink": false
             }
         },
+        "dxpr_cms_dashboard": {
+            "type": "path",
+            "url": "dxpr_cms_dashboard",
+            "options": {
+                "symlink": false
+            }
+        },
         "dxpr_cms_events": {
             "type": "path",
             "url": "dxpr_cms_events",
