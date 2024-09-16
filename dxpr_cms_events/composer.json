@@ -2,6 +2,7 @@
   "name": "drupal/dxpr_cms_events",
   "type": "drupal-recipe",
   "description": "A content type and view to help you manage events.",
+  "version": "dev-main",
   "require": {
     "drupal/core": ">=10.3",
     "drupal/dxpr_cms_locations": "*",
