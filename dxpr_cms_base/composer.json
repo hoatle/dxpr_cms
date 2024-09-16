@@ -8,6 +8,7 @@
         "drupal/block_classes": "^1.0",
         "drupal/dashboard": "2.x-dev",
         "drupal/login_emailusername": "^2.1",
+        "drupal/trash": "^3.0",
         "drupal/gin_login": "^2",
         "drupal/inline_entity_form": "^3.0@RC",
         "drupal/moderation_dashboard": "^3.0",

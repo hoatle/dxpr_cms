@@ -30,32 +30,32 @@ recipes:
   - dxpr_theme_base
 install:
   - block_classes
-  - dashboard
-  - login_emailusername
-  - gin_login
-  - inline_entity_form
-  - moderation_dashboard
-  - responsive_preview
-  - section_library
-  - xmlsitemap
-  - menu_link_content
-  - redirect
-  # The rest of these are in Standard.
-  - help
-  - history
-  - inline_form_errors
   - config
   - contextual
-  - menu_link_content
+  - dashboard
   - datetime
+  - field_ui
+  - gin_login
+  - help
+  - history
+  - inline_entity_form
+  - inline_form_errors
+  - login_emailusername
+  - menu_link_content
   - menu_ui
+  - moderation_dashboard
   - options
+  - redirect
+  - responsive_preview
+  - section_library
   - shortcut
   - toolbar
-  - field_ui
+  - trash
   - views_ui
+  - xmlsitemap
 config:
   import:
+    trash: '*'
     help:
       - search.page.help_search
     image:
