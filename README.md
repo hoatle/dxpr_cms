@@ -2,6 +2,30 @@
 
 DXPR CMS is a powerful and enhanced version of Drupal 10, incorporating some of the best modules and themes available. It is designed to help you quickly set up and start building your site. Unlike traditional distributions, DXPR CMS utilizes the Drupal recipe system, ensuring flexibility and ease of customization.
 
+## Getting started with DXPR CMS
+
+Follow these steps to install DXPR CMS:
+
+1. Install [DDEV](https://ddev.com/) if you haven't already.
+2. Clone the DXPR CMS repository:
+   ```bash
+   git clone https://github.com/dxpr/dxpr_cms.git
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd dxpr_cms
+   ```
+4. Start the DDEV environment by running the following command:
+   ```bash
+   ddev start
+   ```
+5. After the environment starts, follow the link provided in the terminal to access the Drupal installation wizard. Complete the installation steps to set up your site.
+6. During the installation, you can select additional recipes to customize your site. These recipes will help tailor the installation to your needs.
+7. To destroy and rebuild the DDEV environment (which deletes and reinstalls all dependencies), run:
+   ```bash
+   ddev rebuild
+   ```
+
 ## Future-proof your digital strategy with scalable tools for efficient content management
 
 Welcome to DXPR CMS, a dynamic Drupal distribution that simplifies complex content management challenges. Designed to enhance productivity, ensure data security, and leverage the potential of AI, this platform integrates tools like [DXPR Builder](https://www.drupal.org/project/dxpr_builder) and [DXPR Theme](https://www.drupal.org/project/dxpr_theme), alongside cutting-edge AI modules to empower users, streamline workflows, and reduce operational costs.
@@ -64,30 +88,6 @@ DXPR CMS excels in managing multilingual content, including complex scenarios in
 - **Sophisticated language navigation tools:** Enables easy switching between languages while maintaining user context.
 - **Localized user experiences:** Automatically adjusts date formats, currency, and form validations to match local preferences.
 - **Integration with leading translation services:** Supports both automated and manual translation workflows to ensure content accuracy and relevance.
-
-## Getting started with DXPR CMS
-
-Follow these steps to install DXPR CMS:
-
-1. Install [DDEV](https://ddev.com/) if you haven't already.
-2. Clone the DXPR CMS repository:
-   ```bash
-   git clone https://github.com/dxpr/dxpr_cms.git
-   ```
-3. Navigate to the project directory:
-   ```bash
-   cd dxpr_cms
-   ```
-4. Start the DDEV environment by running the following command:
-   ```bash
-   ddev start
-   ```
-5. After the environment starts, follow the link provided in the terminal to access the Drupal installation wizard. Complete the installation steps to set up your site.
-6. During the installation, you can select additional recipes to customize your site. These recipes will help tailor the installation to your needs.
-7. To destroy and rebuild the DDEV environment (which deletes and reinstalls all dependencies), run:
-   ```bash
-   ddev rebuild
-   ```
 
 ## Community and support
 
