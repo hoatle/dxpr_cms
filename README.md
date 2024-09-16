@@ -2,7 +2,6 @@
 
 DXPR CMS is a powerful and enhanced version of Drupal 10, incorporating some of the best modules and themes available. It is designed to help you quickly set up and start building your site. Unlike traditional distributions, DXPR CMS utilizes the Drupal recipe system, ensuring flexibility and ease of customization.
 
-```markdown
 ## Future-proof your digital strategy with scalable tools for efficient content management
 
 Welcome to DXPR CMS, a dynamic Drupal distribution that simplifies complex content management challenges. Designed to enhance productivity, ensure data security, and leverage the potential of AI, this platform integrates tools like [DXPR Builder](https://www.drupal.org/project/dxpr_builder) and [DXPR Theme](https://www.drupal.org/project/dxpr_theme), alongside cutting-edge AI modules to empower users, streamline workflows, and reduce operational costs.
@@ -108,6 +107,3 @@ DXPR CMS integrates open-source flexibility with enhanced features through our [
 
 **Strengthening Drupal Together:**  
 We invite the Drupal community to collaborate on DXPR CMS, enhancing both our platform and the broader ecosystem. By contributing to the open-source core and sharing advancements, we empower users and developers to join us in shaping a forward-thinking digital landscape.
-```
-
-This is the full content converted into GitHub-compatible Markdown. Let me know if you need any further adjustments!
