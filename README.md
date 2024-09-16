@@ -13,16 +13,27 @@ DXPR CMS is a powerful and enhanced version of Drupal 10, incorporating some of 
 Follow these steps to install DXPR CMS:
 
 1. Install [DDEV](https://ddev.com/) if you haven't already.
-2. Clone the repository and navigate to the project directory.
-3. Run the following command:
+2. Clone the DXPR CMS repository:
+
+    ```bash
+    git clone https://github.com/dxpr/dxpr_cms.git
+    ```
+
+3. Navigate to the project directory:
+
+    ```bash
+    cd dxpr_cms
+    ```
+
+4. Start the DDEV environment by running the following command:
 
     ```bash
     ddev start
     ```
 
-4. After running the command, click on the provided link to access the Drupal installation wizard. Follow the steps to set up your site.
-5. During the installation process, you have the option to select additional recipes to customize your site setup. These optional recipes can help tailor your Drupal installation to your specific needs.
-6. Run the following command, to destroy and rebuild the DDEV environment. This will delete and reinstall all dependencies.
+5. After the environment starts, follow the link provided in the terminal to access the Drupal installation wizard. Complete the installation steps to set up your site.
+6. During the installation, you can select additional recipes to customize your site. These recipes will help tailor the installation to your needs.
+7. To destroy and rebuild the DDEV environment (which deletes and reinstalls all dependencies), run:
 
     ```bash
     ddev rebuild
