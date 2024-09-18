@@ -149,7 +149,7 @@ menu_border_color: ''
 menu_border_color_custom: ''
 header_mobile_height: '40'
 secondary_header_hide: hidden_none
-custom_css_site: ".content .az-container > .az-section { padding-top: 100px;padding-bottom: 100px; }\r\n.content img { border-radius: 20px; }\r\n.az-icon { margin-bottom: 30px; }"
+custom_css_site: ".content .az-container > .az-section { padding-top: 100px;padding-bottom: 100px; }\r\n.content img { border-radius: 20px; }\r\n.az-icon { margin-bottom: 30px; }\r\n.body--dxpr-theme-nav-desktop .dxpr-theme-header--top .nav>li>a, .body--dxpr-theme-nav-desktop .dxpr-theme-header--top .nav>li>span { font-size: 0.875rem; }"
 custom_javascript_site: ''
 stlink: 0
 block_preset: block_card

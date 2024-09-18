@@ -9,7 +9,7 @@ dependencies:
     - node
     - user
 id: locations
-label: 'Locations'
+label: Locations
 module: views
 description: ''
 tag: ''
@@ -91,6 +91,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 5
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:

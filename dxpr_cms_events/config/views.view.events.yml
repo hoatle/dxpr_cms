@@ -5,12 +5,13 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.storage.node.field_when
     - node.type.event
-    - system.menu.main
   module:
     - add_content_by_bundle
     - node
     - smart_date
     - user
+_core:
+  default_config_hash: qjFXZiA1PiX1MBsRFQMQnd3eeKPr3f8uX1j1FDECFq8
 id: events
 label: Events
 module: views
@@ -78,9 +79,9 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 20
           total_pages: null
-          pagination_heading_level: h4
           id: 0
           tags:
             next: ››
@@ -406,7 +407,7 @@ display:
       display_extenders: {  }
       path: events/upcoming
       menu:
-        type: 'default tab'
+        type: none
         title: Events
         description: ''
         weight: 1

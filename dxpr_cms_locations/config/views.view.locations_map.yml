@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.body
     - field.storage.node.field_geofield
     - node.type.location
-    - system.menu.main
   module:
     - add_content_by_bundle
     - geofield
@@ -399,7 +398,7 @@ display:
       display_extenders: {  }
       path: locations
       menu:
-        type: normal
+        type: none
         title: Locations
         description: ''
         weight: 0

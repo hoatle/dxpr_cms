@@ -21,7 +21,8 @@
                 "Ensure core recipes that affect user roles also install the User module": "https://www.drupal.org/files/issues/2024-08-26/core-recipes-user-import-8.patch",
                 "#3416357: Convert QueueFactory to use a service locator": "https://www.drupal.org/files/issues/2024-08-09/3416357-10.3.x-only.patch",
                 "Allow the command-line installer to auto-select distributions": "https://www.drupal.org/files/issues/2024-08-12/core-install-command-allow-distributions.patch",
-                "#3467262: Create menu item parent for a default tab": "https://www.drupal.org/files/issues/2024-08-23/core-default_tab_parent_menu-3467262-6.patch"
+                "#3467262: Create menu item parent for a default tab": "https://www.drupal.org/files/issues/2024-08-23/core-default_tab_parent_menu-3467262-6.patch",
+                "#3395527: Integrate Dashboard with navigation": "https://www.drupal.org/files/issues/2024-09-13/navigation-dashboard-integration-d10.3_0.patch"
             },
             "drupal/redirect": {
                 "#3469956: views.view.redirect.yml and views.view.redirect_404.yml do not match Drupal's export": "https://www.drupal.org/files/issues/2024-08-26/redirect-3469956-mr115-comment-11.patch"

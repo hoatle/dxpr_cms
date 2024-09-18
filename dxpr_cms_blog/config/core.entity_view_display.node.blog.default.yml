@@ -9,16 +9,21 @@ dependencies:
     - field.field.node.blog.field_tags
     - node.type.blog
   module:
+    - dxpr_builder
     - media
-    - text
     - user
 id: node.blog.default
 targetEntityType: node
 bundle: blog
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_content:
-    type: text_default
+    type: dxpr_builder_text
     label: hidden
     settings: {  }
     third_party_settings: {  }

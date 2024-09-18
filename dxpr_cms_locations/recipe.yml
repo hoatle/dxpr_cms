@@ -1,12 +1,16 @@
 name: "Locations"
 description: 'Provides a Location content type and related configuration.'
 type: 'DXPR CMS'
+recipes:
+  - dxpr_builder_base
 install:
   # Core
   - node
   - path
   - telephone
   # Contrib
+  - dxpr_builder_page
+  - dxpr_theme_helper
   - add_content_by_bundle
   - address
   - geofield

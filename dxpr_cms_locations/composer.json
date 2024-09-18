@@ -3,6 +3,9 @@
     "description": "Provides a location content type and related configuration.",
     "type": "drupal-recipe",
     "require": {
+        "drupal/dxpr_builder_base": "*",
+        "drupal/dxpr_builder": "^3.0@alpha",
+        "drupal/dxpr_theme_helper": "^1",
         "drupal/add_content_by_bundle": "^1.2",
         "drupal/address": "^2.0",
         "drupal/core": ">=10.3",

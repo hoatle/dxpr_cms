@@ -2,10 +2,10 @@ name: Advanced SEO
 description: Configures DXPR CMS for Search Engine Optimization best practices.
 type: DXPR CMS
 recipes:
-  - dxpr_cms_dashboard
   # Verify we have full_html editor for the dashboard blocks.
   - dxpr_cms_full_html_editor
 install:
+  - dashboard
   - field_group
   - focal_point
   - layout_builder

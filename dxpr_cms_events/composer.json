@@ -6,6 +6,9 @@
   "require": {
     "drupal/core": ">=10.3",
     "drupal/dxpr_cms_locations": "*",
+    "drupal/dxpr_builder_base": "*",
+    "drupal/dxpr_builder": "^3.0@alpha",
+    "drupal/dxpr_theme_helper": "^1",
     "drupal/add_content_by_bundle": "^1.2",
     "drupal/smart_date": "^4.1",
     "drupal/addtocal_augment": "^1.2@rc",
