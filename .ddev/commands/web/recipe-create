@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
 ## Description: Creates a new DXPR CMS recipe stub and adds it to the project.
-## Usage: create-recipe NAME
-## Example: "ddev create-recipe dxpr_cms_power_tools"
+## Usage: recipe-create NAME
+## Example: "ddev recipe-create dxpr_cms_power_tools"
+## Aliases: recipe:create,rc,create-recipe
 
 # Abort this script if any step of it fails.
 set -e
