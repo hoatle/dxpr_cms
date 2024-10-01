@@ -5,6 +5,7 @@ install:
   - coffee
   - gin
   - gin_toolbar
+  - help
   - navigation
   - sam
   - type_tray
