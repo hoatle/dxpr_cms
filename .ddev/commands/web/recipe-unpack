@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 ## Description: Unpacks all recipes' dependencies into the main `composer.json`.
-## Usage: unpack
-## Example: "ddev unpack"
-## Example: "ddev unpack /path/to/project"
+## Usage: recipe-unpack
+## Example: "ddev recipe-unpack"
+## Example: "ddev recipe-unpack /path/to/project"
 
 # Stop this entire script if any one command fails.
 set -e
