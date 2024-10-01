@@ -249,7 +249,7 @@
                 "<bg=blue;fg=white>                                                   </>",
                 "",
                 "<bg=yellow;fg=black>Next steps</>:",
-                "  * Run <fg=yellow>composer quick-start</> to initialize Dxpr CMS and open it in a browser",
+                "  * Run <fg=yellow>composer launch</> to initialize Dxpr CMS and open it in a browser",
                 "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
                 "  * Get support: https://drupal.org/support",
                 "  * Get involved with the Drupal community: https://drupal.org/getting-involved"
@@ -257,7 +257,7 @@
         }
     },
     "scripts": {
-        "quick-start": [
+        "launch": [
             "@php ./web/core/scripts/drupal quick-start dxpr_cms_installer"
         ]
     }

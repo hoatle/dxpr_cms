@@ -1,5 +1,5 @@
 # Since we're not using a bundler, we need to manually copy the required
-# dependnecies from node_modules
+# dependencies from node_modules
 #
 # NOTE: Rollup has been evaluated, but even with preserveModules it does not
 # copy over the required .wasm files or .so files, and preserves the dependencies
