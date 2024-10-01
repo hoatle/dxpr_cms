@@ -1,10 +1,11 @@
-.DS_Store
 /.phpunit.result.cache
 /composer.json
 /composer.lock
+patches.json
 patches.lock.json
 /vendor
 /web
 /.editorconfig
 /.gitattributes
+.DS_Store
 .idea/
