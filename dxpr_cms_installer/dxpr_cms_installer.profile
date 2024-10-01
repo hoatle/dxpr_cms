@@ -18,6 +18,11 @@ use Symfony\Component\Process\ExecutableFinder;
  * Implements hook_install_tasks().
  */
 function dxpr_cms_installer_install_tasks(): array {
+  // Ensure our forms are loadable in all situations, even if the installer is
+  // not a Composer-managed package.
+  \Drupal::service('class_loader')
+    ->addPsr4('Drupal\\dxpr_cms_installer\\', __DIR__ . '/src');
+
   return [
     'dxpr_cms_installer_module_keys' => [
       'display_name' => t('Enter API keys'),

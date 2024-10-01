@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\dxpr_cms_page_content_type\Kernel;
 
-use Composer\InstalledVersions;
 use Drupal\Core\Extension\ThemeInstallerInterface;
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
@@ -47,7 +46,7 @@ class ComponentValidationTest extends KernelTestBase {
   }
 
   public function test(): void {
-    $dir = InstalledVersions::getInstallPath('drupal/' . explode('\\', __NAMESPACE__)[2]);
+    $dir = realpath(__DIR__ . '/../../..');
 
     // If the recipe is not valid, an exception should be thrown here.
     $recipe = Recipe::createFromDirectory($dir);
