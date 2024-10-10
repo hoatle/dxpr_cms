@@ -65,6 +65,11 @@ a {
 .cms-installer .cms-installer__heading {
   font-size: 48px;
   font-weight: 900;
+  flex: 0 1 50%;
+}
+
+.cms-installer .cms-installer__heading img {
+  width: 50%;
 }
 
 .cms-installer .cms-installer__heading-secondary {

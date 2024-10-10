@@ -1,5 +1,6 @@
 .cms-installer__language {
   position: relative; /* Anchor dropdown. */
+  flex: 0 1 50%;
 }
 
 .cms-installer__language-dropdown {
