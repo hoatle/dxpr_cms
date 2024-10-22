@@ -200,7 +200,7 @@
         "drupal/core-recommended": "^10.3",
         "drupal/dxpr_cms_base": "dev-main",
         "drupal/dxpr_cms_installer": "dev-main",
-        "drush/drush": "^12.5"
+        "drush/drush": "^13"
     },
     "require-dev": {
         "drupal/core-dev": "^10.3"
