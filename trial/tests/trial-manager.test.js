@@ -10,9 +10,8 @@ function createMockWorker() {
     return mock
 }
 
-function createTrialManager(flavor, artifact = 'drupal.zip') {
+function createTrialManager(artifact = 'drupal.zip') {
     const sut = new TrialManager();
-    sut.flavor = flavor;
     sut.artifact = artifact
     return sut;
 }
@@ -35,7 +34,7 @@ describe('TrialManager', () => {
 
     it('changes state based on the mode', () => {
         createMockWorker()
-        const sut = createTrialManager('bar')
+        const sut = createTrialManager()
         document.body.appendChild(sut);
         expect(sut.getInnerHTML()).toContain('<svg')
         sut.mode = 'new_session'
@@ -51,9 +50,9 @@ describe('TrialManager', () => {
     })
 
     it.each([
-        ['resume', 'start', { flavor: 'bar', artifact: 'baz.zip' }, 'started', 'new_session'],
-        ['export', 'export', { flavor: 'bar' }, 'started', 'new_session'],
-        ['new', 'remove', { flavor: 'bar' }, 'reload', null]
+        ['resume', 'start', { flavor: 'cms', artifact: 'baz.zip' }, 'started', 'new_session'],
+        ['export', 'export', { flavor: 'cms' }, 'started', 'new_session'],
+        ['new', 'remove', { flavor: 'cms' }, 'reload', null]
     ])('button %s interacts with worker', (buttonId, buttonAction, expectedParams, workerAction, endMode) => {
         vi.stubGlobal('confirm', vi.fn().mockImplementation(() => true))
         const worker = createMockWorker()
@@ -79,7 +78,7 @@ describe('TrialManager', () => {
             }
         })
 
-        const sut = createTrialManager('bar', 'baz.zip')
+        const sut = createTrialManager('baz.zip')
         sut.mode = 'existing_session';
         document.body.appendChild(sut);
 
@@ -96,17 +95,14 @@ describe('TrialManager', () => {
         expect(sut.mode).toStrictEqual(endMode)
     })
 
-    it.each([
-        ['drupal'],
-        ['starshot']
-    ])('checks for existing `%s` docroot when service_worker_ready', (flavor) => {
+    it('checks for existing docroot when service_worker_ready', () => {
         const worker = createMockWorker()
         worker.postMessage.mockImplementation(({ action, params }) => {
             expect(action).toBe('check_existing')
-            expect(params).toStrictEqual({ flavor })
+            expect(params).toStrictEqual({ flavor: 'cms' })
         })
 
-        document.body.appendChild(createTrialManager(flavor));
+        document.body.appendChild(createTrialManager());
 
         const channel = new BroadcastChannel('drupal-cgi-worker');
         channel.postMessage({action: 'service_worker_ready'})
@@ -150,7 +146,7 @@ describe('TrialManager', () => {
             }
         })
 
-        document.body.appendChild(createTrialManager('foo'));
+        document.body.appendChild(createTrialManager());
 
         const channel = new BroadcastChannel('drupal-cgi-worker');
         channel.postMessage({action: 'service_worker_ready'})
@@ -173,7 +169,7 @@ describe('TrialManager', () => {
         worker.postMessage.mockImplementation(({ action }) => {
             expect(action).toBe('stop')
         })
-        const sut = createTrialManager('foo');
+        const sut = createTrialManager();
 
         worker.onmessage({
             data: {

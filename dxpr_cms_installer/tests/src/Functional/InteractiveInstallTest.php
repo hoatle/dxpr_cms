@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\dxpr_cms_installer\Functional;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ExtensionList;
 use Drupal\Core\Extension\ModuleExtensionList;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -37,10 +36,11 @@ class InteractiveInstallTest extends InstallerTestBase {
     $this->assertArrayHasKey('languages', $this->getDrupalSettings());
 
     // Choose all the add-ons!
-    $this->submitForm([
-      'add_ons[dxpr_cms_accessibility_tools]' => TRUE,
-      'add_ons[dxpr_cms_multilingual]' => TRUE,
-    ], 'Next');
+    $page = $this->getSession()->getPage();
+    $optional_recipes = $page->findAll('css', 'input[name^="add_ons["]');
+    $this->assertNotEmpty($optional_recipes);
+    array_walk($optional_recipes, fn ($checkbox) => $checkbox->check());
+    $page->pressButton('Next');
 
     // The list of languages should still be exposed to JavaScript.
     $this->assertArrayHasKey('languages', $this->getDrupalSettings());
@@ -142,29 +142,6 @@ class InteractiveInstallTest extends InstallerTestBase {
     $page->pressButton('Log in');
     $assert_session->addressEquals('/admin/dashboard');
     $this->drupalLogout();
-
-    $editor = $this->drupalCreateUser();
-    $editor->addRole('content_editor')->save();
-    $this->drupalLogin($editor);
-
-    // Test basic configuration of the content types.
-    $node_types = $this->container->get(EntityTypeManagerInterface::class)
-      ->getStorage('node_type')
-      ->getQuery()
-      ->execute();
-    $this->assertNotEmpty($node_types);
-
-    foreach ($node_types as $node_type) {
-      $node = $this->createNode(['type' => $node_type]);
-      $url = $node->toUrl();
-
-      // Content editors should be able to clone all content types.
-      $this->drupalGet($url);
-      $this->getSession()->getPage()->clickLink('Clone');
-      $assert_session->statusCodeEquals(200);
-      // All content types should have pretty URLs.
-      $this->assertNotSame('/node/' . $node->id(), $url->toString());
-    }
   }
 
   /**

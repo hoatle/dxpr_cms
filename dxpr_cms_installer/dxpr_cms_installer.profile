@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 use Drupal\Component\Utility\Random;
 use Drupal\Core\Extension\ModuleInstallerInterface;
+use Drupal\Core\File\FileUrlGeneratorInterface;
 use Drupal\Core\Installer\Form\SiteConfigureForm;
+use Drupal\Core\Installer\Form\SiteSettingsForm;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Recipe\InputCollector;
 use Drupal\Core\Recipe\Recipe;
@@ -28,6 +30,9 @@ function dxpr_cms_installer_install_tasks(): array {
       'display_name' => t('Enter API keys'),
        'type' => 'form',
        'function' => ConfigureAPIKeysForm::class,
+    ],
+    'dxpr_cms_installer_prepare_trial' => [
+      'run' => getenv('DXPR_CMS_TRIAL') ? INSTALL_TASK_RUN_IF_REACHED : INSTALL_TASK_SKIP,
     ],
     'dxpr_cms_uninstall_unused_ai_modules' => [
       // Uninstall the unused AI provider module.
@@ -75,6 +80,11 @@ function dxpr_cms_installer_install_tasks_alter(array &$tasks, array $install_st
   // use the passed-in $install_state because it's not passed by reference.
   $GLOBALS['install_state']['parameters'] += ['langcode' => 'en'];
 
+  // The database settings form should be submitted programmatically in the
+  // trial experience.
+  $tasks['install_settings_form']['function'] = 'dxpr_cms_installer_database_settings';
+  unset($tasks['install_settings_form']['type']);
+
   // Submit the site configuration form programmatically.
   $tasks['install_configure_form'] = [
     'function' => 'dxpr_cms_installer_configure_site',
@@ -83,6 +93,11 @@ function dxpr_cms_installer_install_tasks_alter(array &$tasks, array $install_st
   // Wrap the install_profile_modules() function, which returns a batch job, and
   // add all the necessary operations to apply the chosen template recipe.
   $tasks['install_profile_modules']['function'] = 'dxpr_cms_installer_apply_recipes';
+
+  // Since we're using recipes, we can skip `install_profile_themes` and
+  // `install_install_profile`.
+  $tasks['install_profile_themes']['run'] = INSTALL_TASK_SKIP;
+  $tasks['install_install_profile']['run'] = INSTALL_TASK_SKIP;
 }
 
 /**
@@ -130,6 +145,22 @@ function dxpr_cms_installer_apply_recipes(array &$install_state): array {
 }
 
 /**
+ * Programmatically submits the database settings form if needed.
+ */
+function dxpr_cms_installer_database_settings(array &$install_state): ?array {
+  $interactive = $install_state['interactive'];
+  // If we're installing the in-browser trial, submit the form programmatically
+  // with default values which, thanks to
+  // dxpr_cms_installer_form_install_settings_form_alter(), should be the
+  // SQLite driver with its default options.
+  $install_state['interactive'] = getenv('DXPR_CMS_TRIAL') ? FALSE : $interactive;
+  $result = install_get_form(SiteSettingsForm::class, $install_state);
+  $install_state['interactive'] = $interactive;
+
+  return $result;
+}
+
+/**
  * Programmatically executes core's site configuration form.
  */
 function dxpr_cms_installer_configure_site(array &$install_state): ?array {
@@ -173,7 +204,11 @@ function dxpr_cms_installer_configure_site(array &$install_state): ?array {
  * Implements hook_library_info_alter().
  */
 function dxpr_cms_installer_library_info_alter(array &$libraries, string $extension): void {
-  $base_path = _dxpr_cms_installer_base_path();
+  global $install_state;
+  // If a library file's path starts with `/`, the library collection system
+  // treats it as relative to the base path.
+  // @see \Drupal\Core\Asset\LibraryDiscoveryParser::buildByExtension()
+  $base_path = '/' . $install_state['profiles']['dxpr_cms_installer']->getPath();
 
   if ($extension === 'claro') {
     $libraries['maintenance-page']['css']['theme']["$base_path/css/gin-variables.css"] = [];
@@ -253,11 +288,16 @@ function dxpr_cms_uninstall_unused_ai_modules(): void {
 
 /**
  * Uninstalls this install profile, as a final step.
+ *
+ * @see drupal_install_system()
  */
 function dxpr_cms_installer_uninstall_myself(): void {
-  \Drupal::service(ModuleInstallerInterface::class)->uninstall([
-    'dxpr_cms_installer',
-  ]);
+  // `drupal_install_system()` sets `profile` in `core.extension` regardless
+  // of whether the profile is actually installed by the module installer.
+  \Drupal::configFactory()
+    ->getEditable('core.extension')
+    ->clear('profile')
+    ->save();
 }
 
 /**
@@ -285,21 +325,9 @@ function dxpr_cms_installer_preprocess_install_page(array &$variables): void {
   // Don't show the task list or the version of Drupal.
   unset($variables['page']['sidebar_first'], $variables['site_version']);
 
-  $variables['images_path'] = _dxpr_cms_installer_base_path() . '/images';
-}
-
-/**
- * Returns the base URL path of the DXPR CMS installer.
- *
- * @return string
- *   The installer's base URL path, e.g. `/profiles/dxpr_cms_installer`.
- */
-function _dxpr_cms_installer_base_path(): string {
-  // We're in the installer, which is `/core/install.php`, so $base_path will
-  // probably be `/core`. Therefore, we call `dirname()` to trim that off.
-  $base_path = \Drupal::request()->getBasePath();
-  $base_path = dirname($base_path);
-
   global $install_state;
-  return $base_path . $install_state['profiles']['dxpr_cms_installer']->getPath();
+  $images_path = $install_state['profiles']['dxpr_cms_installer']->getPath() . '/images';
+  $images_path = \Drupal::service(FileUrlGeneratorInterface::class)
+    ->generateString($images_path);
+  $variables['images_path'] = $images_path;
 }

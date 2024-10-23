@@ -5,13 +5,14 @@ recipes:
   # Ensure there is at least one text format to use.
   - core/recipes/restricted_html_format
 install:
-  - language
+  - user
   - node
-  - pathauto
   - quick_node_clone
 config:
+  # Treat all field storages strictly, since they influence the database layout.
+  strict:
+    - field.storage.node.body
   import:
-    language: '*'
     node:
       # Only import config which is also imported by the Standard profile.
       - core.entity_view_mode.node.full

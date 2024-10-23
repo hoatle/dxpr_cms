@@ -126,7 +126,7 @@ export async function createPhp({ configFixturePath, persistFixturePath }) {
     php.addEventListener('output', (event) => event.detail.forEach(line => void (stdOut.push(line))));
     php.addEventListener('error',  (event) => event.detail.forEach(line => void (stdErr.push(line))));
     await php.binary
-    await php.run(`<?php putenv('DXPR_CMS_TRIAL=1');`)
+    await php.run(`<?php putenv('dxpr_cms_TRIAL=1');`)
     return [stdOut, stdErr, php]
 }
 
@@ -142,7 +142,7 @@ export function createCgiPhp({ configFixturePath, persistFixturePath }) {
         sharedLibs,
         env: {
             HTTP_USER_AGENT: 'node',
-            DXPR_CMS_TRIAL: '1'
+            dxpr_cms_TRIAL: '1'
         },
         docroot: '/persist/drupal/web',
         vHosts: [
@@ -275,4 +275,38 @@ export async function checkForMetaRefresh(phpCgi, response, text, document) {
         }
     }
     return [response, text, document]
+}
+
+/**
+ * Verifies that the `sites/default` directory is writeable.
+ *
+ * @param {string} persistFixturePath
+ */
+export function assertSitesDefaultDirectoryPermissions(persistFixturePath) {
+  const stat = fs.statSync(`${persistFixturePath}/drupal/web/sites/default`)
+  expect(stat.mode & 0o777).toStrictEqual(0o755)
+
+  const statSettings = fs.statSync(`${persistFixturePath}/drupal/web/sites/default/settings.php`)
+  expect(statSettings.mode & 0o777).toStrictEqual(0o644)
+}
+
+/**
+ * Asserts the location header of a response.
+ *
+ * @param {Response} response
+ * @param {string} pathname
+ * @param {string} search
+ */
+export function assertLocationHeader(response, pathname, search) {
+  expect(response.headers.has('location')).toBeTruthy()
+  let location;
+  try {
+    location = new URL(response.headers.get('location'), globalThis.location.toString())
+  } catch (e) {
+    console.error(e)
+    expect(response.headers.get('location')).toStrictEqual(pathname + search)
+  }
+  expect(location.pathname).toStrictEqual(pathname)
+  expect(location.search).toStrictEqual(search)
+  return location
 }

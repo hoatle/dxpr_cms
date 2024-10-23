@@ -8,7 +8,6 @@ install:
   - help
   - navigation
   - sam
-  - type_tray
 config:
   import:
     gin: '*'

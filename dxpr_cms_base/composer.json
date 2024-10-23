@@ -5,8 +5,10 @@
     "version": "dev-main",
     "require": {
         "drupal/core": ">=10.3",
+        "drupal/bpmn_io": "^2.0",
         "drupal/block_classes": "^1.0",
         "drupal/dashboard": "2.x-dev",
+        "drupal/eca": "2.1.x-dev",
         "drupal/login_emailusername": "^2.1",
         "drupal/trash": "^3.0",
         "drupal/gin_login": "^2",
@@ -33,11 +35,15 @@
         "drupal/dxpr_cms_media_tools": "dev-main",
         "drupal/dxpr_cms_multilingual": "dev-main",
         "drupal/dxpr_cms_page_content_type": "dev-main",
-        "drupal/dxpr_cms_patches": "dev-main",
         "drupal/dxpr_cms_performance": "dev-main",
-        "drupal/dxpr_cms_seo_advanced": "dev-main",
+        "drupal/dxpr_cms_seo_tools": "dev-main",
         "drupal/dxpr_cms_seo_basic": "dev-main",
         "drupal/dxpr_cms_workflows": "dev-main",
         "drupal/dxpr_theme_base": "dev-main"
+    },
+    "suggest": {
+        "drupal/dxpr_cms_accessibility_tools": "Installs and configures tools to help authors make their content accessible.",
+        "drupal/dxpr_cms_multilingual": "Adds support for translations to all content types.",
+        "drupal/dxpr_cms_seo_tools": "Configures DXPR CMS for search engine optimization best practices."
     }
 }

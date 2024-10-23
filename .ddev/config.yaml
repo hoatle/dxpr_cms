@@ -4,7 +4,9 @@ docroot: web
 php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
-additional_hostnames: []
+additional_hostnames:
+  # @see nginx_full/trial.conf
+  - dxpr-cms-trial
 additional_fqdns: []
 database:
     type: mariadb
@@ -14,14 +16,45 @@ composer_version: "2"
 corepack_enable: false
 hooks:
   post-start:
-    # Copy the template project's `composer.json`, to build the code base.
-    - exec: 'cp -f ./project_template/composer.json .'
+    # Generate `composer.json` by merging the project template with our internal
+    # dev requirements.
+    - exec: 'jq -s ".[0] * .[1]" project_template/composer.json dev.composer.json > composer.json'
     # Add the components as path repositories.
     - exec: "setup-repositories"
-    # Install dependencies, and require any extra dev dependencies.
-    - composer: 'require --dev drupal/default_content'
+    # Install all dependencies.
+    - composer: 'install'
     # Copy PHPUnit configuration into the web root.
     - exec: 'cp -f phpunit.xml $DDEV_DOCROOT'
+    # Install JavaScript dependencies if needed. The `--foreground-scripts`
+    # option is needed to ensure the Cypress binary is actually downloaded;
+    # see the warning about Node.js Snap for Linux at
+    # https://docs.cypress.io/guides/getting-started/installing-cypress.
+    - exec: 'test -d node_modules || npm clean-install --foreground-scripts'
 web_environment:
   # For faster performance, don't audit dependencies automatically.
   - COMPOSER_NO_AUDIT=1
+  # To display its UI, Cypress needs to be able to talk to an X11 server
+  # running on the host machine.
+  # - DISPLAY=host.docker.internal:0
+  # Download Cypress to a directory that won't be blown away every time the
+  # project is restarted.
+  - CYPRESS_CACHE_FOLDER=/var/www/html/.cache/cypress
+  # Use the DDEV-provided database to run PHPUnit tests.
+  - SIMPLETEST_DB=$DDEV_DATABASE_FAMILY://db:db@db/db
+  - SIMPLETEST_BASE_URL=$DDEV_PRIMARY_URL
+webimage_extra_packages:
+  # Add Cypress' system dependencies.
+  # See https://docs.cypress.io/guides/getting-started/installing-cypress#UbuntuDebian
+  - libgtk2.0-0
+  - libgtk-3-0
+  - libgbm-dev
+  - libnotify-dev
+  - libnss3
+  - libxss1
+  - libasound2
+  - libxtst6
+  - xauth
+  - xvfb
+  # Additional browsers for Cypress to test against.
+  - chromium
+  - firefox-esr

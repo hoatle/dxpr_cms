@@ -12,4 +12,12 @@ install:
   - dxpr_theme_helper
   - better_exposed_filters
   - menu_link_content
-  - scheduler
+  - pathauto
+config:
+  # Treat all field storages strictly, since they influence the database layout.
+  strict:
+    - field.storage.node.field_content
+    - field.storage.node.field_description
+    - field.storage.node.field_image
+    - field.storage.node.field_tags
+

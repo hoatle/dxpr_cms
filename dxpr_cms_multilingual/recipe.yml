@@ -4,6 +4,7 @@ description: 'Adds support for translations.'
 install:
   - config_translation
   - content_translation
+  - hreflang
   - language
   - node
   - tmgmt

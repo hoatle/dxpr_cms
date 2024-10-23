@@ -6,9 +6,15 @@
     "require": {
         "drupal/core": ">=10.3",
         "drupal/easy_breadcrumb": "^2",
-        "drupal/hreflang": "^1.14",
         "drupal/pathauto": "^1.12",
         "drupal/redirect": "^1.10",
         "drupal/token": "^1.15"
+    },
+    "extra": {
+        "patches": {
+            "drupal/redirect": {
+                "#3469956: views.view.redirect.yml and views.view.redirect_404.yml do not match Drupal's export": "https://www.drupal.org/files/issues/2024-08-26/redirect-3469956-mr115-comment-11.patch"
+            }
+        }
     }
 }

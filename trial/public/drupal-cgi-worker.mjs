@@ -1,4 +1,3 @@
-import { PhpCgiWorker } from "./PhpCgiWorker.mjs";
 import {getBroadcastChannel} from "./utils.mjs";
 import CookieMap from "./cookie-map.mjs";
 
@@ -38,40 +37,28 @@ const sharedLibs = [
     `php\${PHP_VERSION}-simplexml.so`,
 ];
 
-export class DrupalCgiWorker extends PhpCgiWorker {
-    // @todo `docroot` doesn't really work, requires vHosts.
-    constructor({docroot, prefix, types = {}, ...args}) {
-        super({
-            onRequest,
-            notFound,
-            sharedLibs,
-            docroot,
-            prefix,
-            types: {
-                jpeg: "image/jpeg",
-                jpg: "image/jpeg",
-                gif: "image/gif",
-                png: "image/png",
-                svg: "image/svg+xml",
-                ...types
-            },
-            cookies,
-            ...args,
-        });
-    }
-}
-
-export function setUpWorker(worker, prefix, docroot) {
-    const php = new DrupalCgiWorker({
+export function setUpWorker(worker, PhpCgiWorker, prefix, docroot) {
+    const php = new PhpCgiWorker({
+        onRequest,
+        notFound,
+        sharedLibs,
         prefix,
         docroot,
+        types: {
+            jpeg: "image/jpeg",
+            jpg: "image/jpeg",
+            gif: "image/gif",
+            png: "image/png",
+            svg: "image/svg+xml"
+        },
         env: {
             HTTP_USER_AGENT: worker.navigator.userAgent,
-            DXPR_CMS_TRIAL: '1'
+            dxpr_cms_TRIAL: '1',
         },
         ini: `
         date.timezone=${Intl.DateTimeFormat().resolvedOptions().timeZone}
-        `
+        `,
+        cookies,
     })
 
     const channel = getBroadcastChannel()

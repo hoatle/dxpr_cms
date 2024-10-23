@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+## Description: Clears out the database and reinstalls Drupal.
+## Usage: reinstall [PROFILE]
+## Example: "ddev reinstall"
+## Example: "ddev reinstall standard"
+
+drush sql:drop --yes
+drush site:install --yes $1

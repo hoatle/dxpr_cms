@@ -3,7 +3,6 @@ description: 'Applies all the DXPR CMS recipes.'
 type: Site
 recipes:
   - core/recipes/basic_block_type
-  - core/recipes/content_search
   - core/recipes/core_recommended_performance
   - dxpr_cms_admin_theme
   - core/recipes/core_recommended_front_end_theme
@@ -13,6 +12,7 @@ recipes:
   - core/recipes/document_media_type
   - core/recipes/local_video_media_type
   - core/recipes/remote_video_media_type
+  - dxpr_cms_anti_spam
   - dxpr_cms_blog
   - dxpr_cms_basic_html_editor
   - dxpr_cms_dashboard
@@ -30,10 +30,14 @@ recipes:
   - dxpr_builder_drag_and_drop_page
   - dxpr_theme_base
 install:
+  - bpmn_io
   - block_classes
   - config
   - contextual
   - datetime
+  - eca_base
+  - eca_misc
+  - eca_user
   - field_ui
   - gin_login
   - help
@@ -54,10 +58,11 @@ install:
   - views_ui
   - xmlsitemap
 config:
+  # If the config we're importing already exists, we don't really care
+  # what it looks like.
+  strict: false
   import:
     trash: '*'
-    help:
-      - search.page.help_search
     image:
       - image.style.large
       - image.style.thumbnail
@@ -71,7 +76,6 @@ config:
       - shortcut.set.default
     user:
       - core.entity_view_mode.user.compact
-      - search.page.user_search
       - views.view.user_admin_people
       - views.view.who_s_new
       - views.view.who_s_online
@@ -94,7 +98,7 @@ config:
           recipes:
             - dxpr_cms_accessibility_tools
             - dxpr_cms_multilingual
-            - dxpr_cms_seo_advanced
+            - dxpr_cms_seo_tools
     system.site:
       simple_config_update:
         name: 'DXPR CMS'
@@ -113,6 +117,30 @@ config:
       grantPermissionsForEachTaxonomyVocabulary:
         - 'create terms in %bundle'
         - 'edit terms in %bundle'
+      grantPermissions:
+        - 'access administration pages'
+        - 'access block library'
+        - 'access coffee'
+        - 'access content overview'
+        - 'access contextual links'
+        - 'access media overview'
+        - 'access navigation'
+        - 'access site in maintenance mode'
+        - 'access toolbar'
+        - 'administer redirects'
+        - 'administer url aliases'
+        - 'create basic block content'
+        - 'create url aliases'
+        - 'edit any basic block content'
+        - 'delete any basic block content'
+        - 'delete own files'
+        - 'revert all revisions'
+        - 'use text format basic_html'
+        - 'use text format full_html'
+        - 'use text format restricted_html'
+        - 'view all revisions'
+        - 'view own unpublished media'
+        - 'view the administration theme'
     views.view.files:
       disable: {}
     node.settings:
@@ -125,12 +153,10 @@ config:
         - 'access shortcuts'
         - 'access user profiles'
         - 'delete own files'
-        - 'use advanced search'
         - 'view own unpublished content'
     user.role.anonymous:
       grantPermissions:
         - 'access content'
-        - 'use advanced search'
     user.settings:
       simple_config_update:
         verify_mail: true

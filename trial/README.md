@@ -20,7 +20,8 @@ ddev launch https://dxpr-cms-trial.ddev.site/local.html
 
 ## Tests
 
-The [cgi.test.js](tests/cgi.test.js) allows running PhpCgiNode to test serving the trial over Node instead of the browser.
+The [cgi-install.test.js](tests/cgi-install.test.js) and [cgi-interactive-install.test.js](tests/cgi-interactive-install.test.js)
+allows running PhpCgiNode to test serving the trial over Node instead of the browser.
 
 This requires a `tests/fixtures/trial.zip` to be available. This can be downloaded from `https://git.drupalcode.org/api/v4/projects/157093/jobs/artifacts/0.x/raw/trial.zip?job=build+trial+artifact`
 or a custom build artifact.

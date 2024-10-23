@@ -14,32 +14,31 @@ const sharedLibs = [
     `php${PhpWorker.phpVersion}-simplexml.so`,
 ];
 
+console.log('booting PhpWorker')
+const php = new PhpWorker({
+    sharedLibs,
+    persist: [{ mountPath: '/persist' }, { mountPath: '/config' }],
+    ini: `
+    date.timezone=${Intl.DateTimeFormat().resolvedOptions().timeZone}
+    `
+})
+php.addEventListener('output', event => {
+    event.detail.forEach(detail => {
+        try {
+            const data = JSON.parse(detail.trim());
+            postMessage({
+                action: `status`,
+                ...data
+            })
+        } catch (e) {
+            console.log(detail)
+        }
+    })
+});
+php.addEventListener('error', event => console.log(event.detail));
+
 self.onmessage = async ({data }) => {
     const { action, params } = data;
-
-    console.log('booting PhpWorker')
-    const php = new PhpWorker({
-        sharedLibs,
-        persist: [{ mountPath: '/persist' }, { mountPath: '/config' }],
-        ini: `
-        date.timezone=${Intl.DateTimeFormat().resolvedOptions().timeZone}
-        `
-    })
-    php.addEventListener('output', event => {
-        event.detail.forEach(detail => {
-            try {
-                const data = JSON.parse(detail.trim());
-                postMessage({
-                    action: `status`,
-                    params,
-                    ...data
-                })
-            } catch (e) {
-                console.log(detail)
-            }
-        })
-    });
-    php.addEventListener('error', event => console.log(event.detail));
 
     if (action === 'start') {
         await navigator.locks.request('start', async () => {
@@ -141,53 +140,56 @@ self.onmessage = async ({data }) => {
                 const initPhpExitCode = await php.run(await (await initPhpCode).text());
                 console.log(initPhpExitCode)
 
-              if (!params.installParameters.interactive) {
-                postMessage({
-                  action: 'status',
-                  params,
-                  message: 'Installing DXPR CMS'
-                })
+                const installType = params.installParameters.installType;
+                if (installType !== 'interactive') {
+                    postMessage({
+                        action: 'status',
+                        params,
+                        message: 'Preparing DXPR CMS',
+                    });
 
-                console.log('Writing install parameters');
-                await php.writeFile(`/config/${flavor}-install-params.json`, JSON.stringify({
-                  langcode: 'en',
-                  host: (new URL(globalThis.location || 'http://localhost')).host,
-                  ...params.installParameters
-                }))
+                    console.log('Writing install parameters');
+                    await php.writeFile(`/config/${flavor}-install-params.json`, JSON.stringify({
+                        langcode: 'en',
+                        host: (new URL(globalThis.location || 'http://localhost')).host,
+                        ...params.installParameters,
+                    }));
 
-                console.log('Installing site')
+                    if (installType === 'automated') {
+                        console.log('Installing site');
 
-                await php.run(`<?php putenv('DXPR_CMS_TRIAL=1');`)
+                        await php.run(`<?php putenv('dxpr_cms_TRIAL=1');`);
 
-                const installSiteCode = await (await fetch('/assets/install-site.phpcode')).text();
-                console.log('Executing install site code...')
-                try {
-                  const installSiteExitCode = await php.run(installSiteCode);
-                  console.log(installSiteExitCode)
-                } catch(e) {
-                  let message = `An error occured. ${e.name}: ${e.message}`
-                  if (e.name === 'RangeError') {
-                    message += ' See https://github.com/mglaman/wasm-drupal/issues/28';
-                  }
+                        const installSiteCode = await (await fetch('/assets/install-site.phpcode')).text();
+                        console.log('Executing install site code...');
+                        try {
+                            const installSiteExitCode = await php.run(installSiteCode);
+                            console.log(installSiteExitCode);
+                        } catch (e) {
+                            let message = `An error occured. ${e.name}: ${e.message}`;
+                            if (e.name === 'RangeError') {
+                                message += ' See https://github.com/mglaman/wasm-drupal/issues/28';
+                            }
 
-                  postMessage({
-                    action: 'status',
-                    type: 'error',
-                    params,
-                    message
-                  })
-                  return;
+                            postMessage({
+                                action: 'status',
+                                type: 'error',
+                                params,
+                                message,
+                            });
+                            return;
+                        }
+                    }
+
+                    postMessage({
+                        action: 'status',
+                        params,
+                        message: 'Logging you in',
+                    });
+                    const autoLoginCode = await (await fetch('/assets/login-admin.phpcode')).text();
+                    await php.run(autoLoginCode);
+                    await php.unlink(`/config/${flavor}-install-params.json`);
                 }
-
-                postMessage({
-                  action: 'status',
-                  params,
-                  message: 'Logging you in'
-                })
-                const autoLoginCode = await (await fetch('/assets/login-admin.phpcode')).text();
-                await php.run(autoLoginCode);
-                await php.unlink(`/config/${flavor}-install-params.json`)
-              }
 
                 postMessage({
                     action: 'status',

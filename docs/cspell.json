@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en-US",
+  "dictionaryDefinitions": [
+    {
+      "name": "drupal",
+      "path": "cspell-dictionary.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": [
+    "drupal"
+  ],
+  "ignorePaths": [
+    "cspell-dictionary.txt"
+  ]
+}

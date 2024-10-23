@@ -13,5 +13,15 @@
     "drupal/smart_date": "^4.1",
     "drupal/addtocal_augment": "^1.2@rc",
     "drupal/pathauto": "^1.13"
+  },
+  "extra": {
+    "patches": {
+      "drupal/core": {
+        "#3467262: Create menu item parent for a default tab": "https://www.drupal.org/files/issues/2024-08-23/core-default_tab_parent_menu-3467262-6.patch"
+      },
+      "drupal/smart_date": {
+        "#3399475: Fix schema for augmenters": "https://www.drupal.org/files/issues/2024-08-25/smart_date-augmenter_schema-3399475-8.patch"
+      }
+    }
   }
 }

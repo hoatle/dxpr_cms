@@ -44,26 +44,21 @@ export default class TrialManager extends HTMLElement {
     }
 
     get flavor() {
-        return this.getAttribute('flavor')
-    }
-
-    set flavor(flavor) {
-        this.setAttribute('flavor', flavor || '')
+        return 'cms'
     }
 
     get artifact() {
-        return this.getAttribute('artifact')
+        // Allow manually overriding the artifact used.
+        if (this.hasAttribute('artifact')) {
+            return this.getAttribute('artifact')
+        }
+
+        const artifactName = this._isMobile() ? 'trial-installed.zip' : 'trial.zip';
+        return `https://git.drupalcode.org/api/v4/projects/157093/jobs/artifacts/0.x/raw/${artifactName}?job=build+trial+artifact`
     }
 
     set artifact(artifact) {
         this.setAttribute('artifact', artifact)
-    }
-
-    get recipes() {
-        if (this.hasAttribute('recipes')) {
-            return this.getAttribute('recipes').split(',').map(i => i.trim())
-        }
-        return [];
     }
 
     get message() {
@@ -72,6 +67,13 @@ export default class TrialManager extends HTMLElement {
 
     set message(message) {
         this.setAttribute('message', message)
+    }
+
+    get installType() {
+        if (!this.hasAttribute('install-type')) {
+            return !this._isMobile() ? 'interactive' : 'preinstalled'
+        }
+        return this.getAttribute('install-type')
     }
 
     connectedCallback() {
@@ -141,11 +143,10 @@ export default class TrialManager extends HTMLElement {
                         flavor: this.flavor,
                         artifact: this.artifact,
                         installParameters: {
-                            interactive: this.getAttribute('interactive-install') || false,
-                            siteName: this.getAttribute('site-name') || 'Try Drupal',
-                            profile: this.getAttribute('profile') || 'standard',
-                            recipes: this.recipes,
-                            langcode: this.getAttribute('langcode') || 'en',
+                            // @see install-site.phpcode
+                            installType: this.installType,
+                            siteName: 'Try DXPR CMS',
+                            langcode: 'en',
                         }
                     }
                 })
@@ -252,6 +253,10 @@ export default class TrialManager extends HTMLElement {
         progress.classList.add('rounded-md', 'p-4', 'bg-white', 'w-96', 'text-center', 'w-full')
         progress.innerText = this.message
         return progress
+    }
+
+    _isMobile() {
+        return (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement)
     }
 }
 

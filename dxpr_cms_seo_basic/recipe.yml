@@ -5,7 +5,8 @@ recipes:
   - core/recipes/content_editor_role
 install:
   - easy_breadcrumb
-  - hreflang
+  - language
+  - node
   - pathauto
   - redirect
   - redirect_404
@@ -16,11 +17,13 @@ config:
   import:
     pathauto: '*'
     redirect:
-    # Excludes optional language config: language.content_settings.redirect.redirect.yml.
-    # If DXPR CMS is going to have translation on by default, change this to import all of redirect's config.
+      - language.content_settings.redirect.redirect
       - system.action.redirect_delete_action
       - views.view.redirect
     redirect_404: '*'
+  strict:
+    # For safety's sake, only treat our bundled configuration strictly.
+    - pathauto.pattern.menu_path
   actions:
     easy_breadcrumb.settings:
       simpleConfigUpdate:
@@ -29,6 +32,9 @@ config:
         # Remove breadcrumbs when only home appears.
         # Since we print the page title in the crumb, this is only applies to the home page.
         hide_single_home_item: true
+    redirect_404.settings:
+      simpleConfigUpdate:
+        suppress_404: true
     system.performance:
       simpleConfigUpdate:
         # Ensure caching is on and set to 15 minutes for Lighthouse.
@@ -37,6 +43,5 @@ config:
         css.preprocess: true
         js.preprocess: true
     user.role.content_editor:
-      grantPermissions:
-        # Allow access to the redirect views.
-        - 'administer redirects'
+      # Allow access to the redirect views.
+      grantPermission: 'administer redirects'

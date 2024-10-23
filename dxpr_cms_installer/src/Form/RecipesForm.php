@@ -2,8 +2,9 @@
 
 namespace Drupal\dxpr_cms_installer\Form;
 
+use Composer\InstalledVersions;
+use Drupal\Component\Serialization\Yaml;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\dxpr_cms_installer\Form\InstallerFormBase;
 
 /**
  * Provides a form to choose the site template and optional add-on recipes.
@@ -32,19 +33,39 @@ final class RecipesForm extends InstallerFormBase {
       '#suffix' => '</p>',
     ];
 
-    $options = [
-      'dxpr_cms_multilingual' => $this->t('Multilingual support'),
-      'dxpr_cms_accessibility_tools' => $this->t('Accessibility tools'),
-      'dxpr_cms_seo_advanced' => $this->t('Advanced SEO tools'),
-    ];
-
     $form['add_ons'] = [
       '#prefix' => '<div class="cms-installer__form-group">',
       '#suffix' => '</div>',
       '#type' => 'checkboxes',
-      '#options' => $options,
+      '#options' => [],
       '#default_value' => [],
     ];
+
+    // @todo Remove this try-catch wrapper when all our components are published
+    //   on Packagist.
+    try {
+      $base_recipe_path = InstalledVersions::getInstallPath('drupal/dxpr_cms_base');
+    }
+    catch (\OutOfBoundsException) {
+      $base_recipe_path = \Drupal::root() . '/recipes/dxpr_cms_base';
+    }
+    $cookbook_path = dirname($base_recipe_path);
+
+    // Read the list of optional recipes from the base recipe's `composer.json`.
+    $composer = file_get_contents($base_recipe_path . '/composer.json');
+    $composer = json_decode($composer, TRUE, flags: JSON_THROW_ON_ERROR);
+
+    $optional_recipes = array_keys($composer['suggest'] ?? []);
+    foreach ($optional_recipes as $name) {
+      $recipe = $cookbook_path . '/' . basename($name) . '/recipe.yml';
+      if (file_exists($recipe)) {
+        $recipe = file_get_contents($recipe);
+        $recipe = Yaml::decode($recipe);
+        $key = basename($name);
+        $form['add_ons']['#options'][$key] = $recipe['name'];
+      }
+    }
+
     $form['actions'] = [
       'submit' => [
         '#type' => 'submit',

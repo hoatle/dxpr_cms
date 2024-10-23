@@ -1,0 +1,27 @@
+{
+    "name": "drupal/dxpr_cms_seo_tools",
+    "type": "drupal-recipe",
+    "description": "Configures DXPR CMS for Search Engine Optimization best practices.",
+    "version": "dev-main",
+    "require": {
+        "drupal/dashboard": "2.x-dev",
+        "drupal/field_group": "^3.6",
+        "drupal/focal_point": "^2.1",
+        "drupal/metatag": "^2.0",
+        "drupal/robotstxt": "^1.6",
+        "drupal/seo_checklist": "5.2.x-dev",
+        "drupal/simple_sitemap": "4.x-dev",
+        "drupal/sitemap": "^2.0",
+        "drupal/token_or": "^2.2",
+        "drupal/tour": "^2.0",
+        "drupal/yoast_seo": "^2.0@alpha"
+    },
+    "extra": {
+        "patches": {
+            "drupal/yoast_seo": {
+                "#3008802: The page freezes while the Real-Time SEO module runs script.": "https://www.drupal.org/files/issues/2023-07-13/yoast_seo--page-freeze-at-script--3008802-19.patch",
+                "#3080852: Fix missing schema errors": "https://www.drupal.org/files/issues/2023-10-10/fix-missing-schema-3080852-8.patch"
+            }
+        }
+    }
+}

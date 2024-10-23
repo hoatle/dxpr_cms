@@ -1,3 +1,4 @@
+import { PhpCgiWorker } from "./PhpCgiWorker.mjs";
 import {setUpWorker} from "./drupal-cgi-worker.mjs";
 
-setUpWorker(self, '/cgi/', '/persist/www')
+setUpWorker(self, PhpCgiWorker, '/cgi/', '/persist/www')

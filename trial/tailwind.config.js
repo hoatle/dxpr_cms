@@ -1,9 +1,14 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 // Colors from https://drupal.widencollective.com/portals/gfvztttq/BrandPortal
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./public/**/*.{html,js,mjs}"],
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['Inter', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         drupal: {
           blue: "#009CDE",

@@ -156,16 +156,9 @@
                 "symlink": false
             }
         },
-        "dxpr_cms_patches": {
+        "dxpr_cms_seo_tools": {
             "type": "path",
-            "url": "dxpr_cms_patches",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_seo_advanced": {
-            "type": "path",
-            "url": "dxpr_cms_seo_advanced",
+            "url": "dxpr_cms_seo_tools",
             "options": {
                 "symlink": false
             }
@@ -195,15 +188,15 @@
     "require": {
         "composer/installers": "^2.3",
         "cweagans/composer-patches": "^2",
-        "drupal/core-composer-scaffold": "^10.3",
-        "drupal/core-project-message": "^10.3",
-        "drupal/core-recommended": "^10.3",
+        "drupal/core-composer-scaffold": "^10.4",
+        "drupal/core-project-message": "^10.4",
+        "drupal/core-recommended": "^10.4",
         "drupal/dxpr_cms_base": "dev-main",
         "drupal/dxpr_cms_installer": "dev-main",
         "drush/drush": "^13"
     },
     "require-dev": {
-        "drupal/core-dev": "^10.3"
+        "drupal/core-dev": "^10.4"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -258,7 +251,7 @@
     },
     "scripts": {
         "launch": [
-            "@php ./web/core/scripts/drupal quick-start dxpr_cms_installer"
+            "@php ./web/core/scripts/drupal quick-start"
         ]
     }
 }

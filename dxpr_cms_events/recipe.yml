@@ -17,6 +17,10 @@ install:
   - addtocal_augment
   - pathauto
 config:
+  # Treat all field storages strictly, since they influence the database layout.
+  strict:
+    - field.storage.node.field_when
+    - field.storage.node.field_where
   import:
     node:
       - core.entity_view_mode.node.default

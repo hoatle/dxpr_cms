@@ -5,6 +5,7 @@
     "version": "dev-main",
     "require": {
         "drupal/core": ">=10.3",
-        "drupal/dxpr_cms_content_type_base": "*"
+        "drupal/dxpr_cms_content_type_base": "*",
+        "drupal/pathauto": "^1.13"
     }
 }

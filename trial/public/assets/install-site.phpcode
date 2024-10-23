@@ -16,13 +16,13 @@ $install_params = \json_decode(
 
 chdir($docroot . '/web');
 
-$interactive_install = $install_params['interactive'] ?? false;
-if ($interactive_install) {
+$install_type = $install_params['installType'] ?? 'interactive';
+
+if ($install_type === 'interactive') {
     exit;
 }
 
-$skip_install = $install_params['skip'] ?? false;
-if ($skip_install) {
+if ($install_type === 'preinstalled') {
     if (!is_dir('sites/default/files/css') && !mkdir('sites/default/files/css') && !is_dir('sites/default/files/css')) {
         throw new \RuntimeException(sprintf('Directory "%s" was not created', 'sites/default/files/css'));
     }
@@ -39,14 +39,11 @@ if ($skip_install) {
 
 $class_loader = require $docroot . '/vendor/autoload.php';
 
-
-// @todo have this written by the worker as JSON and parsed from the disk?
 $parameters = [
     'interactive' => FALSE,
     'site_path' => 'sites/default',
     'parameters' => [
-        'profile' => $install_params['profile'] ?? 'standard',
-        'recipes' => $install_params['recipes'] ?? [],
+        'profile' => 'dxpr_cms_installer',
         'langcode' => $install_params['langcode'] ?? 'en',
     ],
     'forms' => [

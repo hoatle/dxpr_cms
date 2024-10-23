@@ -3,6 +3,7 @@ description: 'Provides a Location content type and related configuration.'
 type: 'DXPR CMS'
 recipes:
   - dxpr_builder_base
+  - dxpr_cms_content_type_base
 install:
   # Core
   - node
@@ -22,6 +23,11 @@ install:
   - metatag_open_graph
   - pathauto
 config:
+  # Treat all field storages strictly, since they influence the database layout.
+  strict:
+    - field.storage.node.field_geofield
+    - field.storage.node.field_location_address
+    - field.storage.node.field_location_telephone
   import:
     node:
       - core.entity_view_mode.node.default

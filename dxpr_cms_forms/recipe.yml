@@ -4,20 +4,29 @@ description: Provides a simple contact form, and tools for building more complex
 recipes:
   - dxpr_cms_anti_spam
 install:
+  - editor
+  - filter
+  - menu_link_content
   - views
   - webform
   - webform_ui
 config:
+  # If Webform's config already exists, we don't really care what it looks like.
+  strict: false
   import:
-    webform: '*'
-  actions:
-    webform.webform.contact:
-      setThirdPartySettings:
-        -
-          module: antibot
-          key: antibot
-          value: true
-        -
-          module: honeypot
-          key: honeypot
-          value: true
+    system:
+      - system.menu.main
+    webform:
+      - system.action.webform_archive_action
+      - system.action.webform_close_action
+      - system.action.webform_delete_action
+      - system.action.webform_open_action
+      - system.action.webform_submission_delete_action
+      - system.action.webform_submission_make_lock_action
+      - system.action.webform_submission_make_sticky_action
+      - system.action.webform_submission_make_unlock_action
+      - system.action.webform_submission_make_unsticky_action
+      - system.action.webform_unarchive_action
+      - editor.editor.webform_default
+      - filter.format.webform_default
+      - views.view.webform_submissions

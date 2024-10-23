@@ -8,7 +8,13 @@
         "drupal/core": ">=10.3",
         "drupal/gin": "^3-rc11",
         "drupal/gin_toolbar": "^1-rc6",
-        "drupal/sam": "^1.2",
-        "drupal/type_tray": "^1.2"
+        "drupal/sam": "^1.2"
+    },
+    "extra": {
+        "patches": {
+            "drupal/core": {
+                "#3395527: Integrate Dashboard with Navigation": "https://www.drupal.org/files/issues/2024-10-14/navigation-dashboard-D10.4.x_0.patch"
+            }
+        }
     }
 }

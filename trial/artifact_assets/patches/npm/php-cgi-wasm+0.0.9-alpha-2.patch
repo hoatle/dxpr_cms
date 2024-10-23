@@ -1,8 +1,19 @@
 diff --git a/node_modules/php-cgi-wasm/PhpCgiBase.mjs b/node_modules/php-cgi-wasm/PhpCgiBase.mjs
-index 694680d..407b4be 100644
+index 694680d..2296853 100644
 --- a/node_modules/php-cgi-wasm/PhpCgiBase.mjs
 +++ b/node_modules/php-cgi-wasm/PhpCgiBase.mjs
-@@ -307,19 +307,23 @@ export class PhpCgiBase
+@@ -137,10 +137,6 @@ export class PhpCgiBase
+ 			const response = this.request(event.request);
+ 			return event.respondWith(response);
+ 		}
+-		else
+-		{
+-			return fetch(event.request);
+-		}
+ 	}
+ 
+ 	async _enqueue(callback, params = [])
+@@ -307,19 +303,23 @@ export class PhpCgiBase
  		else
  		{
  
@@ -32,7 +43,7 @@ index 694680d..407b4be 100644
  		if(extension !== 'php' && extension !== 'phar')
  		{
  			const aboutPath = php.FS.analyzePath(path);
-@@ -349,6 +353,7 @@ export class PhpCgiBase
+@@ -349,6 +349,7 @@ export class PhpCgiBase
  			// Rewrite to index
  			path = docroot + '/index.php';
  		}

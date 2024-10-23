@@ -1,0 +1,20 @@
+{
+    "_info": [
+        "This file contains internal development dependencies and patches for DXPR CMS.",
+        "Do NOT use it to build a real site!"
+    ],
+    "require-dev": {
+        "drupal/core-dev": "^10.4",
+        "drupal/default_content": "^2"
+    },
+    "config": {
+        "allow-plugins": true
+    },
+    "extra": {
+        "patches": {
+            "drupal/core": {
+                "#3481164: Announcements Feed breaks `test-site.php install`": "https://www.drupal.org/files/issues/2024-10-16/3481164.patch"
+            }
+        }
+    }
+}
