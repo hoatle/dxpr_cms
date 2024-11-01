@@ -7,8 +7,8 @@ install:
   - focal_point
   - key
   - ai
-  - provider_openai
-  - provider_anthropic
+  - ai_provider_openai
+  - ai_provider_anthropic
   - ai_image_alt_text
 config:
   import:
