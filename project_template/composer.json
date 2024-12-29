@@ -8,181 +8,6 @@
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        "dxpr_builder_base": {
-            "type": "path",
-            "url": "dxpr_builder_base",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_builder_drag_and_drop_block": {
-            "type": "path",
-            "url": "dxpr_builder_drag_and_drop_block",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_builder_drag_and_drop_page": {
-            "type": "path",
-            "url": "dxpr_builder_drag_and_drop_page",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_accessibility_tools": {
-            "type": "path",
-            "url": "dxpr_cms_accessibility_tools",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_admin_theme": {
-            "type": "path",
-            "url": "dxpr_cms_admin_theme",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_anti_spam": {
-            "type": "path",
-            "url": "dxpr_cms_anti_spam",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_base": {
-            "type": "path",
-            "url": "dxpr_cms_base",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_basic_html_editor": {
-            "type": "path",
-            "url": "dxpr_cms_basic_html_editor",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_blog": {
-            "type": "path",
-            "url": "dxpr_cms_blog",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_content_type_base": {
-            "type": "path",
-            "url": "dxpr_cms_content_type_base",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_dashboard": {
-            "type": "path",
-            "url": "dxpr_cms_dashboard",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_events": {
-            "type": "path",
-            "url": "dxpr_cms_events",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_forms": {
-            "type": "path",
-            "url": "dxpr_cms_forms",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_full_html_editor": {
-            "type": "path",
-            "url": "dxpr_cms_full_html_editor",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_image_media_type": {
-            "type": "path",
-            "url": "dxpr_cms_image_media_type",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_installer": {
-            "type": "path",
-            "url": "dxpr_cms_installer",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_locations": {
-            "type": "path",
-            "url": "dxpr_cms_locations",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_maintenance": {
-            "type": "path",
-            "url": "dxpr_cms_maintenance",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_media_tools": {
-            "type": "path",
-            "url": "dxpr_cms_media_tools",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_multilingual": {
-            "type": "path",
-            "url": "dxpr_cms_multilingual",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_page_content_type": {
-            "type": "path",
-            "url": "dxpr_cms_page_content_type",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_seo_tools": {
-            "type": "path",
-            "url": "dxpr_cms_seo_tools",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_performance": {
-            "type": "path",
-            "url": "dxpr_cms_performance",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_cms_workflows": {
-            "type": "path",
-            "url": "dxpr_cms_workflows",
-            "options": {
-                "symlink": false
-            }
-        },
-        "dxpr_theme_base": {
-            "type": "path",
-            "url": "dxpr_theme_base",
-            "options": {
-                "symlink": false
-            }
         }
     },
     "require": {
@@ -191,8 +16,18 @@
         "drupal/core-composer-scaffold": "^10.4",
         "drupal/core-project-message": "^10.4",
         "drupal/core-recommended": "^10.4",
-        "drupal/dxpr_cms_base": "dev-main",
-        "drupal/dxpr_cms_installer": "dev-main",
+        "drupal/dxpr_cms_starter": "*",
+        "drupal/dxpr_cms_analytics": "*",
+        "drupal/dxpr_cms_accessibility_tools": "*",
+        "drupal/dxpr_cms_ai": "*",
+        "drupal/dxpr_cms_blog": "*",
+        "drupal/dxpr_cms_case_study": "*",
+        "drupal/dxpr_cms_events": "*",
+        "drupal/dxpr_cms_forms": "*",
+        "drupal/dxpr_cms_news": "*",
+        "drupal/dxpr_cms_person": "*",
+        "drupal/dxpr_cms_project": "*",
+        "drupal/dxpr_cms_seo_tools": "*",
         "drush/drush": "^13"
     },
     "require-dev": {
@@ -248,10 +83,5 @@
                 "  * Get involved with the Drupal community: https://drupal.org/getting-involved"
             ]
         }
-    },
-    "scripts": {
-        "launch": [
-            "@php ./web/core/scripts/drupal quick-start"
-        ]
     }
 }

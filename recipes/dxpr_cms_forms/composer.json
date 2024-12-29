@@ -1,0 +1,10 @@
+{
+    "name": "drupal/dxpr_cms_forms",
+    "type": "drupal-recipe",
+    "description": "Provides a simple contact form, and tools for building more complex forms.",
+    "require": {
+        "drupal/dxpr_cms_anti_spam": "*",
+        "drupal/core": ">=10.3",
+        "drupal/webform": "^6.3.0-alpha1"
+    }
+}

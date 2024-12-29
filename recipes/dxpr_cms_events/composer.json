@@ -1,0 +1,22 @@
+{
+  "name": "drupal/dxpr_cms_events",
+  "type": "drupal-recipe",
+  "description": "A content type and view to help you manage events.",
+  "require": {
+    "drupal/core": ">=10.3",
+    "drupal/dxpr_cms_dxpr_builder": "*",
+    "drupal/dxpr_builder": "^3.0@alpha",
+    "drupal/dxpr_theme_helper": "^1",
+    "drupal/add_content_by_bundle": "^1.2.2",
+    "drupal/address": "^2.0",
+    "drupal/addtocal_augment": "^1.2@rc",
+    "drupal/dxpr_cms_content_type_base": "*",
+    "drupal/dxpr_cms_privacy_basic": "*",
+    "drupal/geocoder": "^4.10",
+    "drupal/geofield": "^1.47",
+    "drupal/leaflet": "^10.2.25",
+    "drupal/pathauto": "^1.13",
+    "drupal/smart_date": "^4.2.1",
+    "geocoder-php/nominatim-provider": "^5.7"
+  }
+}

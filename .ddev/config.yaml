@@ -4,13 +4,11 @@ docroot: web
 php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
-additional_hostnames:
-  # @see nginx_full/trial.conf
-  - dxpr-cms-trial
+additional_hostnames: []
 additional_fqdns: []
 database:
-    type: mariadb
-    version: "10.11"
+  type: mariadb
+  version: "10.11"
 use_dns_when_possible: true
 composer_version: "2"
 corepack_enable: false
@@ -18,13 +16,12 @@ hooks:
   post-start:
     # Generate `composer.json` by merging the project template with our internal
     # dev requirements.
-    - exec: 'jq -s ".[0] * .[1]" project_template/composer.json dev.composer.json > composer.json'
-    # Add the components as path repositories.
-    - exec: "setup-repositories"
+    - exec: 'jq -s ".[0] * .[1] * .[2]" project_template/composer.json dev.composer.json components.composer.json > composer.json'
     # Install all dependencies.
     - composer: 'install'
-    # Copy PHPUnit configuration into the web root.
-    - exec: 'cp -f phpunit.xml $DDEV_DOCROOT'
+    # The installer is part of the project template, so symlink it into the web root.
+    # It needs to be a relative symlink, or it will break Package Manager.
+    - exec: 'ln -s -f $(realpath -s --relative-to=$DDEV_DOCROOT/profiles project_template/$DDEV_DOCROOT/profiles/dxpr_cms_installer) $DDEV_DOCROOT/profiles'
     # Install JavaScript dependencies if needed. The `--foreground-scripts`
     # option is needed to ensure the Cypress binary is actually downloaded;
     # see the warning about Node.js Snap for Linux at

@@ -11,7 +11,7 @@ const {
 module.exports = defineConfig({
   e2e: {
     baseUrl: DDEV_PRIMARY_URL,
-    specPattern: path.join(DDEV_DOCROOT, '**', '*.cy.js'),
+    specPattern: path.join('recipes', '**', '*.cy.js'),
     supportFile: 'e2e.js',
   },
   env: {

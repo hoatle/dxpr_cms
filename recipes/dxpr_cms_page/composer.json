@@ -1,0 +1,9 @@
+{
+    "name": "drupal/dxpr_cms_page",
+    "type": "drupal-recipe",
+    "description": "Provides a basic Page content type with pretty URLs, moderation, scheduling, translation, and meta tags.",
+    "require": {
+        "drupal/core": ">=10.3",
+        "drupal/dxpr_cms_content_type_base": "*"
+    }
+}

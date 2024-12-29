@@ -1,0 +1,19 @@
+name: 'DXPR Theme'
+description: 'Sets up DXPR Theme as the front-end theme.'
+type: 'Themes'
+recipes:
+  - core/recipes/basic_html_format_editor
+install:
+  - dxpr_theme
+  - block_content
+config:
+  import:
+    system:
+      - system.menu.account
+      - system.menu.main
+      - system.theme
+    dxpr_theme: '*'
+  actions:
+    system.theme:
+      simple_config_update:
+        default: dxpr_theme

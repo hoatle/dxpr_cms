@@ -1,9 +1,0 @@
-name: 'Drag and Drop Block'
-description: 'Advanced page with visual page building tools. Powered by DXPR Builder.'
-type: 'Block type'
-install:
-  - dxpr_builder_block
-  - options
-config:
-  import:
-    dxpr_builder_block: '*'

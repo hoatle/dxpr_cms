@@ -1,0 +1,34 @@
+name: 'DXPR Builder'
+description: 'DXPR Builder visual layout builder.'
+type: 'Builder'
+recipes:
+  - dxpr_cms_content_type_base
+  - core/recipes/full_html_format_editor
+install:
+  - entity_browser
+  - block_content
+  - options
+  - field_group
+  - menu_link_attributes
+  - workflows
+  - moderation_dashboard
+  - dxpr_builder
+  - dxpr_builder_block
+  - dxpr_builder_media
+  - dxpr_builder_page
+  - dxpr_theme_helper
+config:
+  strict: false
+  import:
+    entity_browser: '*'
+    dxpr_builder: '*'
+    dxpr_builder_block: '*'
+    dxpr_builder_media: '*'
+    dxpr_builder_page: '*'
+    dxpr_theme_helper: '*'
+    menu_link_attributes: '*'
+  actions:
+    system.site:
+      simple_config_update:
+        name: 'DXPR CMS'
+        page.front: '/node/9'

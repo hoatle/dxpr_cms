@@ -1,5 +1,0 @@
-name: Dashboard
-type: DXPR CMS
-description: Installs and provides dashboards for authors.
-install:
-  - dashboard

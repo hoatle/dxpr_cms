@@ -1,0 +1,126 @@
+name: DXPR CMS
+description: Applies all the basic DXPR CMS recipes.
+type: Site
+recipes:
+  - core/recipes/core_recommended_maintenance
+  - core/recipes/core_recommended_performance
+  - core/recipes/document_media_type
+  - dxpr_cms_admin_ui
+  - dxpr_cms_anti_spam
+  - dxpr_cms_authentication
+  - dxpr_cms_page
+  - dxpr_cms_privacy_basic
+  - dxpr_cms_remote_video
+  - dxpr_cms_seo_basic
+  - dxpr_cms_dxpr_builder
+  - dxpr_cms_dxpr_theme
+install:
+  - automatic_updates
+  - automatic_updates_extensions
+  - dashboard
+  - menu_link_content
+  - package_manager
+  - project_browser
+  # The rest of these are in Standard.
+  - inline_form_errors
+  - config
+  - menu_ui
+  - shortcut
+  - views_ui
+config:
+  # If the config we're importing already exists, we don't really care
+  # what it looks like.
+  strict: false
+  import:
+    linkit:
+      - image.style.linkit_result_thumbnail
+    image:
+      - image.style.large
+      - image.style.thumbnail
+    node:
+      - views.view.content
+    shortcut:
+      - shortcut.set.default
+    user:
+      # This view mode is only needed because Olivero expects it to exist
+      # in certain situations.
+      - core.entity_view_mode.user.compact
+      - views.view.user_admin_people
+  actions:
+    package_manager.settings:
+      simpleConfigUpdate:
+        additional_trusted_composer_plugins:
+          # This is indirectly added by `drupal/core-dev`.
+          - tbachert/spi
+    project_browser.admin_settings:
+      simpleConfigUpdate:
+        allowed_projects:
+          recipes:
+            - dxpr_cms_events
+            - dxpr_cms_blog
+            - dxpr_cms_case_study
+            - dxpr_cms_forms
+            - dxpr_cms_news
+            - dxpr_cms_person
+            - dxpr_cms_project
+            - dxpr_cms_seo_tools
+            - dxpr_cms_accessibility_tools
+        enabled_sources:
+          - drupalorg_jsonapi
+          - recipes
+        allow_ui_install: true
+    system.site:
+      simpleConfigUpdate:
+        name: 'DXPR CMS'
+        page.front: '/home'
+    system.theme:
+      simpleConfigUpdate:
+        default: dxpr_theme
+    user.role.content_editor:
+      grantPermissionsForEachMediaType:
+        - 'create %bundle media'
+        - 'delete any %bundle media'
+        - 'edit any %bundle media'
+      grantPermissions:
+        - 'access administration pages'
+        - 'access content overview'
+        - 'access contextual links'
+        - 'access media overview'
+        - 'access navigation'
+        # We need this permission because Toolbar is enabled by Gin Toolbar.
+        - 'access toolbar'
+        - 'administer url aliases'
+        - 'create url aliases'
+        - 'view own unpublished media'
+        - 'delete own files'
+        - 'revert all revisions'
+        - 'view all revisions'
+        - 'view the administration theme'
+    node.settings:
+      simpleConfigUpdate:
+        use_admin_theme: true
+    user.role.authenticated:
+      grantPermissions:
+        - 'access shortcuts'
+        - 'delete own files'
+        - 'view own unpublished content'
+        - 'view welcome dashboard'
+    user.settings:
+      simpleConfigUpdate:
+        verify_mail: true
+        register: admin_only
+        cancel_method: user_cancel_block
+    announcements_feed.settings:
+      simpleConfigUpdate:
+        limit: 2
+    core.menu.static_menu_link_overrides:
+      simpleConfigUpdate:
+        definitions.announcements_feed__announcement:
+          menu_name: admin
+          parent: system.admin
+          weight: 0
+          expanded: false
+          enabled: false
+    automatic_updates.settings:
+      simpleConfigUpdate:
+        allow_core_minor_updates: true
