@@ -3,7 +3,7 @@
     "type": "drupal-recipe",
     "description": "Sets up a nice administrative theme and navigation.",
     "require": {
-        "drupal/coffee": "^1.4",
+        "drupal/coffee": "^2.0",
         "drupal/core": ">=10.3",
         "drupal/gin": "^3-rc11",
         "drupal/gin_toolbar": "^1-rc6",
