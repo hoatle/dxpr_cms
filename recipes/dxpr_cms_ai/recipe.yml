@@ -39,7 +39,7 @@ config:
           ai_assistant: drupal_agent_assistant
           bot_name: 'Drupal Agent'
           stream: 0
-          default_avatar: /core/misc/druplicon.png
+          default_avatar: /profiles/dxpr_cms_installer/images/dxpr-logo-dark.svg
           first_message: 'Hello! How can I assist you today?'
           show_structured_results: 1
     user.role.content_editor:

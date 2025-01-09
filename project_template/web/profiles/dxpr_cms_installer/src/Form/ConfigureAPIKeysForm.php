@@ -215,7 +215,7 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
         $key->setKeyValue($form_state->getValue($key_id));
         $key->save();
         // Add the key to the config.
-        $this->configFactory->getEditable('provider_' . $ai_provider . '.settings')->set('api_key', $key_id)->save();
+        $this->configFactory->getEditable('ai_provider_' . $ai_provider . '.settings')->set('api_key', $key_id)->save();
         // Set the default chat and chat_with_image_vision provider.
         $this->configFactory->getEditable('ai.settings')->set('default_providers.chat', [
           'provider_id' => $ai_provider,
