@@ -52,7 +52,7 @@ config:
         # The region accepts an array keyed by theme name.
         region:
           olivero: primary_menu
-          dxpr_cms_olivero: primary_menu
+          dxpr_theme: primary_menu
         # A fallback used if no match found in the region array.
         default_region: content
         # Place the block before any blocks already in the region.

@@ -6,6 +6,7 @@ recipes:
   - core/recipes/core_recommended_performance
   - core/recipes/document_media_type
   - dxpr_cms_admin_ui
+  - dxpr_cms_ai
   - dxpr_cms_anti_spam
   - dxpr_cms_authentication
   - dxpr_cms_page
