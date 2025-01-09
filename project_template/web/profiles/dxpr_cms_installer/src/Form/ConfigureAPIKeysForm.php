@@ -121,6 +121,12 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
   public function buildForm(array $form, FormStateInterface $form_state, array &$install_state = NULL) {
     $form['#title'] = $this->t('API Keys Configuration');
 
+    $form['help'] = [
+      '#prefix' => '<p class="cms-installer__subhead">',
+      '#markup' => $this->t('You can enter your API keys now, or add them later.'),
+      '#suffix' => '</p>',
+    ];
+
     $form['json_web_token'] = [
       '#type' => 'textarea',
       '#title' => $this->t('DXPR Builder product key'),
