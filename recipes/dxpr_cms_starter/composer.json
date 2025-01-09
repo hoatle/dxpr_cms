@@ -24,7 +24,6 @@
     "suggest": {
         "drupal/dxpr_cms_accessibility_tools": "Adds tools to improve website accessibility",
         "drupal/dxpr_cms_ai": "Adds AI-powered features to your website",
-        "drupal/dxpr_cms_analytics": "Adds analytics integration capabilities",
         "drupal/dxpr_cms_blog": "Sets up a basic blog, with tagging",
         "drupal/dxpr_cms_case_study": "Adds a case study content type that provides detailed information about a subject to the intended audience",
         "drupal/dxpr_cms_events": "A content type and view to help you manage events",
