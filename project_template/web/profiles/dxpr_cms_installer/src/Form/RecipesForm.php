@@ -30,7 +30,7 @@ final class RecipesForm extends InstallerFormBase {
 
     $form['help'] = [
       '#prefix' => '<p class="cms-installer__subhead">',
-      '#markup' => $this->t('You can select pre-configured types of content now, or add them later.'),
+      '#markup' => $this->t('You can select pre-configured recipes with useful features, or add them later.'),
       '#suffix' => '</p>',
     ];
 
@@ -69,7 +69,7 @@ final class RecipesForm extends InstallerFormBase {
 
     $form['add_ons']['help'] = [
       '#prefix' => '<p class="cms-installer__info">',
-      '#markup' => $this->t('Don’t see what you’re looking for? You can set up customized content later.'),
+      '#markup' => $this->t('Don’t see what you’re looking for? You can enable these features later.'),
       '#suffix' => '</p>',
       '#weight' => 100,
     ];

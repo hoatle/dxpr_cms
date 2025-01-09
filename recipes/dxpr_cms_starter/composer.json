@@ -22,11 +22,17 @@
         "drupal/project_browser": "^2-alpha6"
     },
     "suggest": {
-        "drupal/dxpr_cms_blog": "Sets up a basic blog, with tagging.",
-        "drupal/dxpr_cms_case_study": "Adds a case study content type that provides detailed information about a subject to the intended audience.",
-        "drupal/dxpr_cms_events": "A content type and view to help you manage events.",
-        "drupal/dxpr_cms_news": "Adds a news content type with an overview page and related news items.",
-        "drupal/dxpr_cms_person": "Adds a person profile content type that provides information about a person.",
-        "drupal/dxpr_cms_project": "Adds a project content type that provides information about an example of work to the intended audience."
+        "drupal/dxpr_cms_accessibility_tools": "Adds tools to improve website accessibility",
+        "drupal/dxpr_cms_ai": "Adds AI-powered features to your website",
+        "drupal/dxpr_cms_analytics": "Adds analytics integration capabilities",
+        "drupal/dxpr_cms_blog": "Sets up a basic blog, with tagging",
+        "drupal/dxpr_cms_case_study": "Adds a case study content type that provides detailed information about a subject to the intended audience",
+        "drupal/dxpr_cms_events": "A content type and view to help you manage events",
+        "drupal/dxpr_cms_forms": "Adds form building capabilities",
+        "drupal/dxpr_cms_image": "Adds enhanced image handling features",
+        "drupal/dxpr_cms_multilingual": "Adds multilingual support features",
+        "drupal/dxpr_cms_news": "Adds a news content type with an overview page and related news items",
+        "drupal/dxpr_cms_person": "Adds a person profile content type that provides information about a person",
+        "drupal/dxpr_cms_project": "Adds a project content type that provides information about an example of work to the intended audience"
     }
 }
