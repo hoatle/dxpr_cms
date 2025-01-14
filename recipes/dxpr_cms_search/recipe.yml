@@ -6,6 +6,7 @@ install:
   - block
   # Basic search is for node entity type only at the moment.
   - node
+  - search
   - search_api
   - search_api_autocomplete
   - search_api_db
