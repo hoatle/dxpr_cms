@@ -198,7 +198,28 @@ class ConfigureAPIKeysForm extends FormBase implements ContainerInjectionInterfa
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $json_web_token = $form_state->getValue('json_web_token');
     if (!empty($json_web_token)) {
-      $this->configFactory->getEditable('dxpr_builder.settings')->set('json_web_token', $json_web_token)->save();
+      // Create a key entity for DXPR Builder
+      try {
+        $key = Key::create([
+          'id' => 'dxpr_builder_key',
+          'label' => 'DXPR Builder API Key',
+          'description' => 'API Key for DXPR Builder',
+          'key_type' => 'authentication',
+          'key_provider' => 'config',
+        ]);
+        $key->setKeyValue($json_web_token);
+        $key->save();
+
+        // Update DXPR Builder settings to use the key
+        $this->configFactory->getEditable('dxpr_builder.settings')
+          ->set('api_key_storage', 'key')
+          ->set('key_provider', 'dxpr_builder_key')
+          ->set('json_web_token', NULL)
+          ->save();
+      }
+      catch (\Exception $e) {
+        $this->messenger()->addError($this->t('An error occurred while saving the DXPR Builder key: @error', ['@error' => $e->getMessage()]));
+      }
     }
 
     $google_translation_key = $form_state->getValue('google_translation_key');

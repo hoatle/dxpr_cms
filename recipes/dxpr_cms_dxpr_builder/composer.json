@@ -5,7 +5,7 @@
     "require": {
         "drupal/core": ">=10.3",
         "drupal/dxpr_cms_content_type_base": "*",
-        "drupal/dxpr_builder": "^3.0@alpha",
+        "drupal/dxpr_builder": "^2.7.0-beta3",
         "drupal/entity_browser": "^2.10",
         "drupal/field_group": "^3.4",
         "drupal/inline_entity_form": "^3.0@RC",
