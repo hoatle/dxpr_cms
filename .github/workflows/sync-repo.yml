@@ -13,20 +13,19 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       SYNC_FORCE_PUSH: ${{ vars.SYNC_FORCE_PUSH || 'false' }} # set to 'true' to enable force push
-      SYNC_TARGET_REPO_URL: ${{ vars.SYNC_TARGET_REPO_URL || '' }} # set the target repo url, git protocol is supported, eg: git@git.drupal.org:project/dxpr_builder.git
+      SYNC_TARGET_REPO_URL: ${{ vars.SYNC_TARGET_REPO_URL || '' }} # set the target repo url, git protocol is supported, e.g: git@git.drupal.org:project/dxpr_builder.git
       SYNC_SSH_PRIVATE_KEY_BASE64: ${{ secrets.SYNC_SSH_PRIVATE_KEY_BASE64 || '' }}
-      SYNC_ALLOWED_BRANCHES: ${{ vars.SYNC_ALLOWED_BRANCHES || '' }} # no branch to be synced by default
-      SYNC_ALLOWED_TAGS: ${{ vars.SYNC_ALLOWED_TAGS || '' }} # no tag to be synced by default
+      SYNC_ALLOWED_BRANCHES_REGEX: ${{ vars.SYNC_ALLOWED_BRANCHES_REGEX || '' }} # no branch to be synced by default, set '^.*$' for all, e.g: 'main|develop|releases/*'
+      SYNC_ALLOWED_TAGS_REGEX: ${{ vars.SYNC_ALLOWED_TAGS_REGEX || '' }} # no tag to be synced by default, set '^.*$' for all, eg: 'v0\.1\.0.*|v1.*'
 
 # How to use:
-# set env var of SYNC_TARGET_REPO_URL (required) and optional: SYNC_FORCE_PUSH, SYNC_ALLOWED_BRANCHES env var
+# set env var of SYNC_TARGET_REPO_URL (required) and optional: SYNC_FORCE_PUSH, SYNC_ALLOWED_BRANCHES_REGEX env var
 # must set secret key: SYNC_SSH_PRIVATE_KEY_BASE64 for the sync to work, e.g: $ cat private_key_id_ed25519 | base64
 
     steps:
       - name: Check Target Repo URL and SSH Key
         id: check-config
         run: |
-
           if [  -z "${{ env.SYNC_TARGET_REPO_URL }}" ]; then
             echo "Skipping the rest of the workflow as SYNC_TARGET_REPO_URL is not set."
             echo "skip=true" >> $GITHUB_OUTPUT
@@ -82,17 +81,17 @@ jobs:
         id: check-branch
         run: |
           BRANCH_NAME="${{ steps.extract-branch.outputs.branch }}"
-          ALLOWED_BRANCHES="${{ env.SYNC_ALLOWED_BRANCHES }}"
+          ALLOWED_BRANCHES_REGEX="${{ env.SYNC_ALLOWED_BRANCHES_REGEX }}"
           
           echo "Current branch: $BRANCH_NAME"
-          echo "Allowed branches: $ALLOWED_BRANCHES"
+          echo "Allowed branches (regex): $ALLOWED_BRANCHES_REGEX"
           
-          if [ "$ALLOWED_BRANCHES" == "*" ] || [[ ",$ALLOWED_BRANCHES," == *",$BRANCH_NAME,"* ]]; then
-            echo "Branch '$BRANCH_NAME' is allowed for syncing."
-            echo "skip_sync=false" >> $GITHUB_OUTPUT
+          if [[ "$BRANCH_NAME" =~ $ALLOWED_BRANCHES_REGEX ]]; then
+            echo "Branch '$BRANCH_NAME' matches the allowed regex for syncing."
+            echo "skip_branch_sync=false" >> $GITHUB_OUTPUT
           else
-            echo "Branch '$BRANCH_NAME' is not in the allowed list for syncing."
-            echo "skip_sync=true" >> $GITHUB_OUTPUT
+            echo "Branch '$BRANCH_NAME' does not match the allowed regex for syncing."
+            echo "skip_branch_sync=true" >> $GITHUB_OUTPUT
           fi
 
 
@@ -131,17 +130,17 @@ jobs:
         id: check-tag
         run: |
           TAG_NAME="${{ steps.extract-tag.outputs.tag }}"
-          ALLOWED_TAGS="${{ env.SYNC_ALLOWED_TAGS }}"
+          ALLOWED_TAGS_REGEX="${{ env.SYNC_ALLOWED_TAGS_REGEX }}"
           
           echo "Current tag: $TAG_NAME"
-          echo "Allowed tags: $ALLOWED_TAGS"
+          echo "Allowed tags (regex): $ALLOWED_TAGS_REGEX"
           
-          if [ "$ALLOWED_TAGS" == "*" ] || [[ ",$ALLOWED_TAGS," == *",$TAG_NAME,"* ]]; then
-            echo "Tag '$TAG_NAME' is allowed for syncing."
-            echo "skip_sync=false" >> $GITHUB_OUTPUT
+          if [[ "$TAG_NAME" =~ $ALLOWED_TAGS_REGEX ]]; then
+            echo "Tag '$TAG_NAME' matches the allowed regex for syncing."
+            echo "skip_tag_sync=false" >> $GITHUB_OUTPUT
           else
-            echo "Tag '$TAG_NAME' is not in the allowed list for syncing."
-            echo "skip_sync=true" >> $GITHUB_OUTPUT
+            echo "Tag '$TAG_NAME' does not match the allowed regex for syncing."
+            echo "skip_tag_sync=true" >> $GITHUB_OUTPUT
           fi
 
 
