@@ -85,16 +85,18 @@ jobs:
           # Ensure the branch is checked out
           git checkout "$BRANCH_NAME" || git checkout -b "$BRANCH_NAME" origin/"$BRANCH_NAME"
 
-          if [ "$FORCE_PUSH" == "true" ]; then
-            git push --force "$TARGET_REPO_URL" "$branch"
-          else
-            if ! git push "$TARGET_REPO_URL" "$branch"; then
-              echo "Error: Failed to push branch $branch to the target repository"
-              failed=true
+          if ! git push "$TARGET_REPO_URL" "$BRANCH_NAME"; then
+            if [ "$FORCE_PUSH" == "true" ]; then
+              if ! git push --force "$TARGET_REPO_URL" "$BRANCH_NAME"; then
+                failed=true
+              fi
+            elif
+              failed=true            
             fi
           fi
 
           if [ "$failed" = true ]; then
+            echo "Error: Failed to push branch $BRANCH_NAME to the target repository"
             exit 1
           fi
 
