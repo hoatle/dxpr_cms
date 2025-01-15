@@ -12,26 +12,26 @@ jobs:
   sync:
     runs-on: ubuntu-24.04
     env:
-      FORCE_PUSH: ${{ vars.FORCE_PUSH || 'false' }} # set to 'true' to enable force push
-      TARGET_REPO_URL: ${{ vars.TARGET_REPO_URL || '' }} # set the target repo url, git protocol is supported, eg: git@git.drupal.org:project/dxpr_builder.git
-      SSH_PRIVATE_KEY_BASE64: ${{ secrets.SSH_PRIVATE_KEY_BASE64 || '' }}
-      ALLOWED_BRANCHES_TO_SYNC: ${{ vars.ALLOWED_BRANCHES_TO_SYNC || '' }} # no branch to be synced by default
-      ALLOWED_TAGS_TO_SYNC: ${{ vars.ALLOWED_TAGS_TO_SYNC || '' }} # no tag to be synced by default
+      SYNC_FORCE_PUSH: ${{ vars.SYNC_FORCE_PUSH || 'false' }} # set to 'true' to enable force push
+      SYNC_TARGET_REPO_URL: ${{ vars.SYNC_TARGET_REPO_URL || '' }} # set the target repo url, git protocol is supported, eg: git@git.drupal.org:project/dxpr_builder.git
+      SYNC_SSH_PRIVATE_KEY_BASE64: ${{ secrets.SYNC_SSH_PRIVATE_KEY_BASE64 || '' }}
+      SYNC_ALLOWED_BRANCHES: ${{ vars.SYNC_ALLOWED_BRANCHES || '' }} # no branch to be synced by default
+      SYNC_ALLOWED_TAGS: ${{ vars.SYNC_ALLOWED_TAGS || '' }} # no tag to be synced by default
 
 # How to use:
-# set env var of TARGET_REPO_URL (required) and optional: FORCE_PUSH, ALLOWED_BRANCHES_TO_SYNC env var
-# must set secret key: SSH_PRIVATE_KEY_BASE64 for the sync to work, e.g: $ cat private_key_id_ed25519 | base64
+# set env var of SYNC_TARGET_REPO_URL (required) and optional: SYNC_FORCE_PUSH, SYNC_ALLOWED_BRANCHES env var
+# must set secret key: SYNC_SSH_PRIVATE_KEY_BASE64 for the sync to work, e.g: $ cat private_key_id_ed25519 | base64
 
     steps:
       - name: Check Target Repo URL and SSH Key
         id: check-config
         run: |
 
-          if [  -z "${{ env.TARGET_REPO_URL }}" ]; then
-            echo "Skipping the rest of the workflow as TARGET_REPO_URL is not set."
+          if [  -z "${{ env.SYNC_TARGET_REPO_URL }}" ]; then
+            echo "Skipping the rest of the workflow as SYNC_TARGET_REPO_URL is not set."
             echo "skip=true" >> $GITHUB_OUTPUT
-          elif [ -z "${{ env.SSH_PRIVATE_KEY_BASE64 }}" ]; then
-            echo "Error: SSH_PRIVATE_KEY_BASE64 is required when TARGET_REPO_URL is set."
+          elif [ -z "${{ env.SYNC_SSH_PRIVATE_KEY_BASE64 }}" ]; then
+            echo "Error: SYNC_SSH_PRIVATE_KEY_BASE64 is required when SYNC_TARGET_REPO_URL is set."
             exit 1
           else
             echo "skip=false" >> $GITHUB_OUTPUT
@@ -53,9 +53,9 @@ jobs:
         if: ${{ steps.check-config.outputs.skip == 'false' }}
         run: |
           mkdir -p ~/.ssh
-          echo "${{ env.SSH_PRIVATE_KEY_BASE64 }}" | base64 -d > ~/.ssh/id_rsa
+          echo "${{ env.SYNC_SSH_PRIVATE_KEY_BASE64 }}" | base64 -d > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H "$(echo "${{ env.TARGET_REPO_URL }}" | awk -F'@' '{print $2}' | awk -F':' '{print $1}')" >> ~/.ssh/known_hosts
+          ssh-keyscan -H "$(echo "${{ env.SYNC_TARGET_REPO_URL }}" | awk -F'@' '{print $2}' | awk -F':' '{print $1}')" >> ~/.ssh/known_hosts
 
       - name: Extract Current Branch Name
         id: extract-branch
@@ -80,7 +80,7 @@ jobs:
         id: check-branch
         run: |
           BRANCH_NAME="${{ steps.extract-branch.outputs.branch }}"
-          ALLOWED_BRANCHES="${{ env.ALLOWED_BRANCHES_TO_SYNC }}"
+          ALLOWED_BRANCHES="${{ env.SYNC_ALLOWED_BRANCHES }}"
           
           echo "Current branch: $BRANCH_NAME"
           echo "Allowed branches: $ALLOWED_BRANCHES"
@@ -98,8 +98,8 @@ jobs:
         if: ${{ steps.check-config.outputs.skip == 'false' && steps.check-branch.outputs.skip_sync == 'false' &&  steps.extract-branch.outputs.branch != '' }}
         run: |
           failed=false
-          FORCE_PUSH=${{ env.FORCE_PUSH }}
-          TARGET_REPO_URL=${{ env.TARGET_REPO_URL }}
+          SYNC_FORCE_PUSH=${{ env.SYNC_FORCE_PUSH }}
+          SYNC_TARGET_REPO_URL=${{ env.SYNC_TARGET_REPO_URL }}
           BRANCH_NAME="${{ steps.extract-branch.outputs.branch }}"  # The current branch name that triggered the push
 
           echo "Syncing branch: $BRANCH_NAME"
@@ -108,10 +108,10 @@ jobs:
           git checkout "$BRANCH_NAME" || git checkout -b "$BRANCH_NAME" origin/"$BRANCH_NAME"
 
           # Attempt to push the branch
-          if ! git push "$TARGET_REPO_URL" "$BRANCH_NAME"; then
-            if [ "$FORCE_PUSH" == "true" ]; then
+          if ! git push "$SYNC_TARGET_REPO_URL" "$BRANCH_NAME"; then
+            if [ "$SYNC_FORCE_PUSH" == "true" ]; then
               echo "Force pushing branch: $BRANCH_NAME"
-              if ! git push --force "$TARGET_REPO_URL" "$BRANCH_NAME"; then
+              if ! git push --force "$SYNC_TARGET_REPO_URL" "$BRANCH_NAME"; then
                 failed=true
               fi
             else
@@ -129,7 +129,7 @@ jobs:
         id: check-tag
         run: |
           TAG_NAME="${{ steps.extract-tag.outputs.tag }}"
-          ALLOWED_TAGS="${{ env.ALLOWED_TAGS_TO_SYNC }}"
+          ALLOWED_TAGS="${{ env.SYNC_ALLOWED_TAGS }}"
           
           echo "Current tag: $TAG_NAME"
           echo "Allowed tags: $ALLOWED_TAGS"
@@ -147,14 +147,14 @@ jobs:
         if: ${{ steps.check-config.outputs.skip == 'false' && steps.check-tag.outputs.skip_sync == 'false' && steps.extract-tag.outputs.tag != '' }}
         run: |
           failed=false
-          TARGET_REPO_URL=${{ env.TARGET_REPO_URL }}
+          SYNC_TARGET_REPO_URL=${{ env.SYNC_TARGET_REPO_URL }}
           TAG_NAME="${{ steps.extract-tag.outputs.tag }}"  # The current tag name that triggered the push
 
           echo "Syncing tag: $TAG_NAME"
           git tag "$TAG_NAME" || echo "It's ok, tag $TAG_NAME already exists"
           # allow forge push?, currently, it's not allowed
 
-          if ! git push "$TARGET_REPO_URL" "$TAG_NAME"; then
+          if ! git push "$SYNC_TARGET_REPO_URL" "$TAG_NAME"; then
             failed=true
           fi
 
