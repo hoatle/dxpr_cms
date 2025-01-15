@@ -76,6 +76,7 @@ jobs:
           fi
 
       - name: Check if Branch is Allowed to Sync
+        if: ${{ steps.extract-branch.outputs.branch != '' }}
         id: check-branch
         run: |
           BRANCH_NAME="${{ steps.extract-branch.outputs.branch }}"
@@ -124,6 +125,7 @@ jobs:
           fi
 
       - name: Check if Tag is Allowed to Sync
+        if: ${{ steps.extract-tag.outputs.tag != '' }}
         id: check-tag
         run: |
           TAG_NAME="${{ steps.extract-tag.outputs.tag }}"
