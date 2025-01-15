@@ -58,6 +58,7 @@ jobs:
           ssh-keyscan -H "$(echo "${{ env.SYNC_TARGET_REPO_URL }}" | awk -F'@' '{print $2}' | awk -F':' '{print $1}')" >> ~/.ssh/known_hosts
 
       - name: Extract Current Branch Name
+        if: ${{ steps.check-config.outputs.skip == 'false' }}
         id: extract-branch
         run: |
           if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
@@ -67,6 +68,7 @@ jobs:
           fi
 
       - name: Extract Current Tag Name
+        if: ${{ steps.check-config.outputs.skip == 'false' }}
         id: extract-tag
         run: |
           if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
