@@ -15,6 +15,7 @@ jobs:
       TARGET_REPO_URL: ${{ vars.TARGET_REPO_URL || '' }} # set the target repo url, git protocol is supported, eg: git@git.drupal.org:project/dxpr_builder.git
       SSH_PRIVATE_KEY_BASE64: ${{ secrets.SSH_PRIVATE_KEY_BASE64 || '' }}
       ALLOWED_BRANCHES_TO_SYNC: ${{ vars.ALLOWED_BRANCHES_TO_SYNC || '' }} # no branch to be synced by default
+      ALLOWED_TAGS_TO_SYNC: ${{ vars.ALLOWED_TAGS_TO_SYNC || '' }} # no tag to be synced by default
 
 # How to use:
 # set env var of TARGET_REPO_URL (required) and optional: FORCE_PUSH, ALLOWED_BRANCHES_TO_SYNC env var
@@ -123,72 +124,39 @@ jobs:
             exit 1
           fi
 
-      # - name: List All Branches
-      #   if: ${{ steps.check-config.outputs.skip == 'false' }}A
-      #   id: list-branches
-      #   run: |
-      #     git fetch --all --unshallow
-      #     if [ -z "${{ env.BRANCHES_TO_SYNC }}" ]; then
-      #       # List all remote branches and preserve their full names (including origin/<branch-name>)
-      #       git branch -r | grep -v '\->' | awk '{print $1}' | sed 's/origin\///' | sort -u > branches.txt
-      #     else
-      #       echo "${{ env.BRANCHES_TO_SYNC }}" | tr ',' '\n' > branches.txt
-      #     fi
-      #     cat branches.txt
+        - name: Check if Tag is Allowed to Sync
+          id: check-tag
+          run: |
+            TAG_NAME="${{ steps.extract-tag.outputs.tag }}"
+            ALLOWED_TAGS="${{ env.ALLOWED_TAGS_TO_SYNC }}"
+            
+            echo "Current tag: $TAG_NAME"
+            echo "Allowed tags: $ALLOWED_TAGS"
+            
+            if [[ ",$ALLOWED_TAGS," != *",$TAG_NAME,"* ]]; then
+              echo "Tag '$TAG_NAME' is not in the allowed list for syncing."
+              echo "skip_sync=true" >> $GITHUB_OUTPUT
+            else
+              echo "Tag '$TAG_NAME' is allowed for syncing."
+              echo "skip_sync=false" >> $GITHUB_OUTPUT
+            fi
 
-      # - name: List All Tags
-      #   if: ${{ steps.check-config.outputs.skip == 'false' }}
-      #   id: list-tags
-      #   run: |
-      #     if [ -z "${{ env.TAGS_TO_SYNC }}" ]; then
-      #       git tag -l > tags.txt
-      #     else
-      #       echo "${{ env.TAGS_TO_SYNC }}" | tr ',' '\n' > tags.txt
-      #     fi
-      #     cat tags.txt
+        - name: Sync Tag to Target Repo
+          if: ${{ steps.check-config.outputs.skip == 'false' && steps.check-tag.outputs.skip_sync == 'false' && steps.extract-tag.outputs.tag != '' }}
+          run: |
+            failed=false
+            TARGET_REPO_URL=${{ env.TARGET_REPO_URL }}
+            TAG_NAME="${{ steps.extract-tag.outputs.tag }}"  # The current tag name that triggered the push
 
-      # - name: Sync Branches
-      #   if: ${{ steps.check-config.outputs.skip == 'false' }}
-      #   run: |
-      #     failed=false
-      #     FORCE_PUSH=${{ env.FORCE_PUSH }}
-      #     TARGET_REPO_URL=${{ env.TARGET_REPO_URL }}
+            echo "Syncing tag: $TAG_NAME"
+            git tag "$TAG_NAME" || echo "It's ok, tag $TAG_NAME already exists"
+            # allow forge push?, currently, it's not allowed
 
-      #     while read branch; do
-      #       echo "Syncing branch: $branch"
-      #       git checkout "$branch" || git checkout -b "$branch" origin/"$branch"
+            if ! git push "$TARGET_REPO_URL" "$TAG_NAME"; then
+              failed=true
+            fi
 
-      #       if [ "$FORCE_PUSH" == "true" ]; then
-      #         git push --force "$TARGET_REPO_URL" "$branch"
-      #       else
-      #         if ! git push "$TARGET_REPO_URL" "$branch"; then
-      #           echo "Error: Failed to push branch $branch to the target repository"
-      #           failed=true
-      #         fi
-      #       fi
-
-      #     done < branches.txt
-
-      #     if [ "$failed" = true ]; then
-      #       exit 1
-      #     fi
-
-
-      # - name: Sync Tags
-      #   if: ${{ steps.check-config.outputs.skip == 'false' }}
-      #   run: |
-      #     failed=false
-      #     TARGET_REPO_URL=${{ env.TARGET_REPO_URL }}
-      #     while read tag; do
-      #       echo "Syncing tag: $tag"
-      #       git tag "$tag" || echo "It's ok, tag $tag already exists"
-      #       # allow forge push?, currently, it's not allowed
-      #       if ! git push "$TARGET_REPO_URL" "$tag"; then
-      #         echo "Error: Failed to push tag $tag to the target repository"
-      #         failed=true
-      #       fi
-      #     done < tags.txt
-
-      #     if [ "$failed" = true ]; then
-      #       exit 1
-      #     fi
+            if [ "$failed" = true ]; then
+              echo "Error: Failed to push tag $TAG_NAME to the target repository"
+              exit 1
+            fi
