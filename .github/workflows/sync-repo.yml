@@ -77,21 +77,23 @@ jobs:
         run: |
           failed=false
           FORCE_PUSH=${{ env.FORCE_PUSH }}
-          TARGET_REPO=${{ env.TARGET_REPO_URL }}
+          TARGET_REPO_URL=${{ env.TARGET_REPO_URL }}
           BRANCH_NAME="${{ steps.extract-branch.outputs.branch }}"  # The current branch name that triggered the push
-          
+
           echo "Syncing branch: $BRANCH_NAME"
-          
+
           # Ensure the branch is checked out
           git checkout "$BRANCH_NAME" || git checkout -b "$BRANCH_NAME" origin/"$BRANCH_NAME"
 
+          # Attempt to push the branch
           if ! git push "$TARGET_REPO_URL" "$BRANCH_NAME"; then
             if [ "$FORCE_PUSH" == "true" ]; then
+              echo "Force pushing branch: $BRANCH_NAME"
               if ! git push --force "$TARGET_REPO_URL" "$BRANCH_NAME"; then
                 failed=true
               fi
-            elif
-              failed=true            
+            else
+              failed=true
             fi
           fi
 
