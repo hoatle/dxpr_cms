@@ -1,0 +1,134 @@
+name: Sync Current Branch and Tag
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    env:
+      FORCE_PUSH: ${{ vars.FORCE_PUSH || 'false' }} # set to 'true' to enable force push
+      TARGET_REPO_URL: ${{ vars.TARGET_REPO_URL || '' }} # set the target repo url, git protocol is supported, eg: git@git.drupal.org:project/dxpr_builder.git
+      SSH_PRIVATE_KEY_BASE64: ${{ secrets.SSH_PRIVATE_KEY_BASE64 || '' }}
+
+# How to use:
+# set env var of TARGET_REPO_URL (required) and optional: FORCE_PUSH env var
+# must set secret key: SSH_PRIVATE_KEY_BASE64 for the sync to work, e.g: $ cat private_key_id_ed25519 | base64
+
+    steps:
+
+      - name: Check Target Repo URL and SSH Key
+        id: check-config
+        run: |
+
+          if [  -z "${{ env.TARGET_REPO_URL }}" ]; then
+            echo "Skipping the rest of the workflow as TARGET_REPO_URL is not set."
+            echo "skip=true" >> $GITHUB_OUTPUT
+          elif [ -z "${{ env.SSH_PRIVATE_KEY_BASE64 }}" ]; then
+            echo "Error: SSH_PRIVATE_KEY_BASE64 is required when TARGET_REPO_URL is set."
+            exit 1
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+
+      - name: Checkout the Current Repository
+        if: ${{ steps.check-config.outputs.skip == 'false' }}
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        if: ${{ steps.check-config.outputs.skip == 'false' }}
+        run: |
+          git config user.name "Github Actions"
+          git config user.email "actions@github.com"
+
+      - name: Decode and Set Up SSH Key
+        if: ${{ steps.check-config.outputs.skip == 'false' }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ env.SSH_PRIVATE_KEY_BASE64 }}" | base64 -d > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H "$(echo "${{ env.TARGET_REPO_URL }}" | awk -F'@' '{print $2}' | awk -F':' '{print $1}')" >> ~/.ssh/known_hosts
+
+      - name: Extract Current Branch Name
+        id: extract-branch
+        run: |
+          if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
+            BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+            echo "Current branch name: $BRANCH_NAME"
+            echo "branch=${BRANCH_NAME}" >> $GITHUB_OUTPUT
+          fi
+
+      # - name: List All Branches
+      #   if: ${{ steps.check-config.outputs.skip == 'false' }}
+      #   id: list-branches
+      #   run: |
+      #     git fetch --all --unshallow
+      #     if [ -z "${{ env.BRANCHES_TO_SYNC }}" ]; then
+      #       # List all remote branches and preserve their full names (including origin/<branch-name>)
+      #       git branch -r | grep -v '\->' | awk '{print $1}' | sed 's/origin\///' | sort -u > branches.txt
+      #     else
+      #       echo "${{ env.BRANCHES_TO_SYNC }}" | tr ',' '\n' > branches.txt
+      #     fi
+      #     cat branches.txt
+
+      # - name: List All Tags
+      #   if: ${{ steps.check-config.outputs.skip == 'false' }}
+      #   id: list-tags
+      #   run: |
+      #     if [ -z "${{ env.TAGS_TO_SYNC }}" ]; then
+      #       git tag -l > tags.txt
+      #     else
+      #       echo "${{ env.TAGS_TO_SYNC }}" | tr ',' '\n' > tags.txt
+      #     fi
+      #     cat tags.txt
+
+      # - name: Sync Branches
+      #   if: ${{ steps.check-config.outputs.skip == 'false' }}
+      #   run: |
+      #     failed=false
+      #     FORCE_PUSH=${{ env.FORCE_PUSH }}
+      #     TARGET_REPO_URL=${{ env.TARGET_REPO_URL }}
+
+      #     while read branch; do
+      #       echo "Syncing branch: $branch"
+      #       git checkout "$branch" || git checkout -b "$branch" origin/"$branch"
+
+      #       if [ "$FORCE_PUSH" == "true" ]; then
+      #         git push --force "$TARGET_REPO_URL" "$branch"
+      #       else
+      #         if ! git push "$TARGET_REPO_URL" "$branch"; then
+      #           echo "Error: Failed to push branch $branch to the target repository"
+      #           failed=true
+      #         fi
+      #       fi
+
+      #     done < branches.txt
+
+      #     if [ "$failed" = true ]; then
+      #       exit 1
+      #     fi
+
+
+      # - name: Sync Tags
+      #   if: ${{ steps.check-config.outputs.skip == 'false' }}
+      #   run: |
+      #     failed=false
+      #     TARGET_REPO_URL=${{ env.TARGET_REPO_URL }}
+      #     while read tag; do
+      #       echo "Syncing tag: $tag"
+      #       git tag "$tag" || echo "It's ok, tag $tag already exists"
+      #       # allow forge push?, currently, it's not allowed
+      #       if ! git push "$TARGET_REPO_URL" "$tag"; then
+      #         echo "Error: Failed to push tag $tag to the target repository"
+      #         failed=true
+      #       fi
+      #     done < tags.txt
+
+      #     if [ "$failed" = true ]; then
+      #       exit 1
+      #     fi
