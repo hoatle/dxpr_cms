@@ -14,9 +14,10 @@ jobs:
       FORCE_PUSH: ${{ vars.FORCE_PUSH || 'false' }} # set to 'true' to enable force push
       TARGET_REPO_URL: ${{ vars.TARGET_REPO_URL || '' }} # set the target repo url, git protocol is supported, eg: git@git.drupal.org:project/dxpr_builder.git
       SSH_PRIVATE_KEY_BASE64: ${{ secrets.SSH_PRIVATE_KEY_BASE64 || '' }}
+      ALLOWED_BRANCHES_TO_SYNC: ${{ vars.ALLOWED_BRANCHES_TO_SYNC || '' }} # no branch to be synced by default
 
 # How to use:
-# set env var of TARGET_REPO_URL (required) and optional: FORCE_PUSH env var
+# set env var of TARGET_REPO_URL (required) and optional: FORCE_PUSH, ALLOWED_BRANCHES_TO_SYNC env var
 # must set secret key: SSH_PRIVATE_KEY_BASE64 for the sync to work, e.g: $ cat private_key_id_ed25519 | base64
 
     steps:
@@ -74,8 +75,26 @@ jobs:
             echo "tag=${TAG_NAME}" >> $GITHUB_OUTPUT
           fi
 
+      - name: Check if Branch is Allowed to Sync
+        id: check-branch
+        run: |
+          BRANCH_NAME="${{ steps.extract-branch.outputs.branch }}"
+          ALLOWED_BRANCHES="${{ env.ALLOWED_BRANCHES_TO_SYNC }}"
+          
+          echo "Current branch: $BRANCH_NAME"
+          echo "Allowed branches: $ALLOWED_BRANCHES"
+          
+          if [[ ",$ALLOWED_BRANCHES," != *",$BRANCH_NAME,"* ]]; then
+            echo "Branch '$BRANCH_NAME' is not in the allowed list for syncing."
+            echo "skip_sync=true" >> $GITHUB_OUTPUT
+          else
+            echo "Branch '$BRANCH_NAME' is allowed for syncing."
+            echo "skip_sync=false" >> $GITHUB_OUTPUT
+          fi
+
+
       - name: Sync Branch to Target Repo
-        if: ${{ steps.check-config.outputs.skip == 'false' && steps.extract-branch.outputs.branch != '' }}
+        if: ${{ steps.check-config.outputs.skip == 'false' && steps.check-branch.outputs.skip_sync == 'false' &&  steps.extract-branch.outputs.branch != '' }}
         run: |
           failed=false
           FORCE_PUSH=${{ env.FORCE_PUSH }}
