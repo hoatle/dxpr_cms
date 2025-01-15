@@ -39,6 +39,8 @@ jobs:
       - name: Checkout the Current Repository
         if: ${{ steps.check-config.outputs.skip == 'false' }}
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Configure Git
         if: ${{ steps.check-config.outputs.skip == 'false' }}
